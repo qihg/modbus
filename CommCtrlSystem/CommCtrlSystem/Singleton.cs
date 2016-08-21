@@ -58,89 +58,111 @@ namespace CommCtrlSystem
 
         public void initComm()
         {
-            Configure cfg = null;
-            if (File.Exists(@"cfg.json"))
+            lock (locker)
             {
-                cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
-            }
+                if (port == null)
+                {
+                    Configure cfg = null;
+                    if (File.Exists(@"cfg.json"))
+                    {
+                        cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    }
 
-            port = new SerialPort(cfg.InputSerialPortName);
+                    port = new SerialPort(cfg.InputSerialPortName);
 
-            port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
-            port.DataBits = (int)GetNumber(cfg.InputSerialPortDataBit);
-            if (cfg.InputSerialPortParity == "None Parity")
-            {
-                port.Parity = Parity.None;
-            }
-            else if (cfg.InputSerialPortParity == "Odd Parity")
-            {
-                port.Parity = Parity.Odd;
-            }
-            else
-            {
-                port.Parity = Parity.Even;
-            }
+                    port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
+                    port.DataBits = (int)GetNumber(cfg.InputSerialPortDataBit);
+                    if (cfg.InputSerialPortParity == "None Parity")
+                    {
+                        port.Parity = Parity.None;
+                    }
+                    else if (cfg.InputSerialPortParity == "Odd Parity")
+                    {
+                        port.Parity = Parity.Odd;
+                    }
+                    else
+                    {
+                        port.Parity = Parity.Even;
+                    }
 
-            if (cfg.InputSerialPortStopBit == "1 Stop Bit")
-            {
-                port.StopBits = StopBits.One;
-            }
-            else
-            {
-                port.StopBits = StopBits.Two;
-            }
+                    if (cfg.InputSerialPortStopBit == "1 Stop Bit")
+                    {
+                        port.StopBits = StopBits.One;
+                    }
+                    else
+                    {
+                        port.StopBits = StopBits.Two;
+                    }
 
-            InputModbusType = cfg.InputModbusType;
+                    InputModbusType = cfg.InputModbusType;
+                }
+            }
         }
 
         public void openComm()
         {
-            if (!port.IsOpen)
+            lock (locker)
             {
-                port.Open();
+                if (port != null && !port.IsOpen)
+                {
+                    port.Open();
 
-                // create modbus master
-                if (InputModbusType == "RTU")
-                {
-                    master = ModbusSerialMaster.CreateRtu(port);
-                }
-                else
-                {
-                    master = ModbusSerialMaster.CreateAscii(port);
+                    // create modbus master
+                    if (InputModbusType == "RTU")
+                    {
+                        master = ModbusSerialMaster.CreateRtu(port);
+                    }
+                    else
+                    {
+                        master = ModbusSerialMaster.CreateAscii(port);
+                    }
                 }
             }
         }
 
         public void closeComm()
         {
-            if (port.IsOpen)
+            lock (locker)
             {
-                port.Close();
+                if (port != null && port.IsOpen)
+                {
+                    port.Close();
+                }
             }
         }
 
         public void readRegister(ref ModbusRegisters regs)
         {
+            if (master == null)
+            {
+                return;
+            }
+
             lock (locker)
             {
-                regs.regvalues = master.ReadHoldingRegisters(regs.slaveid, regs.startAddress, regs.numRegisters);
+                regs.values = master.ReadHoldingRegisters(regs.slaveid, regs.startAddress, regs.numRegisters);
                 for (int i = 0; i < regs.numRegisters; i++)
                 {
-                    regs.regs[i].value = regs.regvalues[i];
+                    regs.stReg[i].value = regs.values[i];
                 }
             }
         }
 
         public void writeRegister(ModbusRegisters regs)
         {
+            if (master == null)
+            {
+                return;
+            }
+
             lock (locker)
             {
                 for (int i = 0; i < regs.numRegisters; i++)
                 {
-                    regs.regvalues[i] = regs.regs[i].value;
+                    regs.values[i] = regs.stReg[i].value;
                 }
 
-                master.WriteMultipleRegisters(regs.slaveid, regs.startAddress, regs.regvalues);
+                master.WriteMultipleRegisters(regs.slaveid, regs.startAddress, regs.values);
 
             }
         }

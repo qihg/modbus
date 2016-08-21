@@ -63,6 +63,7 @@
     <Compile Include="FormSysCfg.Designer.cs">
       <DependentUpon>FormSysCfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="regDataMap.cs" />
     <Compile Include="SerialPortWrap.cs" />
     <Compile Include="Registers.cs" />
     <Compile Include="MainForm.cs">
@@ -73,6 +74,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="WindowBaseSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowBaseSetting.Designer.cs">
+      <DependentUpon>WindowBaseSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowMain.Designer.cs">
+      <DependentUpon>WindowMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowManager.cs" />
     <EmbeddedResource Include="FormSysCfg.resx">
       <DependentUpon>FormSysCfg.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +103,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WindowBaseSetting.resx">
+      <DependentUpon>WindowBaseSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowMain.resx">
+      <DependentUpon>WindowMain.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

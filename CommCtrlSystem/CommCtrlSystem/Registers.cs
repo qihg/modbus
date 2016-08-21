@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO.Ports;
-using Modbus.Device;
-using Modbus.IO;
-using Modbus.Utility;
-using Modbus.Data;
 
 namespace CommCtrlSystem
 {
@@ -15,7 +11,7 @@ namespace CommCtrlSystem
         public ushort value;
         public Dictionary<int, string> strValue;
 
-        public int getIntValue()
+        public int getShortValue()
         {
             int iValue = (int)value;
             if (value >= 0x8000)
@@ -23,6 +19,11 @@ namespace CommCtrlSystem
                 iValue = 0x10000 - iValue;
             }
             return iValue;
+        }
+
+        public int getUShortValue()
+        {
+            return value;
         }
 
         public int getHighReg()
@@ -64,33 +65,19 @@ namespace CommCtrlSystem
 
     public class ModbusRegisters
     {
-        public stRegister[] regs;
+        public stRegister[] stReg;
 
-        public ushort[] regvalues;
+        public ushort[] values;
         public byte slaveid { get; set; }
         public ushort startAddress { get; set; }
         public ushort numRegisters { get; set; }
-        private IModbusSerialMaster master;
 
-        public ModbusRegisters(IModbusSerialMaster master, byte slaveid, ushort startAddress, ushort numRegisters)
+        public ModbusRegisters(byte slaveid, ushort startAddress, ushort numRegisters)
         {
-            this.master = master;
             this.slaveid = slaveid;
             this.startAddress = startAddress;
             this.numRegisters = numRegisters;
-            this.regs = new stRegister[numRegisters];
-        }
-
-        public int readHoldingRegister()
-        {
-            regvalues = master.ReadHoldingRegisters(slaveid, startAddress, numRegisters);
-            return 1;
-        }
-
-        public int writeHoldingRegister()
-        {
-            master.WriteMultipleRegisters(slaveid, startAddress, regvalues);
-            return 1;
+            this.stReg = new stRegister[numRegisters];
         }
     };
 }

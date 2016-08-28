@@ -9,18 +9,18 @@ using System.Windows.Forms;
 using System.Threading;
 
 namespace CommCtrlSystem
-{
-    public partial class WindowBaseSetting : UserControl
+{        
+    public partial class WindowTemperatureCorrection : UserControl
     {
         private Thread updateDataThread;
         private ModbusRegisters modbusRegs;
         private delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
         private TextBox[] tbBaseSetting;
         private const byte SLAVEID = 1;
-        private const ushort STARTADDRESS = 0x13;
-        private const ushort REGNUM = 8;
+        private const ushort STARTADDRESS = 0x33;
+        private const ushort REGNUM = 18;
 
-        public WindowBaseSetting()
+        public WindowTemperatureCorrection()
         {
             InitializeComponent();
             InitializeRegs();
@@ -28,7 +28,7 @@ namespace CommCtrlSystem
 
         void InitializeRegs()
         {
-            tbBaseSetting = new TextBox[10];
+            tbBaseSetting = new TextBox[18];
             modbusRegs = new ModbusRegisters(SLAVEID, STARTADDRESS, REGNUM);
             tbBaseSetting[0] = textBox1;
             tbBaseSetting[1] = textBox2;
@@ -40,13 +40,14 @@ namespace CommCtrlSystem
             tbBaseSetting[7] = textBox8;
             tbBaseSetting[8] = textBox9;
             tbBaseSetting[9] = textBox10;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GroupBox tgb = WindowManager.GetInstance().gb;
-            tgb.Controls.Clear();
-            tgb.Controls.Add(WindowManager.GetInstance().wmain);
+            tbBaseSetting[10] = textBox11;
+            tbBaseSetting[11] = textBox12;
+            tbBaseSetting[12] = textBox13;
+            tbBaseSetting[13] = textBox14;
+            tbBaseSetting[14] = textBox15;
+            tbBaseSetting[15] = textBox16;
+            tbBaseSetting[16] = textBox17;
+            tbBaseSetting[17] = textBox18;
         }
 
         public void DoUpdateRegs()
@@ -65,16 +66,25 @@ namespace CommCtrlSystem
             }
         }
 
-        private void buttonRead_Click(object sender, EventArgs e)
+        private void buttonMain_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wmain);
+        }
+
+        private void buttonWTRead_Click(object sender, EventArgs e)
         {
             updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
             updateDataThread.Start();
         }
 
-        private void buttonWrite_Click(object sender, EventArgs e)
+        private void buttonWTWrite_Click(object sender, EventArgs e)
         {
-            modbusRegs.stReg[0].setValue(ushort.Parse(tbBaseSetting[0].Text.ToString()));
-            modbusRegs.stReg[1].setValue(ushort.Parse(tbBaseSetting[1].Text.ToString()));
+            for (int i = 0; i < modbusRegs.numRegisters; i++)
+            {
+                modbusRegs.stReg[i].setValue(ushort.Parse(tbBaseSetting[i].Text.ToString()));
+            }
             inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
         }
     }

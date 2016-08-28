@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowMain));
-            this.labelDate = new System.Windows.Forms.Label();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -84,45 +80,13 @@
             this.textBoxCom1 = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDate.Location = new System.Drawing.Point(603, 26);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(40, 16);
-            this.labelDate.TabIndex = 83;
-            this.labelDate.Text = "Date";
-            // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTime.Location = new System.Drawing.Point(603, 4);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(40, 16);
-            this.labelTime.TabIndex = 82;
-            this.labelTime.Text = "Time";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(277, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 38);
-            this.label1.TabIndex = 81;
-            this.label1.Text = "滤点分析仪";
             // 
             // groupBox2
             // 
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox2.Location = new System.Drawing.Point(391, 63);
+            this.groupBox2.Location = new System.Drawing.Point(394, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(332, 320);
             this.groupBox2.TabIndex = 102;
@@ -133,7 +97,7 @@
             // 
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox1.Location = new System.Drawing.Point(41, 63);
+            this.groupBox1.Location = new System.Drawing.Point(44, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(332, 320);
             this.groupBox1.TabIndex = 100;
@@ -143,7 +107,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(157, 82);
+            this.textBox1.Location = new System.Drawing.Point(160, 22);
             this.textBox1.Margin = new System.Windows.Forms.Padding(10);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -154,7 +118,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox8.Location = new System.Drawing.Point(519, 82);
+            this.textBox8.Location = new System.Drawing.Point(522, 22);
             this.textBox8.Margin = new System.Windows.Forms.Padding(10);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -165,7 +129,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(157, 123);
+            this.textBox2.Location = new System.Drawing.Point(160, 63);
             this.textBox2.Margin = new System.Windows.Forms.Padding(10);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -176,7 +140,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox9.Location = new System.Drawing.Point(519, 123);
+            this.textBox9.Location = new System.Drawing.Point(522, 63);
             this.textBox9.Margin = new System.Windows.Forms.Padding(10);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
@@ -187,7 +151,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(157, 164);
+            this.textBox3.Location = new System.Drawing.Point(160, 104);
             this.textBox3.Margin = new System.Windows.Forms.Padding(10);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -198,7 +162,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox10.Location = new System.Drawing.Point(519, 164);
+            this.textBox10.Location = new System.Drawing.Point(522, 104);
             this.textBox10.Margin = new System.Windows.Forms.Padding(10);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -209,7 +173,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(157, 205);
+            this.textBox4.Location = new System.Drawing.Point(160, 145);
             this.textBox4.Margin = new System.Windows.Forms.Padding(10);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -220,7 +184,7 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox11.Location = new System.Drawing.Point(519, 205);
+            this.textBox11.Location = new System.Drawing.Point(522, 145);
             this.textBox11.Margin = new System.Windows.Forms.Padding(10);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
@@ -231,7 +195,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox5.Location = new System.Drawing.Point(157, 246);
+            this.textBox5.Location = new System.Drawing.Point(160, 186);
             this.textBox5.Margin = new System.Windows.Forms.Padding(10);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -242,7 +206,7 @@
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox12.Location = new System.Drawing.Point(519, 246);
+            this.textBox12.Location = new System.Drawing.Point(522, 186);
             this.textBox12.Margin = new System.Windows.Forms.Padding(10);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
@@ -253,7 +217,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox6.Location = new System.Drawing.Point(157, 287);
+            this.textBox6.Location = new System.Drawing.Point(160, 227);
             this.textBox6.Margin = new System.Windows.Forms.Padding(10);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(163, 35);
@@ -262,7 +226,7 @@
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox13.Location = new System.Drawing.Point(519, 287);
+            this.textBox13.Location = new System.Drawing.Point(522, 227);
             this.textBox13.Margin = new System.Windows.Forms.Padding(10);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(163, 35);
@@ -271,7 +235,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox7.Location = new System.Drawing.Point(157, 328);
+            this.textBox7.Location = new System.Drawing.Point(160, 268);
             this.textBox7.Margin = new System.Windows.Forms.Padding(10);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(163, 35);
@@ -280,7 +244,7 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox14.Location = new System.Drawing.Point(519, 328);
+            this.textBox14.Location = new System.Drawing.Point(522, 268);
             this.textBox14.Margin = new System.Windows.Forms.Padding(10);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(163, 35);
@@ -290,7 +254,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(57, 92);
+            this.label2.Location = new System.Drawing.Point(60, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 88;
@@ -300,7 +264,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(412, 92);
+            this.label9.Location = new System.Drawing.Point(415, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 16);
             this.label9.TabIndex = 89;
@@ -310,7 +274,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(57, 133);
+            this.label3.Location = new System.Drawing.Point(60, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 90;
@@ -320,7 +284,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(412, 133);
+            this.label10.Location = new System.Drawing.Point(415, 73);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 92;
@@ -330,7 +294,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(57, 174);
+            this.label4.Location = new System.Drawing.Point(60, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 91;
@@ -340,7 +304,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(412, 174);
+            this.label11.Location = new System.Drawing.Point(415, 114);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 16);
             this.label11.TabIndex = 86;
@@ -350,7 +314,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(57, 215);
+            this.label5.Location = new System.Drawing.Point(60, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 87;
@@ -360,7 +324,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(412, 215);
+            this.label12.Location = new System.Drawing.Point(415, 155);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 16);
             this.label12.TabIndex = 95;
@@ -370,7 +334,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(57, 256);
+            this.label6.Location = new System.Drawing.Point(60, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 85;
@@ -380,7 +344,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(412, 256);
+            this.label13.Location = new System.Drawing.Point(415, 196);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 16);
             this.label13.TabIndex = 97;
@@ -390,7 +354,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(57, 297);
+            this.label7.Location = new System.Drawing.Point(60, 237);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 16);
             this.label7.TabIndex = 98;
@@ -400,7 +364,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(412, 297);
+            this.label14.Location = new System.Drawing.Point(415, 237);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 16);
             this.label14.TabIndex = 99;
@@ -410,7 +374,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(57, 338);
+            this.label8.Location = new System.Drawing.Point(60, 278);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 16);
             this.label8.TabIndex = 96;
@@ -420,7 +384,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(412, 338);
+            this.label15.Location = new System.Drawing.Point(415, 278);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 16);
             this.label15.TabIndex = 93;
@@ -429,37 +393,40 @@
             // btnRTData1
             // 
             this.btnRTData1.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRTData1.Location = new System.Drawing.Point(41, 406);
+            this.btnRTData1.Location = new System.Drawing.Point(44, 346);
             this.btnRTData1.Name = "btnRTData1";
             this.btnRTData1.Size = new System.Drawing.Size(88, 38);
             this.btnRTData1.TabIndex = 101;
             this.btnRTData1.Text = "#1实时数据";
             this.btnRTData1.UseVisualStyleBackColor = true;
+            this.btnRTData1.Click += new System.EventHandler(this.btnRTData1_Click);
             // 
             // btnHistReport
             // 
             this.btnHistReport.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnHistReport.Location = new System.Drawing.Point(41, 450);
+            this.btnHistReport.Location = new System.Drawing.Point(44, 390);
             this.btnHistReport.Name = "btnHistReport";
             this.btnHistReport.Size = new System.Drawing.Size(88, 38);
             this.btnHistReport.TabIndex = 106;
             this.btnHistReport.Text = "历史报表";
             this.btnHistReport.UseVisualStyleBackColor = true;
+            this.btnHistReport.Click += new System.EventHandler(this.btnHistReport_Click);
             // 
             // btnRTData2
             // 
             this.btnRTData2.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRTData2.Location = new System.Drawing.Point(135, 406);
+            this.btnRTData2.Location = new System.Drawing.Point(138, 346);
             this.btnRTData2.Name = "btnRTData2";
             this.btnRTData2.Size = new System.Drawing.Size(88, 38);
             this.btnRTData2.TabIndex = 103;
             this.btnRTData2.Text = "#2实时数据";
             this.btnRTData2.UseVisualStyleBackColor = true;
+            this.btnRTData2.Click += new System.EventHandler(this.btnRTData2_Click);
             // 
             // btnBaseSetting
             // 
             this.btnBaseSetting.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBaseSetting.Location = new System.Drawing.Point(229, 406);
+            this.btnBaseSetting.Location = new System.Drawing.Point(232, 346);
             this.btnBaseSetting.Name = "btnBaseSetting";
             this.btnBaseSetting.Size = new System.Drawing.Size(88, 38);
             this.btnBaseSetting.TabIndex = 104;
@@ -470,37 +437,40 @@
             // btnTempCorret
             // 
             this.btnTempCorret.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnTempCorret.Location = new System.Drawing.Point(135, 450);
+            this.btnTempCorret.Location = new System.Drawing.Point(138, 390);
             this.btnTempCorret.Name = "btnTempCorret";
             this.btnTempCorret.Size = new System.Drawing.Size(88, 38);
             this.btnTempCorret.TabIndex = 105;
             this.btnTempCorret.Text = "温度修正";
             this.btnTempCorret.UseVisualStyleBackColor = true;
+            this.btnTempCorret.Click += new System.EventHandler(this.btnTempCorret_Click);
             // 
             // btnPIDSetting
             // 
             this.btnPIDSetting.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPIDSetting.Location = new System.Drawing.Point(229, 450);
+            this.btnPIDSetting.Location = new System.Drawing.Point(232, 390);
             this.btnPIDSetting.Name = "btnPIDSetting";
             this.btnPIDSetting.Size = new System.Drawing.Size(88, 38);
             this.btnPIDSetting.TabIndex = 110;
             this.btnPIDSetting.Text = "PID设置";
             this.btnPIDSetting.UseVisualStyleBackColor = true;
+            this.btnPIDSetting.Click += new System.EventHandler(this.btnPIDSetting_Click);
             // 
             // btnManualTest
             // 
             this.btnManualTest.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnManualTest.Location = new System.Drawing.Point(41, 494);
+            this.btnManualTest.Location = new System.Drawing.Point(44, 434);
             this.btnManualTest.Name = "btnManualTest";
             this.btnManualTest.Size = new System.Drawing.Size(88, 38);
             this.btnManualTest.TabIndex = 107;
             this.btnManualTest.Text = "手动测试";
             this.btnManualTest.UseVisualStyleBackColor = true;
+            this.btnManualTest.Click += new System.EventHandler(this.btnManualTest_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Location = new System.Drawing.Point(135, 494);
+            this.btnPrint.Location = new System.Drawing.Point(138, 434);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(88, 38);
             this.btnPrint.TabIndex = 109;
@@ -511,7 +481,7 @@
             // btnSaveExcel
             // 
             this.btnSaveExcel.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSaveExcel.Location = new System.Drawing.Point(229, 494);
+            this.btnSaveExcel.Location = new System.Drawing.Point(232, 434);
             this.btnSaveExcel.Name = "btnSaveExcel";
             this.btnSaveExcel.Size = new System.Drawing.Size(88, 38);
             this.btnSaveExcel.TabIndex = 108;
@@ -522,7 +492,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(437, 413);
+            this.label16.Location = new System.Drawing.Point(440, 353);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 20);
             this.label16.TabIndex = 111;
@@ -532,7 +502,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(437, 455);
+            this.label17.Location = new System.Drawing.Point(440, 395);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 20);
             this.label17.TabIndex = 113;
@@ -542,7 +512,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(437, 499);
+            this.label18.Location = new System.Drawing.Point(440, 439);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 20);
             this.label18.TabIndex = 112;
@@ -551,7 +521,7 @@
             // btnSysCfg
             // 
             this.btnSysCfg.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSysCfg.Location = new System.Drawing.Point(644, 409);
+            this.btnSysCfg.Location = new System.Drawing.Point(647, 349);
             this.btnSysCfg.Name = "btnSysCfg";
             this.btnSysCfg.Size = new System.Drawing.Size(79, 74);
             this.btnSysCfg.TabIndex = 116;
@@ -562,7 +532,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStart.Location = new System.Drawing.Point(323, 404);
+            this.btnStart.Location = new System.Drawing.Point(326, 344);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(79, 61);
             this.btnStart.TabIndex = 115;
@@ -573,7 +543,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStop.Location = new System.Drawing.Point(323, 471);
+            this.btnStop.Location = new System.Drawing.Point(326, 411);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(79, 61);
             this.btnStop.TabIndex = 114;
@@ -585,7 +555,7 @@
             // 
             this.textBoxServerIP.Enabled = false;
             this.textBoxServerIP.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxServerIP.Location = new System.Drawing.Point(517, 496);
+            this.textBoxServerIP.Location = new System.Drawing.Point(520, 436);
             this.textBoxServerIP.Name = "textBoxServerIP";
             this.textBoxServerIP.Size = new System.Drawing.Size(126, 26);
             this.textBoxServerIP.TabIndex = 119;
@@ -594,7 +564,7 @@
             // 
             this.textBoxServerPort.Enabled = false;
             this.textBoxServerPort.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxServerPort.Location = new System.Drawing.Point(649, 496);
+            this.textBoxServerPort.Location = new System.Drawing.Point(652, 436);
             this.textBoxServerPort.Name = "textBoxServerPort";
             this.textBoxServerPort.Size = new System.Drawing.Size(74, 26);
             this.textBoxServerPort.TabIndex = 120;
@@ -603,7 +573,7 @@
             // 
             this.textBoxCom2.Enabled = false;
             this.textBoxCom2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxCom2.Location = new System.Drawing.Point(517, 452);
+            this.textBoxCom2.Location = new System.Drawing.Point(520, 392);
             this.textBoxCom2.Name = "textBoxCom2";
             this.textBoxCom2.Size = new System.Drawing.Size(102, 26);
             this.textBoxCom2.TabIndex = 117;
@@ -612,7 +582,7 @@
             // 
             this.textBoxCom1.Enabled = false;
             this.textBoxCom1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxCom1.Location = new System.Drawing.Point(517, 410);
+            this.textBoxCom1.Location = new System.Drawing.Point(520, 350);
             this.textBoxCom1.Name = "textBoxCom1";
             this.textBoxCom1.Size = new System.Drawing.Size(102, 26);
             this.textBoxCom1.TabIndex = 118;
@@ -626,11 +596,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // timerMain
-            // 
-            this.timerMain.Enabled = true;
-            this.timerMain.Tick += new System.EventHandler(this.timerMain_Tick);
             // 
             // WindowMain
             // 
@@ -669,9 +634,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelDate);
-            this.Controls.Add(this.labelTime);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox13);
@@ -689,7 +651,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "WindowMain";
-            this.Size = new System.Drawing.Size(757, 542);
+            this.Size = new System.Drawing.Size(757, 481);
             this.Load += new System.EventHandler(this.WindowMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -698,9 +660,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
@@ -752,7 +711,6 @@
         private System.Windows.Forms.TextBox textBoxCom1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Timer timerMain;
 
     }
 }

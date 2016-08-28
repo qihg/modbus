@@ -58,3 +58,8 @@ C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\GenerateResource.
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowMain.resources
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowBaseSetting.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowHistoryReport.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowTemperatureCorrection.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowPIDSetting.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowManualSetting.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowRealtimeData.resources

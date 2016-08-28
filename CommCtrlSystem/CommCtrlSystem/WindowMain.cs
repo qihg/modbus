@@ -28,22 +28,78 @@ namespace CommCtrlSystem
         public delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
         private static readonly object locker = new object();
 
-        public const byte SLAVEID = 1;
-        public const ushort STARTADDRESS = 0;
-        public const ushort REGNUM = 19;
+        private const byte SLAVEID = 1;
+        private const ushort STARTADDRESS = 0;
+        private const ushort REGNUM = 19;
+
+        // Register define
+        private const int TEMP_OIL0 = 0;
+        private const int TEMP_OIL1 = 1;
+        private const int TEMP_BATH0 = 2;
+        private const int TEMP_BATH1 = 3;
+        private const int COLDFILTERPOINT0 = 4;
+        private const int COLDFILTERPOINT1 = 5;
+        private const int PID_RESULT0 = 6;
+        private const int PID_RESULT1 = 7;
+
+        private const int STATE_WORK = 8;
+        private const int RUNTIME_M = 9;
+        private const int RUNTIME_S = 10;
+        private const int TIME_SUCK = 11;
+        private const int TIME_DROP = 12;
+        private const int ALARM = 13;
+        private const int STATE_SUCKTUBE = 14;
+        private const int CHECKFINISH = 15;
+        private const int UP_FLAG = 16;
+        private const int DOWN_FLAG = 17;
+        private const int ALLSTATE = 18;
+
         private TextBox[] tbmain;
 
         public WindowMain()
         {
             InitializeComponent();
             InitializeRegs();
+            getConfig();
         }
 
         void InitializeRegs()
         {
-            tbmain = new TextBox[10];
             modbusRegs = new ModbusRegisters(SLAVEID, STARTADDRESS, REGNUM);
-            tbmain[0] = textBox2;
+            modbusRegs.stReg[CHECKFINISH].addStringMap(0, "");
+            modbusRegs.stReg[CHECKFINISH].addStringMap(1, "冷滤点完成");
+            modbusRegs.stReg[CHECKFINISH].addStringMap(2, "<51℃，未阻塞");
+            modbusRegs.stReg[CHECKFINISH].addStringMap(3, "首次吸引超过60秒，放弃");
+            modbusRegs.stReg[CHECKFINISH].addStringMap(4, "用户温度下限未阻塞");
+
+            modbusRegs.stReg[STATE_WORK].addStringMap(0, "停止");
+            modbusRegs.stReg[STATE_WORK].addStringMap(1, "加热");
+            modbusRegs.stReg[STATE_WORK].addStringMap(2, "制冷");
+            modbusRegs.stReg[STATE_WORK].addStringMap(3, "完成");
+            modbusRegs.stReg[STATE_WORK].addStringMap(4, "故障");
+
+            modbusRegs.stReg[ALARM].addStringMap(0, "无故障");
+            modbusRegs.stReg[ALARM].addStringMap(1, "加热器故障");
+            modbusRegs.stReg[ALARM].addStringMap(2, "制冷故障");
+            modbusRegs.stReg[ALARM].addStringMap(3, "光电检测故障");
+            modbusRegs.stReg[ALARM].addStringMap(4, "电磁阀故障");
+            modbusRegs.stReg[ALARM].addStringMap(5, "超温故障");
+            modbusRegs.stReg[ALARM].addStringMap(6, "制冷超时故障");
+            modbusRegs.stReg[ALARM].addStringMap(7, "加热超时故障");
+            modbusRegs.stReg[ALARM].addStringMap(8, "温度传感器故障");
+
+            modbusRegs.stReg[STATE_SUCKTUBE].addStringMap(0, "无动作");
+            modbusRegs.stReg[STATE_SUCKTUBE].addStringMap(1, "吸引");
+            modbusRegs.stReg[STATE_SUCKTUBE].addStringMap(2, "释放");
+
+            modbusRegs.stReg[UP_FLAG].addStringMap(0, "OFF");
+            modbusRegs.stReg[UP_FLAG].addStringMap(1, "ON");
+
+            modbusRegs.stReg[DOWN_FLAG].addStringMap(0, "OFF");
+            modbusRegs.stReg[DOWN_FLAG].addStringMap(1, "ON");
+
+            modbusRegs.stReg[ALLSTATE].addStringMap(0, "停止");
+            modbusRegs.stReg[ALLSTATE].addStringMap(1, "启动");
         }
 
         private void WindowMain_Load(object sender, EventArgs e)
@@ -62,9 +118,8 @@ namespace CommCtrlSystem
 
             this.printDocument1.DefaultPageSettings.PaperSize = p;
             this.printDocument1.PrintPage += new PrintPageEventHandler(this.MyPrintDocument_PrintPage);
-            //将写好的格式给打印预览控件以便预览
+
             printPreviewDialog1.Document = printDocument1;
-            //显示打印预览
             DialogResult result = printPreviewDialog1.ShowDialog();
             if (result == DialogResult.OK)
                 this.printDocument1.Print();
@@ -112,10 +167,14 @@ namespace CommCtrlSystem
                     cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
                     if (cfg != null)
                     {
-                        //textBoxCom1.Text = cfg.InputSerialPortName;
-                        //textBoxCom2.Text = cfg.OutputSerialPortName;
-                        //textBoxServerIP.Text = cfg.ServerIp;
-                        //textBoxServerPort.Text = cfg.ServerPort.ToString();
+                        textBoxCom1.Text = cfg.InputSerialPortName;
+                        textBoxCom2.Text = cfg.OutputSerialPortName;
+                        textBoxServerIP.Text = cfg.ServerIp;
+                        textBoxServerPort.Text = cfg.ServerPort.ToString();
+                        if (cfg.bGetDataOnload)
+                        {
+                            startUpdateRegs();
+                        }
                     }
                 }
             }
@@ -129,25 +188,59 @@ namespace CommCtrlSystem
 
         public void DoUpdateRegs()
         {
+            Thread.Sleep(1000);
             inputCommPortSingleton.GetInstance().initComm();
             inputCommPortSingleton.GetInstance().openComm();
             while (m_updateDataFlg)
             {
-                inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
-                UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
-                BeginInvoke(umi, modbusRegs);
-                Thread.Sleep(1000);
+                try
+                {
+                    inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
+                    UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
+                    BeginInvoke(umi, modbusRegs);
+                    Thread.Sleep(300);
+                }
+                catch (Exception ex)
+                {
+                    break;
+                }
+
             }
             inputCommPortSingleton.GetInstance().closeComm();
         }
 
         public void UpdateUIData(ModbusRegisters reg)
         {
-            tbmain[0].Text = reg.stReg[0].getShortValue().ToString();
+            textBox1.Text = reg.stReg[CHECKFINISH].getHighRegString();
+            textBox8.Text = reg.stReg[CHECKFINISH].getLowRegString();
+
+            textBox2.Text = reg.stReg[TEMP_OIL0].getShortValue().ToString();
+            textBox9.Text = reg.stReg[TEMP_OIL1].getShortValue().ToString();
+
+            textBox3.Text = reg.stReg[TEMP_BATH0].getShortValue().ToString();
+            textBox10.Text = reg.stReg[TEMP_BATH1].getShortValue().ToString();
+
+            textBox3.Text = reg.stReg[TEMP_BATH0].getShortValue().ToString();
+            textBox10.Text = reg.stReg[TEMP_BATH1].getShortValue().ToString();
+
+            textBox4.Text = reg.stReg[ALLSTATE].getHighRegString();
+            textBox11.Text = reg.stReg[ALLSTATE].getLowRegString();
+
+            int run_time_h0 = reg.stReg[RUNTIME_M].getHighReg() / 60;
+            int run_time_h1 = reg.stReg[RUNTIME_M].getLowReg() / 60;
+            int run_time_m0 = reg.stReg[RUNTIME_M].getHighReg() % 60;
+            int run_time_m1 = reg.stReg[RUNTIME_M].getLowReg() % 60;
+            int run_time_s0 = reg.stReg[RUNTIME_S].getHighReg();
+            int run_time_s1 = reg.stReg[RUNTIME_S].getLowReg();
+            textBox5.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
+            textBox12.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
         }
 
         public void startUpdateRegs()
         {
+            btnStart.Enabled = false;
+            btnStop.Enabled = true;
+
             lock (locker)
             {
                 if (!m_updateDataFlg)
@@ -169,6 +262,8 @@ namespace CommCtrlSystem
                     updateDataThread.Join();
                 }
             }
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -185,20 +280,54 @@ namespace CommCtrlSystem
             //btnStart.Enabled = true;
         }
 
-        private void timerMain_Tick(object sender, EventArgs e)
-        {
-            DateTime now = DateTime.Now;
-            DateTime dt = DateTime.Now;
-            //int t = tc.id;
-            labelDate.Text = now.ToString("yyyy-MM-dd");
-            labelTime.Text = dt.ToLongTimeString().ToString();
-        }
-
         private void btnBaseSetting_Click(object sender, EventArgs e)
         {
             GroupBox tgb =  WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wbs);
         }
+
+        private void btnHistReport_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().whr);
+        }
+
+        private void btnTempCorret_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wtc);
+        }
+
+        private void btnPIDSetting_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wps);
+        }
+
+        private void btnManualTest_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wms);
+        }
+
+        private void btnRTData1_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wrd1);
+        }
+
+        private void btnRTData2_Click(object sender, EventArgs e)
+        {
+            GroupBox tgb = WindowManager.GetInstance().gb;
+            tgb.Controls.Clear();
+            tgb.Controls.Add(WindowManager.GetInstance().wrd2);
+        }
+
     }
 }

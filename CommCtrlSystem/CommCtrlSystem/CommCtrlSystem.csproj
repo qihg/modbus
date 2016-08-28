@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,36 @@
     </Compile>
     <Compile Include="FormSysCfg.Designer.cs">
       <DependentUpon>FormSysCfg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowRealtimeData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowRealtimeData.Designer.cs">
+      <DependentUpon>WindowRealtimeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowManualSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowManualSetting.Designer.cs">
+      <DependentUpon>WindowManualSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowPIDSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowPIDSetting.Designer.cs">
+      <DependentUpon>WindowPIDSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowTemperatureCorrection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowTemperatureCorrection.Designer.cs">
+      <DependentUpon>WindowTemperatureCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowHistoryReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowHistoryReport.Designer.cs">
+      <DependentUpon>WindowHistoryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="regDataMap.cs" />
     <Compile Include="SerialPortWrap.cs" />
@@ -90,6 +121,21 @@
     <Compile Include="WindowManager.cs" />
     <EmbeddedResource Include="FormSysCfg.resx">
       <DependentUpon>FormSysCfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowManualSetting.resx">
+      <DependentUpon>WindowManualSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowPIDSetting.resx">
+      <DependentUpon>WindowPIDSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowRealtimeData.resx">
+      <DependentUpon>WindowRealtimeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowTemperatureCorrection.resx">
+      <DependentUpon>WindowTemperatureCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowHistoryReport.resx">
+      <DependentUpon>WindowHistoryReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -148,7 +148,7 @@ namespace CommCtrlSystem
             }
         }
 
-        public void writeRegister(ModbusRegisters regs)
+        public void writeMultiRegisters(ModbusRegisters regs)
         {
             if (master == null)
             {
@@ -166,7 +166,18 @@ namespace CommCtrlSystem
 
             }
         }
+        public void writeSingleRegister(ModbusRegisters regs, ushort value)
+        {
+            if (master == null)
+            {
+                return;
+            }
 
+            lock (locker)
+            {
+                master.WriteSingleRegister(regs.slaveid, regs.startAddress, value);
+            }
+        }
     }
 }
 

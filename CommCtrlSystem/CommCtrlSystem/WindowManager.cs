@@ -32,5 +32,11 @@ namespace CommCtrlSystem
         public GroupBox gb {set; get;}
         public WindowMain wmain { set; get; }
         public WindowBaseSetting wbs { set; get; }
+        public WindowHistoryReport whr { set; get; }
+        public WindowTemperatureCorrection wtc { set; get; }
+        public WindowPIDSetting wps { set; get; }
+        public WindowManualSetting wms { set; get; }
+        public WindowRealtimeData wrd1 { set; get; }
+        public WindowRealtimeData wrd2 { set; get; }
     }
 }

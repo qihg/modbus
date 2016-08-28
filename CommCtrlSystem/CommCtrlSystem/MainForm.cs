@@ -26,6 +26,12 @@ namespace CommCtrlSystem
     {
         WindowMain wm;
         WindowBaseSetting wbs;
+        WindowHistoryReport whr;
+        WindowTemperatureCorrection wtc;
+        WindowPIDSetting wps;
+        WindowManualSetting wms;
+        WindowRealtimeData wrd1;
+        WindowRealtimeData wrd2;
         public MainForm()
         {
             InitializeComponent();
@@ -38,9 +44,21 @@ namespace CommCtrlSystem
         {
             wm = new WindowMain();
             wbs = new WindowBaseSetting();
+            whr = new WindowHistoryReport();
+            wtc = new WindowTemperatureCorrection();
+            wps = new WindowPIDSetting();
+            wms = new WindowManualSetting();
+            wrd1 = new WindowRealtimeData();
+            wrd2 = new WindowRealtimeData();
             WindowManager.GetInstance().gb = groupBoxMain;
             WindowManager.GetInstance().wmain = wm;
             WindowManager.GetInstance().wbs = wbs;
+            WindowManager.GetInstance().whr = whr;
+            WindowManager.GetInstance().wtc = wtc;
+            WindowManager.GetInstance().wps = wps;
+            WindowManager.GetInstance().wms = wms;
+            WindowManager.GetInstance().wrd1 = wrd1;
+            WindowManager.GetInstance().wrd2 = wrd2;
 
             groupBoxMain.Controls.Clear();
             groupBoxMain.Controls.Add(wm);
@@ -48,12 +66,16 @@ namespace CommCtrlSystem
 
         void Application_ApplicationExit(object sender, EventArgs e)
         {
-            if (wm.updateDataThread != null)
-            {
-                wm.m_updateDataFlg = false;
-                wm.updateDataThread.Join();
-            }
             inputCommPortSingleton.GetInstance().closeComm();
+        }
+
+        private void timerMain_Tick(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            DateTime dt = DateTime.Now;
+            //int t = tc.id;
+            labelDate.Text = now.ToString("yyyy-MM-dd");
+            labelTime.Text = dt.ToLongTimeString().ToString();
         }
     } 
 }

@@ -133,10 +133,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(112, 44);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(75, 35);
+            this.textBox1.Size = new System.Drawing.Size(75, 39);
             this.textBox1.TabIndex = 118;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -363,230 +363,230 @@
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(112, 222);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 35);
+            this.textBox2.Size = new System.Drawing.Size(75, 39);
             this.textBox2.TabIndex = 118;
             this.textBox2.Text = "0";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox3.Location = new System.Drawing.Point(296, 44);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(75, 35);
+            this.textBox3.Size = new System.Drawing.Size(75, 39);
             this.textBox3.TabIndex = 118;
             this.textBox3.Text = "0";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox4.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox4.Location = new System.Drawing.Point(481, 44);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 35);
+            this.textBox4.Size = new System.Drawing.Size(75, 39);
             this.textBox4.TabIndex = 118;
             this.textBox4.Text = "0";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox5.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox5.Location = new System.Drawing.Point(672, 44);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(75, 35);
+            this.textBox5.Size = new System.Drawing.Size(75, 39);
             this.textBox5.TabIndex = 118;
             this.textBox5.Text = "0";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
-            this.textBox6.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox6.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox6.Location = new System.Drawing.Point(296, 222);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(75, 35);
+            this.textBox6.Size = new System.Drawing.Size(75, 39);
             this.textBox6.TabIndex = 118;
             this.textBox6.Text = "0";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox7
             // 
-            this.textBox7.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox7.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox7.Location = new System.Drawing.Point(481, 222);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(75, 35);
+            this.textBox7.Size = new System.Drawing.Size(75, 39);
             this.textBox7.TabIndex = 118;
             this.textBox7.Text = "0";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox8
             // 
-            this.textBox8.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox8.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox8.Location = new System.Drawing.Point(672, 222);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(75, 35);
+            this.textBox8.Size = new System.Drawing.Size(75, 39);
             this.textBox8.TabIndex = 118;
             this.textBox8.Text = "0";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox9
             // 
-            this.textBox9.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox9.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox9.Location = new System.Drawing.Point(112, 92);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(75, 35);
+            this.textBox9.Size = new System.Drawing.Size(75, 39);
             this.textBox9.TabIndex = 118;
             this.textBox9.Text = "0";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox10
             // 
-            this.textBox10.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox10.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox10.Location = new System.Drawing.Point(112, 270);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(75, 35);
+            this.textBox10.Size = new System.Drawing.Size(75, 39);
             this.textBox10.TabIndex = 118;
             this.textBox10.Text = "0";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox11
             // 
-            this.textBox11.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox11.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox11.Location = new System.Drawing.Point(296, 92);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(75, 35);
+            this.textBox11.Size = new System.Drawing.Size(75, 39);
             this.textBox11.TabIndex = 118;
             this.textBox11.Text = "0";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox12
             // 
-            this.textBox12.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox12.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox12.Location = new System.Drawing.Point(481, 92);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(75, 35);
+            this.textBox12.Size = new System.Drawing.Size(75, 39);
             this.textBox12.TabIndex = 118;
             this.textBox12.Text = "0";
             this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox13
             // 
-            this.textBox13.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox13.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox13.Location = new System.Drawing.Point(672, 92);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(75, 35);
+            this.textBox13.Size = new System.Drawing.Size(75, 39);
             this.textBox13.TabIndex = 118;
             this.textBox13.Text = "0";
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox14
             // 
-            this.textBox14.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox14.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox14.Location = new System.Drawing.Point(296, 270);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(75, 35);
+            this.textBox14.Size = new System.Drawing.Size(75, 39);
             this.textBox14.TabIndex = 118;
             this.textBox14.Text = "0";
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox15
             // 
-            this.textBox15.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox15.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox15.Location = new System.Drawing.Point(481, 270);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(75, 35);
+            this.textBox15.Size = new System.Drawing.Size(75, 39);
             this.textBox15.TabIndex = 118;
             this.textBox15.Text = "0";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox16
             // 
-            this.textBox16.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox16.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox16.Location = new System.Drawing.Point(672, 270);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(75, 35);
+            this.textBox16.Size = new System.Drawing.Size(75, 39);
             this.textBox16.TabIndex = 118;
             this.textBox16.Text = "0";
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox17
             // 
-            this.textBox17.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox17.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox17.Location = new System.Drawing.Point(112, 143);
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(75, 35);
+            this.textBox17.Size = new System.Drawing.Size(75, 39);
             this.textBox17.TabIndex = 118;
             this.textBox17.Text = "0";
             this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
             // 
-            this.textBox18.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox18.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox18.Location = new System.Drawing.Point(112, 321);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(75, 35);
+            this.textBox18.Size = new System.Drawing.Size(75, 39);
             this.textBox18.TabIndex = 118;
             this.textBox18.Text = "0";
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox19
             // 
-            this.textBox19.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox19.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox19.Location = new System.Drawing.Point(296, 143);
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(75, 35);
+            this.textBox19.Size = new System.Drawing.Size(75, 39);
             this.textBox19.TabIndex = 118;
             this.textBox19.Text = "0";
             this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox20
             // 
-            this.textBox20.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox20.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox20.Location = new System.Drawing.Point(481, 143);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(75, 35);
+            this.textBox20.Size = new System.Drawing.Size(75, 39);
             this.textBox20.TabIndex = 118;
             this.textBox20.Text = "0";
             this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox21
             // 
-            this.textBox21.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox21.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox21.Location = new System.Drawing.Point(672, 143);
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(75, 35);
+            this.textBox21.Size = new System.Drawing.Size(75, 39);
             this.textBox21.TabIndex = 118;
             this.textBox21.Text = "0";
             this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox22
             // 
-            this.textBox22.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox22.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox22.Location = new System.Drawing.Point(296, 321);
             this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(75, 35);
+            this.textBox22.Size = new System.Drawing.Size(75, 39);
             this.textBox22.TabIndex = 118;
             this.textBox22.Text = "0";
             this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox23
             // 
-            this.textBox23.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox23.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox23.Location = new System.Drawing.Point(481, 321);
             this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(75, 35);
+            this.textBox23.Size = new System.Drawing.Size(75, 39);
             this.textBox23.TabIndex = 118;
             this.textBox23.Text = "0";
             this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox24
             // 
-            this.textBox24.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox24.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox24.Location = new System.Drawing.Point(672, 321);
             this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(75, 35);
+            this.textBox24.Size = new System.Drawing.Size(75, 39);
             this.textBox24.TabIndex = 118;
             this.textBox24.Text = "0";
             this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

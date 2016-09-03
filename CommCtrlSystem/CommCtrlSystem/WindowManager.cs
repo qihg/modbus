@@ -10,6 +10,7 @@ namespace CommCtrlSystem
     {
         private static WindowManager globalInstance;
         private static readonly object locker = new object();
+        private bool m_auth = false;
         private WindowManager()
         {
         }
@@ -38,5 +39,23 @@ namespace CommCtrlSystem
         public WindowManualSetting wms { set; get; }
         public WindowRealtimeData wrd1 { set; get; }
         public WindowRealtimeData wrd2 { set; get; }
+
+        public bool checkAuth()
+        {
+            return m_auth;
+        }
+
+        public bool auth(string name, string pass)
+        {
+            if (name == "admin" && pass == "12345")
+            {
+                m_auth = true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -63,3 +63,4 @@ C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.Wi
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowPIDSetting.resources
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowManualSetting.resources
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.WindowRealtimeData.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.AuthForm.resources

@@ -166,6 +166,7 @@ namespace CommCtrlSystem
 
             }
         }
+
         public void writeSingleRegister(ModbusRegisters regs, ushort value)
         {
             if (master == null)

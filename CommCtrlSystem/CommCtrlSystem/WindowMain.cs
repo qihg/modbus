@@ -56,11 +56,23 @@ namespace CommCtrlSystem
 
         private TextBox[] tbmain;
 
+        WindowRealtimeData wrd1;
+        WindowRealtimeData wrd2;
+        
         public WindowMain()
         {
             InitializeComponent();
             InitializeRegs();
             getConfig();
+
+            wrd1 = new WindowRealtimeData();
+            wrd2 = new WindowRealtimeData();
+
+
+            WindowManager.GetInstance().wrd1 = wrd1;
+            WindowManager.GetInstance().wrd2 = wrd2;
+
+            textBox6.TextChanged += new EventHandler(new CheckUserInput().TextCheck);
         }
 
         void InitializeRegs()
@@ -191,6 +203,7 @@ namespace CommCtrlSystem
             Thread.Sleep(1000);
             inputCommPortSingleton.GetInstance().initComm();
             inputCommPortSingleton.GetInstance().openComm();
+            Random random = new Random();
             while (m_updateDataFlg)
             {
                 try
@@ -198,10 +211,11 @@ namespace CommCtrlSystem
                     inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
                     UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
                     BeginInvoke(umi, modbusRegs);
-                    Thread.Sleep(300);
+                    Thread.Sleep(1000);
                 }
                 catch (Exception ex)
                 {
+                    //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
 
@@ -234,6 +248,13 @@ namespace CommCtrlSystem
             int run_time_s1 = reg.stReg[RUNTIME_S].getLowReg();
             textBox5.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
             textBox12.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
+
+            WindowManager.GetInstance().wrd1.updateData(0, reg);
+            WindowManager.GetInstance().wrd2.updateData(1, reg);
+
+            //Random random = new Random();
+            //WindowManager.GetInstance().wrd1.addPoint0(random.Next(0, 10), random.Next(30, 50));
+            //WindowManager.GetInstance().wrd2.addPoint0(random.Next(90, 100), random.Next(10, 40));
         }
 
         public void startUpdateRegs()
@@ -280,8 +301,34 @@ namespace CommCtrlSystem
             //btnStart.Enabled = true;
         }
 
+        private bool checkAuth()
+        {
+            if (!WindowManager.GetInstance().checkAuth())
+            {
+                AuthForm authForm = new AuthForm();
+                if (authForm.ShowDialog(this) == DialogResult.No)
+                {
+                    return false;
+                }
+                else
+                {
+                    if (!WindowManager.GetInstance().checkAuth())
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private void btnBaseSetting_Click(object sender, EventArgs e)
         {
+            if (!checkAuth())
+            {
+                return;
+            }
+
             GroupBox tgb =  WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wbs);
@@ -289,6 +336,10 @@ namespace CommCtrlSystem
 
         private void btnHistReport_Click(object sender, EventArgs e)
         {
+            if (!checkAuth())
+            {
+                return;
+            }
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().whr);
@@ -296,6 +347,10 @@ namespace CommCtrlSystem
 
         private void btnTempCorret_Click(object sender, EventArgs e)
         {
+            if (!checkAuth())
+            {
+                return;
+            }
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wtc);
@@ -303,6 +358,10 @@ namespace CommCtrlSystem
 
         private void btnPIDSetting_Click(object sender, EventArgs e)
         {
+            if (!checkAuth())
+            {
+                return;
+            }
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wps);
@@ -310,6 +369,10 @@ namespace CommCtrlSystem
 
         private void btnManualTest_Click(object sender, EventArgs e)
         {
+            if (!checkAuth())
+            {
+                return;
+            }
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wms);

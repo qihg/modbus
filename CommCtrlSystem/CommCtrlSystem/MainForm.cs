@@ -30,8 +30,6 @@ namespace CommCtrlSystem
         WindowTemperatureCorrection wtc;
         WindowPIDSetting wps;
         WindowManualSetting wms;
-        WindowRealtimeData wrd1;
-        WindowRealtimeData wrd2;
         public MainForm()
         {
             InitializeComponent();
@@ -48,8 +46,7 @@ namespace CommCtrlSystem
             wtc = new WindowTemperatureCorrection();
             wps = new WindowPIDSetting();
             wms = new WindowManualSetting();
-            wrd1 = new WindowRealtimeData();
-            wrd2 = new WindowRealtimeData();
+
             WindowManager.GetInstance().gb = groupBoxMain;
             WindowManager.GetInstance().wmain = wm;
             WindowManager.GetInstance().wbs = wbs;
@@ -57,8 +54,6 @@ namespace CommCtrlSystem
             WindowManager.GetInstance().wtc = wtc;
             WindowManager.GetInstance().wps = wps;
             WindowManager.GetInstance().wms = wms;
-            WindowManager.GetInstance().wrd1 = wrd1;
-            WindowManager.GetInstance().wrd2 = wrd2;
 
             groupBoxMain.Controls.Clear();
             groupBoxMain.Controls.Add(wm);

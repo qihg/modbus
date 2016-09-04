@@ -86,6 +86,7 @@
             this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(155, 39);
             this.textBoxPass.TabIndex = 2;
+            this.textBoxPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // textBoxName
             // 
@@ -94,6 +95,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(155, 39);
             this.textBoxName.TabIndex = 1;
+            this.textBoxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // AuthForm
             // 

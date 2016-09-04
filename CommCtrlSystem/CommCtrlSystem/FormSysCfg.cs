@@ -31,6 +31,8 @@ namespace CommCtrlSystem
             comboBoxParity2.SelectedIndex = 2;
             comboBoxStopBits1.SelectedIndex = 0;
             comboBoxStopBits2.SelectedIndex = 0;
+            maskedTextBoxServerPort.KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
+            maskedTextBoxServerPort.TextChanged += new EventHandler(new CheckUserInput().CheckIsUInt);
         }
 
         private void InitializeSystemSetting()
@@ -131,7 +133,7 @@ namespace CommCtrlSystem
                 }
 
                 checkBoxAutoStartOnLoad.Checked = cfg.bGetDataOnload;
-                maskedTextBoxServerIP.Text = cfg.ServerIp;
+                textBoxIpAddr.Text = cfg.ServerIp;
                 maskedTextBoxServerPort.Text = cfg.ServerPort;
 
                 if (comboBoxConnectMode.Items.Contains(cfg.OutoutMethod))
@@ -180,7 +182,7 @@ namespace CommCtrlSystem
                 cfg.OutputSerialPortStopBit = comboBoxStopBits2.Text.ToString();
                 cfg.bGetDataOnload = checkBoxAutoStartOnLoad.Checked;
 
-                cfg.ServerIp = maskedTextBoxServerIP.Text.Trim();
+                cfg.ServerIp = textBoxIpAddr.Text.Trim();
                 cfg.ServerPort = maskedTextBoxServerPort.Text.Trim();
                 cfg.OutoutMethod = comboBoxConnectMode.Text.ToString();
                 File.WriteAllText(@"cfg.json", JsonConvert.SerializeObject(cfg));
@@ -208,7 +210,7 @@ namespace CommCtrlSystem
                 comboBoxStopBits2.Enabled = false;
                 radioButtonASCII2.Enabled = false;
                 radioButtonRTU2.Enabled = false;
-                maskedTextBoxServerIP.Enabled = true;
+                textBoxIpAddr.Enabled = true;
                 maskedTextBoxServerPort.Enabled = true;
             }
             else
@@ -220,7 +222,7 @@ namespace CommCtrlSystem
                 comboBoxStopBits2.Enabled = true;
                 radioButtonASCII2.Enabled = true;
                 radioButtonRTU2.Enabled = true;
-                maskedTextBoxServerIP.Enabled = false;
+                textBoxIpAddr.Enabled = false;
                 maskedTextBoxServerPort.Enabled = false;
             }
             

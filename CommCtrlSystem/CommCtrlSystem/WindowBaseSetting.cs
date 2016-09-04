@@ -40,6 +40,11 @@ namespace CommCtrlSystem
             tbBaseSetting[7] = textBox8;
             tbBaseSetting[8] = textBox9;
             tbBaseSetting[9] = textBox10;
+
+            for (int i = 0; i < 10; i++)
+            {
+                tbBaseSetting[i].KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

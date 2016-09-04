@@ -72,6 +72,11 @@ namespace CommCtrlSystem
             labelDate.Text = now.ToString("yyyy-MM-dd");
             labelTime.Text = dt.ToLongTimeString().ToString();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
 

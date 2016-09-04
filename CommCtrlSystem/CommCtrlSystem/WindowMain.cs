@@ -17,6 +17,8 @@ using Modbus.Utility;
 using Modbus.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Data.OleDb;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CommCtrlSystem
 {
@@ -63,6 +65,7 @@ namespace CommCtrlSystem
         {
             InitializeComponent();
             InitializeRegs();
+            AccessHelper.initAccessHelper("CCSData.accdb");
             getConfig();
 
             wrd1 = new WindowRealtimeData();
@@ -72,7 +75,6 @@ namespace CommCtrlSystem
             WindowManager.GetInstance().wrd1 = wrd1;
             WindowManager.GetInstance().wrd2 = wrd2;
 
-            textBox6.TextChanged += new EventHandler(new CheckUserInput().TextCheck);
         }
 
         void InitializeRegs()
@@ -144,21 +146,24 @@ namespace CommCtrlSystem
             e.Graphics.DrawString("滤点分析仪结果报告", new Font(new FontFamily("黑体"), 11), System.Drawing.Brushes.Black, 170, 10);
 
             e.Graphics.DrawLine(Pens.Black, 8, 30, 480, 30);
-            e.Graphics.DrawString("时间", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 35);
+            e.Graphics.DrawString("日期", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 35);
             e.Graphics.DrawString("测定结果", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 35);
             e.Graphics.DrawString("试样编号", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 35);
             e.Graphics.DrawString("操作员", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 35);
+            e.Graphics.DrawString("运行时间", new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 35);
             e.Graphics.DrawLine(Pens.Black, 8, 50, 480, 50);
             //产品信息
             e.Graphics.DrawString(DateTime.Now.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 55);
-            //e.Graphics.DrawString(tc.res0, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 55);
-            //e.Graphics.DrawString(tc.no0, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 55);
-            //e.Graphics.DrawString(tc.oper0, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 55);
+            e.Graphics.DrawString(textBoxRes1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 55);
+            e.Graphics.DrawString(textBoxNo1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 55);
+            e.Graphics.DrawString(textBoxOp1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 55);
+            e.Graphics.DrawString(textBoxTime1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 55);
 
             e.Graphics.DrawString(DateTime.Now.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 75);
-            //e.Graphics.DrawString(tc.res1, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 75);
-            //e.Graphics.DrawString(tc.no1, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 75);
-            //e.Graphics.DrawString(tc.oper1, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 75);
+            e.Graphics.DrawString(textBoxRes2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 75);
+            e.Graphics.DrawString(textBoxNo2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 75);
+            e.Graphics.DrawString(textBoxOp2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 75);
+            e.Graphics.DrawString(textBoxTime2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 75);
 
             e.Graphics.DrawLine(Pens.Black, 8, 200, 480, 200);
         }
@@ -225,8 +230,8 @@ namespace CommCtrlSystem
 
         public void UpdateUIData(ModbusRegisters reg)
         {
-            textBox1.Text = reg.stReg[CHECKFINISH].getHighRegString();
-            textBox8.Text = reg.stReg[CHECKFINISH].getLowRegString();
+            textBoxRes1.Text = reg.stReg[CHECKFINISH].getHighRegString();
+            textBoxRes2.Text = reg.stReg[CHECKFINISH].getLowRegString();
 
             textBox2.Text = reg.stReg[TEMP_OIL0].getShortValue().ToString();
             textBox9.Text = reg.stReg[TEMP_OIL1].getShortValue().ToString();
@@ -246,8 +251,8 @@ namespace CommCtrlSystem
             int run_time_m1 = reg.stReg[RUNTIME_M].getLowReg() % 60;
             int run_time_s0 = reg.stReg[RUNTIME_S].getHighReg();
             int run_time_s1 = reg.stReg[RUNTIME_S].getLowReg();
-            textBox5.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
-            textBox12.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
+            textBoxTime1.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
+            textBoxTime2.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
 
             WindowManager.GetInstance().wrd1.updateData(0, reg);
             WindowManager.GetInstance().wrd2.updateData(1, reg);
@@ -255,6 +260,34 @@ namespace CommCtrlSystem
             //Random random = new Random();
             //WindowManager.GetInstance().wrd1.addPoint0(random.Next(0, 10), random.Next(30, 50));
             //WindowManager.GetInstance().wrd2.addPoint0(random.Next(90, 100), random.Next(10, 40));
+
+            if (reg.stReg[CHECKFINISH].getHighReg() != 0 && reg.stReg[CHECKFINISH].getLowReg() != 0)
+            {
+                byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
+                byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
+
+                //Left room
+                string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '"+ textBoxTime1.Text + "', '" + textBoxRes1.Text + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageLeft)";
+
+                OleDbParameter[] pars = new OleDbParameter[1];
+
+                OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
+                p.Value = imageLeft;
+
+                pars[0] = p;
+                int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
+
+                //Right room
+                string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime2.Text + "','" + textBoxRes2.Text + "', '" + textBoxNo2.Text + "', '" + textBoxOp2.Text + "', @imageRight)";
+                OleDbParameter[] pars2 = new OleDbParameter[1];
+
+                OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
+                p2.Value = imageRight;
+
+                pars2[0] = p2;
+                i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
+                stopUpdateRegs();
+            }
         }
 
         public void startUpdateRegs()
@@ -336,12 +369,13 @@ namespace CommCtrlSystem
 
         private void btnHistReport_Click(object sender, EventArgs e)
         {
-            if (!checkAuth())
-            {
-                return;
-            }
+            //if (!checkAuth())
+            //{
+            //    return;
+            //}
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
+            WindowManager.GetInstance().whr.RefreshData();
             tgb.Controls.Add(WindowManager.GetInstance().whr);
         }
 
@@ -390,6 +424,122 @@ namespace CommCtrlSystem
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wrd2);
+        }
+
+        /// <summary>  
+        /// If the supplied excel File does not exist then Create it  
+        /// </summary>  
+        /// <param name="FileName"></param>  
+        private void CreateExcelFile(string FileName)
+        {
+            //create  
+            try
+            {
+                object Nothing = System.Reflection.Missing.Value;
+                var app = new Excel.Application();
+                app.Visible = false;
+                Excel.Workbook workBook = app.Workbooks.Add(Nothing);
+                Excel.Worksheet worksheet = (Excel.Worksheet)workBook.Sheets[1];
+                worksheet.Name = "Work";
+
+                const int l_date = 1;
+                const int l_no = 4;
+                const int l_res = 2;
+                const int l_runtime = 3;
+                const int l_oper = 5;
+
+                worksheet.Cells[1, l_no] = "试样编号";
+                worksheet.Cells[1, l_date] = "日期时间";
+                worksheet.Cells[1, l_res] = "测定结果";
+                //worksheet.Cells[1, 4] = "试样名称";
+                worksheet.Cells[1, l_runtime] = "运行时间";
+                worksheet.Cells[1, l_oper] = "操作员";
+
+
+
+                worksheet.Cells[2, l_no] = textBoxNo1.Text;
+                worksheet.Cells[2, l_date] = DateTime.Now.ToString();
+                worksheet.Cells[2, l_res] = textBoxRes1.Text;
+                worksheet.Cells[2, l_runtime] = textBoxTime1.Text;
+                worksheet.Cells[2, l_oper] = textBoxOp1.Text;
+
+                worksheet.Cells[3, l_no] = textBoxNo2.Text;
+                worksheet.Cells[3, l_date] = DateTime.Now.ToString();
+                worksheet.Cells[3, l_res] = textBoxRes2.Text;
+                worksheet.Cells[3, l_runtime] = textBoxTime2.Text;
+                worksheet.Cells[3, l_oper] = textBoxOp2.Text;
+
+                worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
+                workBook.Close(false, Type.Missing, Type.Missing);
+                app.Quit();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        /// <summary>  
+        /// open an excel file,then write the content to file  
+        /// </summary>  
+        /// <param name="FileName">file name</param>  
+        /// <param name="findString">first cloumn</param>  
+        /// <param name="replaceString">second cloumn</param>  
+        private void WriteToExcel(string excelName, string filename, string findString, string replaceString)
+        {
+            //open  
+            object Nothing = System.Reflection.Missing.Value;
+            var app = new Excel.Application();
+            app.Visible = false;
+            Excel.Workbook mybook = app.Workbooks.Open(excelName, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing);
+            Excel.Worksheet mysheet = (Excel.Worksheet)mybook.Worksheets[1];
+            mysheet.Activate();
+            //get activate sheet max row count  
+            int maxrow = mysheet.UsedRange.Rows.Count + 1;
+            mysheet.Cells[maxrow, 1] = filename;
+            mysheet.Cells[maxrow, 2] = findString;
+            mysheet.Cells[maxrow, 3] = replaceString;
+            mybook.Save();
+            mybook.Close(false, Type.Missing, Type.Missing);
+            mybook = null;
+            //quit excel app  
+            app.Quit();
+        }
+
+        private void btnSaveExcel_Click(object sender, EventArgs e)
+        {
+
+            //string localFilePath, fileNameExt, newFileName, FilePath; 
+            SaveFileDialog sfd = new SaveFileDialog();
+            //设置文件类型 
+            sfd.Filter = "Excel文件（*.xls）|*.xls|Excel文件（*.xlsx）|*.xlsx";
+
+            //设置默认文件类型显示顺序 
+            sfd.FilterIndex = 1;
+
+            //保存对话框是否记忆上次打开的目录 
+            sfd.RestoreDirectory = true;
+
+            //点了保存按钮进入 
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                string localFilePath = sfd.FileName.ToString(); //获得文件路径 
+                string fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
+
+                //获取文件路径，不带文件名 
+                //FilePath = localFilePath.Substring(0, localFilePath.LastIndexOf("\\")); 
+
+                //给文件名前加上时间 
+                //newFileName = DateTime.Now.ToString("yyyyMMdd") + fileNameExt; 
+
+                //在文件名里加字符 
+                //saveFileDialog1.FileName.Insert(1,"dameng"); 
+
+                //System.IO.FileStream fs = (System.IO.FileStream)sfd.OpenFile();//输出文件 
+
+                ////fs输出带文字或图片的文件，就看需求了 
+                CreateExcelFile(localFilePath);
+            }
         }
 
     }

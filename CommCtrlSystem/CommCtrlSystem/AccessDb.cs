@@ -7,7 +7,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Collections;
 
-namespace TestDatabase
+namespace CommCtrlSystem
 {
     /// <summary>
     /// AcceHelper 的摘要说明

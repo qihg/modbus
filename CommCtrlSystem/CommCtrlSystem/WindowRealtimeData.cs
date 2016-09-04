@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace CommCtrlSystem
 {
@@ -36,11 +38,15 @@ namespace CommCtrlSystem
         private const int UP_FLAG = 16;
         private const int DOWN_FLAG = 17;
         private const int ALLSTATE = 18;
+
+        private DateTime minValue;
+        private DateTime maxValue;
+
         public WindowRealtimeData()
         {
             InitializeComponent();
-            DateTime minValue = DateTime.Now;
-            DateTime maxValue = minValue.AddSeconds(300);
+            minValue = DateTime.Now;
+            maxValue = minValue.AddMinutes(30);
 
             realtimeChart1.ChartAreas[0].AxisX.Minimum = minValue.ToOADate();
             realtimeChart1.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
@@ -131,32 +137,36 @@ namespace CommCtrlSystem
         {        
 
             // Define some variables
-            int numberOfPointsInChart = 2000;
-            int numberOfPointsAfterRemoval = 1850;
+            //int numberOfPointsInChart = 6000;
+            //int numberOfPointsAfterRemoval = 1850;
 
             try
             {
                 realtimeChart1.Series[0].Points.AddXY(DateTime.Now.ToOADate(), value1);
                 realtimeChart1.Series[1].Points.AddXY(DateTime.Now.ToOADate(), value2);
 
+                if (DateTime.Now.ToOADate() > maxValue.ToOADate())
+                {
+                    realtimeChart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+                }
                 // Adjust Y & X axis scale
                 realtimeChart1.ResetAutoValues();
 
                 // Keep a constant number of points by removing them from the left
-                while (realtimeChart1.Series[0].Points.Count > numberOfPointsInChart)
-                {
+                //while (realtimeChart1.Series[0].Points.Count > numberOfPointsInChart)
+                //{
                     // Remove data points on the left side
-                    while (realtimeChart1.Series[0].Points.Count > numberOfPointsAfterRemoval)
-                    {
-                        realtimeChart1.Series[0].Points.RemoveAt(0);
-                    }
+                //    while (realtimeChart1.Series[0].Points.Count > numberOfPointsAfterRemoval)
+                //    {
+                //        realtimeChart1.Series[0].Points.RemoveAt(0);
+                 //   }
 
                     // Adjust X axis scale
                     //realtimeChart1.ChartAreas["ChartArea1"].AxisX.Minimum = pointIndex - numberOfPointsAfterRemoval;
                     //realtimeChart1.ChartAreas["ChartArea1"].AxisX.Maximum = realtimeChart1.ChartAreas["ChartArea1"].AxisX.Minimum + numberOfPointsInChart;
                     //realtimechart2.ChartAreas[0].AxisX.Minimum = minValue.ToOADate();
                     //realtimechart2.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
-                }
+               // }
 
                 // Invalidate chart
                 realtimeChart1.Invalidate();
@@ -165,6 +175,17 @@ namespace CommCtrlSystem
             {
                 
             }
+        }
+
+        public byte[] getImageData()
+        {
+            MemoryStream memStream = new MemoryStream();
+            realtimeChart1.SaveImage(memStream, ImageFormat.Png);
+            memStream.Seek(0, SeekOrigin.Begin);
+            byte[] btImage = new byte[memStream.Length];
+            memStream.Read(btImage, 0, btImage.Length);
+            memStream.Close();
+            return btImage;
         }
     }
 }

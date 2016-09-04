@@ -34,6 +34,8 @@
             this.labelDate = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.timerMain = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxMain
@@ -61,7 +63,7 @@
             // 
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDate.Location = new System.Drawing.Point(627, 31);
+            this.labelDate.Location = new System.Drawing.Point(17, 34);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(40, 16);
             this.labelDate.TabIndex = 85;
@@ -71,7 +73,7 @@
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTime.Location = new System.Drawing.Point(627, 9);
+            this.labelTime.Location = new System.Drawing.Point(16, 14);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(40, 16);
             this.labelTime.TabIndex = 84;
@@ -82,19 +84,33 @@
             this.timerMain.Enabled = true;
             this.timerMain.Tick += new System.EventHandler(this.timerMain_Tick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelDate);
+            this.groupBox1.Controls.Add(this.labelTime);
+            this.groupBox1.Location = new System.Drawing.Point(615, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(145, 56);
+            this.groupBox1.TabIndex = 86;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 556);
-            this.Controls.Add(this.labelDate);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.groupBoxMain);
             this.Font = new System.Drawing.Font("SimSun", 9F);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "滤点分析仪";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +123,7 @@
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timerMain;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

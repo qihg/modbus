@@ -32,5 +32,13 @@ namespace CommCtrlSystem
         {
             this.DialogResult = DialogResult.No;
         }
+
+        private void CheckEnterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                buttonLogin_Click(sender, e);
+            }
+        }
     }
 }

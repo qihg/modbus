@@ -15,7 +15,7 @@ namespace CommCtrlSystem
         private Thread updateDataThread;
         private ModbusRegisters modbusRegs;
         private delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
-        private TextBox[] tbBaseSetting;
+        private TextBox[] tbTemratureCorrection;
         private const byte SLAVEID = 1;
         private const ushort STARTADDRESS = 0x33;
         private const ushort REGNUM = 18;
@@ -28,26 +28,31 @@ namespace CommCtrlSystem
 
         void InitializeRegs()
         {
-            tbBaseSetting = new TextBox[18];
+            tbTemratureCorrection = new TextBox[18];
             modbusRegs = new ModbusRegisters(SLAVEID, STARTADDRESS, REGNUM);
-            tbBaseSetting[0] = textBox1;
-            tbBaseSetting[1] = textBox2;
-            tbBaseSetting[2] = textBox3;
-            tbBaseSetting[3] = textBox4;
-            tbBaseSetting[4] = textBox5;
-            tbBaseSetting[5] = textBox6;
-            tbBaseSetting[6] = textBox7;
-            tbBaseSetting[7] = textBox8;
-            tbBaseSetting[8] = textBox9;
-            tbBaseSetting[9] = textBox10;
-            tbBaseSetting[10] = textBox11;
-            tbBaseSetting[11] = textBox12;
-            tbBaseSetting[12] = textBox13;
-            tbBaseSetting[13] = textBox14;
-            tbBaseSetting[14] = textBox15;
-            tbBaseSetting[15] = textBox16;
-            tbBaseSetting[16] = textBox17;
-            tbBaseSetting[17] = textBox18;
+            tbTemratureCorrection[0] = textBox1;
+            tbTemratureCorrection[1] = textBox2;
+            tbTemratureCorrection[2] = textBox3;
+            tbTemratureCorrection[3] = textBox4;
+            tbTemratureCorrection[4] = textBox5;
+            tbTemratureCorrection[5] = textBox6;
+            tbTemratureCorrection[6] = textBox7;
+            tbTemratureCorrection[7] = textBox8;
+            tbTemratureCorrection[8] = textBox9;
+            tbTemratureCorrection[9] = textBox10;
+            tbTemratureCorrection[10] = textBox11;
+            tbTemratureCorrection[11] = textBox12;
+            tbTemratureCorrection[12] = textBox13;
+            tbTemratureCorrection[13] = textBox14;
+            tbTemratureCorrection[14] = textBox15;
+            tbTemratureCorrection[15] = textBox16;
+            tbTemratureCorrection[16] = textBox17;
+            tbTemratureCorrection[17] = textBox18;
+
+            for (int i = 0; i < 17; i++)
+            {
+                tbTemratureCorrection[i].KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
+            }
         }
 
         public void DoUpdateRegs()
@@ -62,7 +67,7 @@ namespace CommCtrlSystem
         {
             for (int i = 0; i < reg.numRegisters; i++)
             {
-                tbBaseSetting[i].Text = reg.stReg[i].getShortValue().ToString();
+                tbTemratureCorrection[i].Text = reg.stReg[i].getShortValue().ToString();
             }
         }
 
@@ -83,7 +88,7 @@ namespace CommCtrlSystem
         {
             for (int i = 0; i < modbusRegs.numRegisters; i++)
             {
-                modbusRegs.stReg[i].setValue(ushort.Parse(tbBaseSetting[i].Text.ToString()));
+                modbusRegs.stReg[i].setValue(ushort.Parse(tbTemratureCorrection[i].Text.ToString()));
             }
             inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
         }

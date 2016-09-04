@@ -15,7 +15,7 @@ namespace CommCtrlSystem
         private Thread updateDataThread;
         private ModbusRegisters modbusRegs;
         private delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
-        private TextBox[] tbBaseSetting;
+        private TextBox[] tbPidSetting;
         private const byte SLAVEID = 1;
         private const ushort STARTADDRESS = 0x1B;
         private const ushort REGNUM = 24;
@@ -28,32 +28,37 @@ namespace CommCtrlSystem
 
         void InitializeRegs()
         {
-            tbBaseSetting = new TextBox[24];
+            tbPidSetting = new TextBox[24];
             modbusRegs = new ModbusRegisters(SLAVEID, STARTADDRESS, REGNUM);
-            tbBaseSetting[0] = textBox1;
-            tbBaseSetting[1] = textBox2;
-            tbBaseSetting[2] = textBox3;
-            tbBaseSetting[3] = textBox4;
-            tbBaseSetting[4] = textBox5;
-            tbBaseSetting[5] = textBox6;
-            tbBaseSetting[6] = textBox7;
-            tbBaseSetting[7] = textBox8;
-            tbBaseSetting[8] = textBox9;
-            tbBaseSetting[9] = textBox10;
-            tbBaseSetting[10] = textBox11;
-            tbBaseSetting[11] = textBox12;
-            tbBaseSetting[12] = textBox13;
-            tbBaseSetting[13] = textBox14;
-            tbBaseSetting[14] = textBox15;
-            tbBaseSetting[15] = textBox16;
-            tbBaseSetting[16] = textBox17;
-            tbBaseSetting[17] = textBox18;
-            tbBaseSetting[18] = textBox19;
-            tbBaseSetting[19] = textBox20;
-            tbBaseSetting[20] = textBox21;
-            tbBaseSetting[21] = textBox22;
-            tbBaseSetting[22] = textBox23;
-            tbBaseSetting[23] = textBox24;
+            tbPidSetting[0] = textBox1;
+            tbPidSetting[1] = textBox2;
+            tbPidSetting[2] = textBox3;
+            tbPidSetting[3] = textBox4;
+            tbPidSetting[4] = textBox5;
+            tbPidSetting[5] = textBox6;
+            tbPidSetting[6] = textBox7;
+            tbPidSetting[7] = textBox8;
+            tbPidSetting[8] = textBox9;
+            tbPidSetting[9] = textBox10;
+            tbPidSetting[10] = textBox11;
+            tbPidSetting[11] = textBox12;
+            tbPidSetting[12] = textBox13;
+            tbPidSetting[13] = textBox14;
+            tbPidSetting[14] = textBox15;
+            tbPidSetting[15] = textBox16;
+            tbPidSetting[16] = textBox17;
+            tbPidSetting[17] = textBox18;
+            tbPidSetting[18] = textBox19;
+            tbPidSetting[19] = textBox20;
+            tbPidSetting[20] = textBox21;
+            tbPidSetting[21] = textBox22;
+            tbPidSetting[22] = textBox23;
+            tbPidSetting[23] = textBox24;
+
+            for (int i = 0; i < 24; i++)
+            {
+                tbPidSetting[i].KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
+            }
         }
 
         public void DoUpdateRegs()
@@ -68,7 +73,7 @@ namespace CommCtrlSystem
         {
             for (int i = 0; i < reg.numRegisters; i++)
             {
-                tbBaseSetting[i].Text = reg.stReg[i].getShortValue().ToString();
+                tbPidSetting[i].Text = reg.stReg[i].getShortValue().ToString();
             }
         }
 
@@ -89,7 +94,7 @@ namespace CommCtrlSystem
         {
             for (int i = 0; i < modbusRegs.numRegisters; i++)
             {
-                modbusRegs.stReg[i].setValue(ushort.Parse(tbBaseSetting[i].Text.ToString()));
+                modbusRegs.stReg[i].setValue(ushort.Parse(tbPidSetting[i].Text.ToString()));
             }
             inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
         }

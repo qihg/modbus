@@ -236,6 +236,7 @@
             this.textBoxNo1.Name = "textBoxNo1";
             this.textBoxNo1.Size = new System.Drawing.Size(216, 39);
             this.textBoxNo1.TabIndex = 72;
+            this.textBoxNo1.Text = "0";
             this.textBoxNo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxNo2
@@ -246,6 +247,7 @@
             this.textBoxNo2.Name = "textBoxNo2";
             this.textBoxNo2.Size = new System.Drawing.Size(216, 39);
             this.textBoxNo2.TabIndex = 80;
+            this.textBoxNo2.Text = "0";
             this.textBoxNo2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxOp1
@@ -256,6 +258,7 @@
             this.textBoxOp1.Name = "textBoxOp1";
             this.textBoxOp1.Size = new System.Drawing.Size(216, 39);
             this.textBoxOp1.TabIndex = 84;
+            this.textBoxOp1.Text = "0";
             this.textBoxOp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxOp2
@@ -266,6 +269,7 @@
             this.textBoxOp2.Name = "textBoxOp2";
             this.textBoxOp2.Size = new System.Drawing.Size(216, 39);
             this.textBoxOp2.TabIndex = 94;
+            this.textBoxOp2.Text = "0";
             this.textBoxOp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2

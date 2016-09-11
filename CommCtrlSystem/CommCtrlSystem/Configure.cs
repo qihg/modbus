@@ -28,5 +28,9 @@ namespace CommCtrlSystem
 
         public string ServerIp { get; set; }
         public string ServerPort { get; set; }
+
+        public string username { get; set; }
+        public string userpassword { get; set; }
+        public string analysis { get; set; }
     }
 }

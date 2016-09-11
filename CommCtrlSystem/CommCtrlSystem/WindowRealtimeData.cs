@@ -51,6 +51,8 @@ namespace CommCtrlSystem
             realtimeChart1.ChartAreas[0].AxisX.Minimum = minValue.ToOADate();
             realtimeChart1.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
 
+            realtimeChart1.ChartAreas[0].AxisY.Minimum = 0;
+            realtimeChart1.ChartAreas[0].AxisY.Maximum = 10;
             // Reset number of series in the chart.
             realtimeChart1.Series.Clear();
 
@@ -107,7 +109,7 @@ namespace CommCtrlSystem
                 textBox11.Text = reg.stReg[ALARM].getHighRegString();
                 textBox12.Text = reg.stReg[DOWN_FLAG].getHighRegString();
 
-                addPoint0(reg.stReg[TEMP_OIL0].getShortValue(), reg.stReg[TEMP_BATH0].getShortValue());
+                addPoint(reg.stReg[TEMP_OIL0].getShortValue(), reg.stReg[TEMP_BATH0].getShortValue());
             }
             else // right room
             {
@@ -129,17 +131,12 @@ namespace CommCtrlSystem
                 textBox11.Text = reg.stReg[ALARM].getLowRegString();
                 textBox12.Text = reg.stReg[DOWN_FLAG].getLowRegString();
 
-                addPoint0(reg.stReg[TEMP_OIL1].getShortValue(), reg.stReg[TEMP_BATH1].getShortValue());
+                addPoint(reg.stReg[TEMP_OIL1].getShortValue(), reg.stReg[TEMP_BATH1].getShortValue());
             }
         }
 
-        public void addPoint0(int value1, int value2)
+        public void addPoint(int value1, int value2)
         {        
-
-            // Define some variables
-            //int numberOfPointsInChart = 6000;
-            //int numberOfPointsAfterRemoval = 1850;
-
             try
             {
                 realtimeChart1.Series[0].Points.AddXY(DateTime.Now.ToOADate(), value1);
@@ -152,23 +149,6 @@ namespace CommCtrlSystem
                 // Adjust Y & X axis scale
                 realtimeChart1.ResetAutoValues();
 
-                // Keep a constant number of points by removing them from the left
-                //while (realtimeChart1.Series[0].Points.Count > numberOfPointsInChart)
-                //{
-                    // Remove data points on the left side
-                //    while (realtimeChart1.Series[0].Points.Count > numberOfPointsAfterRemoval)
-                //    {
-                //        realtimeChart1.Series[0].Points.RemoveAt(0);
-                 //   }
-
-                    // Adjust X axis scale
-                    //realtimeChart1.ChartAreas["ChartArea1"].AxisX.Minimum = pointIndex - numberOfPointsAfterRemoval;
-                    //realtimeChart1.ChartAreas["ChartArea1"].AxisX.Maximum = realtimeChart1.ChartAreas["ChartArea1"].AxisX.Minimum + numberOfPointsInChart;
-                    //realtimechart2.ChartAreas[0].AxisX.Minimum = minValue.ToOADate();
-                    //realtimechart2.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
-               // }
-
-                // Invalidate chart
                 realtimeChart1.Invalidate();
             }
             catch (Exception ex)

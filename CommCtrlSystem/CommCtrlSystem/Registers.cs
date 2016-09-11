@@ -11,14 +11,14 @@ namespace CommCtrlSystem
         public ushort value;
         public Dictionary<int, string> strValue;
 
-        public int getShortValue()
+        public short getShortValue()
         {
-            int iValue = (int)value;
-            if (value >= 0x8000)
-            {
-                iValue = 0x10000 - iValue;
-            }
-            return iValue;
+            //int iValue = (int)value;
+            //if (value >= 0x8000)
+            //{
+            //    iValue = 0x10000 - iValue;
+            //}
+            return (short)value;
         }
 
         public void setValue(ushort value)

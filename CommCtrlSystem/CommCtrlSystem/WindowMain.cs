@@ -287,6 +287,7 @@ namespace CommCtrlSystem
                 pars2[0] = p2;
                 i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
                 stopUpdateRegs();
+                saveXMLFile();
             }
         }
 
@@ -542,5 +543,45 @@ namespace CommCtrlSystem
             }
         }
 
+        public void saveXMLFile()
+        {
+            DateTime now = DateTime.Now;
+            int iNo = 1;
+
+            string dir_path = "c:\\IN";
+            if (!Directory.Exists(dir_path))
+            {
+                Directory.CreateDirectory(dir_path);
+            }
+
+            string filename = String.Format("c:\\IN\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
+            while (File.Exists(filename))
+            {
+                iNo++;
+                filename = String.Format("c:\\IN\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
+            }
+            createXmlFile(filename);
+        }
+
+        public bool createXmlFile(string filename)
+        {
+            LimsDoc l;
+            l = new LimsDoc("qhg", "qhg1111", "system");
+
+            LimsDocEntity entity = l.createEntity("SAMPLE", "RESULT_ENTRY");
+            entity.addFields("NAME", "in", "试验开始温度");
+            entity.addFields("TEXT", "in", "23.1");
+
+
+            LimsDocEntity entity2 = l.createEntity("SAMPLE2", null);
+            entity2.addFields("NAME", "in", "试验开始温度");
+            entity2.addFields("TEXT", "in", "23.1");
+
+            entity.addChild(entity2.getElement());
+
+            l.getBody().addEntity(entity.getElement());
+
+            return l.createdoc(filename);
+        }
     }
 }

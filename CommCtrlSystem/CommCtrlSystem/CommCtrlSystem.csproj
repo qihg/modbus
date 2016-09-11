@@ -77,6 +77,8 @@
     <Compile Include="IPAddrTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="LimsDoc.cs" />
+    <Compile Include="outputCommPortSingleton.cs" />
     <Compile Include="PictureViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +126,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Singleton.cs" />
+    <Compile Include="inputCommPortSingleton.cs" />
     <Compile Include="WindowBaseSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>

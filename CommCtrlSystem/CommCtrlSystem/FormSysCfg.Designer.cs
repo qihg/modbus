@@ -54,6 +54,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.checkBoxAutoStartOnLoad = new System.Windows.Forms.CheckBox();
             this.textBoxIpAddr = new CommCtrlSystem.IPAddrTextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -70,9 +71,9 @@
             this.groupBox1.Controls.Add(this.comboBoxBaud1);
             this.groupBox1.Controls.Add(this.comboBoxCom1);
             this.groupBox1.Location = new System.Drawing.Point(16, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(207, 299);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -82,7 +83,7 @@
             // 
             this.radioButtonASCII1.AutoSize = true;
             this.radioButtonASCII1.Location = new System.Drawing.Point(99, 257);
-            this.radioButtonASCII1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonASCII1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonASCII1.Name = "radioButtonASCII1";
             this.radioButtonASCII1.Size = new System.Drawing.Size(53, 16);
             this.radioButtonASCII1.TabIndex = 1;
@@ -94,7 +95,7 @@
             this.radioButtonRTU1.AutoSize = true;
             this.radioButtonRTU1.Checked = true;
             this.radioButtonRTU1.Location = new System.Drawing.Point(8, 257);
-            this.radioButtonRTU1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonRTU1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonRTU1.Name = "radioButtonRTU1";
             this.radioButtonRTU1.Size = new System.Drawing.Size(41, 16);
             this.radioButtonRTU1.TabIndex = 1;
@@ -110,7 +111,7 @@
             "1 Stop Bit",
             "2 Stop Bits"});
             this.comboBoxStopBits1.Location = new System.Drawing.Point(8, 205);
-            this.comboBoxStopBits1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxStopBits1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxStopBits1.Name = "comboBoxStopBits1";
             this.comboBoxStopBits1.Size = new System.Drawing.Size(160, 24);
             this.comboBoxStopBits1.TabIndex = 5;
@@ -124,7 +125,7 @@
             "Odd Parity",
             "Even Parity"});
             this.comboBoxParity1.Location = new System.Drawing.Point(8, 164);
-            this.comboBoxParity1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxParity1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxParity1.Name = "comboBoxParity1";
             this.comboBoxParity1.Size = new System.Drawing.Size(160, 24);
             this.comboBoxParity1.TabIndex = 4;
@@ -137,7 +138,7 @@
             "7 Data Bits",
             "8 Data Bits"});
             this.comboBoxDataBits1.Location = new System.Drawing.Point(8, 123);
-            this.comboBoxDataBits1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDataBits1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDataBits1.Name = "comboBoxDataBits1";
             this.comboBoxDataBits1.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDataBits1.TabIndex = 3;
@@ -161,7 +162,7 @@
             "115200 Baud",
             "921600 Baud"});
             this.comboBoxBaud1.Location = new System.Drawing.Point(8, 81);
-            this.comboBoxBaud1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxBaud1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxBaud1.Name = "comboBoxBaud1";
             this.comboBoxBaud1.Size = new System.Drawing.Size(160, 24);
             this.comboBoxBaud1.TabIndex = 2;
@@ -171,7 +172,7 @@
             this.comboBoxCom1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCom1.FormattingEnabled = true;
             this.comboBoxCom1.Location = new System.Drawing.Point(8, 40);
-            this.comboBoxCom1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCom1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCom1.Name = "comboBoxCom1";
             this.comboBoxCom1.Size = new System.Drawing.Size(160, 24);
             this.comboBoxCom1.TabIndex = 1;
@@ -186,9 +187,9 @@
             this.groupBox2.Controls.Add(this.comboBoxBaud2);
             this.groupBox2.Controls.Add(this.comboBoxCom2);
             this.groupBox2.Location = new System.Drawing.Point(276, 105);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(207, 299);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -198,7 +199,7 @@
             // 
             this.radioButtonASCII2.AutoSize = true;
             this.radioButtonASCII2.Location = new System.Drawing.Point(99, 257);
-            this.radioButtonASCII2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonASCII2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonASCII2.Name = "radioButtonASCII2";
             this.radioButtonASCII2.Size = new System.Drawing.Size(53, 16);
             this.radioButtonASCII2.TabIndex = 1;
@@ -210,7 +211,7 @@
             this.radioButtonRTU2.AutoSize = true;
             this.radioButtonRTU2.Checked = true;
             this.radioButtonRTU2.Location = new System.Drawing.Point(8, 257);
-            this.radioButtonRTU2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonRTU2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonRTU2.Name = "radioButtonRTU2";
             this.radioButtonRTU2.Size = new System.Drawing.Size(41, 16);
             this.radioButtonRTU2.TabIndex = 1;
@@ -226,7 +227,7 @@
             "1 Stop Bit",
             "2 Stop Bits"});
             this.comboBoxStopBits2.Location = new System.Drawing.Point(8, 205);
-            this.comboBoxStopBits2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxStopBits2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxStopBits2.Name = "comboBoxStopBits2";
             this.comboBoxStopBits2.Size = new System.Drawing.Size(160, 24);
             this.comboBoxStopBits2.TabIndex = 5;
@@ -240,7 +241,7 @@
             "Odd Parity",
             "Even Parity"});
             this.comboBoxParity2.Location = new System.Drawing.Point(8, 164);
-            this.comboBoxParity2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxParity2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxParity2.Name = "comboBoxParity2";
             this.comboBoxParity2.Size = new System.Drawing.Size(160, 24);
             this.comboBoxParity2.TabIndex = 4;
@@ -253,7 +254,7 @@
             "7 Data Bits",
             "8 Data Bits"});
             this.comboBoxDataBits2.Location = new System.Drawing.Point(8, 123);
-            this.comboBoxDataBits2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDataBits2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDataBits2.Name = "comboBoxDataBits2";
             this.comboBoxDataBits2.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDataBits2.TabIndex = 3;
@@ -277,7 +278,7 @@
             "115200 Baud",
             "921600 Baud"});
             this.comboBoxBaud2.Location = new System.Drawing.Point(8, 81);
-            this.comboBoxBaud2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxBaud2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxBaud2.Name = "comboBoxBaud2";
             this.comboBoxBaud2.Size = new System.Drawing.Size(160, 24);
             this.comboBoxBaud2.TabIndex = 2;
@@ -287,7 +288,7 @@
             this.comboBoxCom2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCom2.FormattingEnabled = true;
             this.comboBoxCom2.Location = new System.Drawing.Point(8, 40);
-            this.comboBoxCom2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCom2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCom2.Name = "comboBoxCom2";
             this.comboBoxCom2.Size = new System.Drawing.Size(160, 24);
             this.comboBoxCom2.TabIndex = 1;
@@ -296,9 +297,9 @@
             // 
             this.groupBox3.Controls.Add(this.comboBoxConnectMode);
             this.groupBox3.Location = new System.Drawing.Point(276, 16);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(207, 67);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
@@ -312,7 +313,7 @@
             "串口",
             "TCP/IP"});
             this.comboBoxConnectMode.Location = new System.Drawing.Point(8, 27);
-            this.comboBoxConnectMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxConnectMode.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxConnectMode.Name = "comboBoxConnectMode";
             this.comboBoxConnectMode.Size = new System.Drawing.Size(160, 24);
             this.comboBoxConnectMode.TabIndex = 6;
@@ -325,9 +326,9 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Location = new System.Drawing.Point(491, 105);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(181, 163);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
@@ -336,7 +337,7 @@
             // maskedTextBoxServerPort
             // 
             this.maskedTextBoxServerPort.Location = new System.Drawing.Point(8, 127);
-            this.maskedTextBoxServerPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTextBoxServerPort.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBoxServerPort.Name = "maskedTextBoxServerPort";
             this.maskedTextBoxServerPort.Size = new System.Drawing.Size(133, 21);
             this.maskedTextBoxServerPort.TabIndex = 4;
@@ -365,7 +366,7 @@
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(501, 16);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(76, 67);
             this.btnOK.TabIndex = 3;
@@ -376,7 +377,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(596, 16);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(76, 67);
             this.btnCancel.TabIndex = 3;
@@ -388,7 +389,7 @@
             // 
             this.checkBoxAutoStartOnLoad.AutoSize = true;
             this.checkBoxAutoStartOnLoad.Location = new System.Drawing.Point(16, 337);
-            this.checkBoxAutoStartOnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxAutoStartOnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxAutoStartOnLoad.Name = "checkBoxAutoStartOnLoad";
             this.checkBoxAutoStartOnLoad.Size = new System.Drawing.Size(156, 16);
             this.checkBoxAutoStartOnLoad.TabIndex = 4;
@@ -404,11 +405,21 @@
             this.textBoxIpAddr.TabIndex = 5;
             this.textBoxIpAddr.Text = "0.0.0.0";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Location = new System.Drawing.Point(493, 276);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(178, 127);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "系统设定";
+            // 
             // FormSysCfg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 428);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.checkBoxAutoStartOnLoad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -416,7 +427,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormSysCfg";
@@ -464,5 +475,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxServerPort;
         private System.Windows.Forms.CheckBox checkBoxAutoStartOnLoad;
         private IPAddrTextBox textBoxIpAddr;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

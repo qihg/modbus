@@ -30,6 +30,7 @@ namespace CommCtrlSystem
         WindowTemperatureCorrection wtc;
         WindowPIDSetting wps;
         WindowManualSetting wms;
+ 
         public MainForm()
         {
             InitializeComponent();

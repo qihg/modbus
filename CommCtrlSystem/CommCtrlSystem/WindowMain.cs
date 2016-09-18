@@ -19,6 +19,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Data.OleDb;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Net;
+using System.Net.Sockets;
 
 namespace CommCtrlSystem
 {
@@ -56,7 +58,16 @@ namespace CommCtrlSystem
         private const int DOWN_FLAG = 17;
         private const int ALLSTATE = 18;
 
+        private const int ROOMNUM_LEFT = 0;
+        private const int ROOMNUM_RIGHT = 1;
+
+        private short coldfilterpoint0 = 0;
+        private short coldfilterpoint1 = 0;
+
         private TextBox[] tbmain;
+
+        private bool l_report_flg = false;
+        private bool r_report_flg = false;
 
         WindowRealtimeData wrd1;
         WindowRealtimeData wrd2;
@@ -74,7 +85,6 @@ namespace CommCtrlSystem
 
             WindowManager.GetInstance().wrd1 = wrd1;
             WindowManager.GetInstance().wrd2 = wrd2;
-
         }
 
         void InitializeRegs()
@@ -154,16 +164,16 @@ namespace CommCtrlSystem
             e.Graphics.DrawLine(Pens.Black, 8, 50, 480, 50);
             //产品信息
             e.Graphics.DrawString(DateTime.Now.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 55);
-            e.Graphics.DrawString(textBoxRes1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 55);
-            e.Graphics.DrawString(textBoxNo1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 55);
-            e.Graphics.DrawString(textBoxOp1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 55);
-            e.Graphics.DrawString(textBoxTime1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 55);
+            e.Graphics.DrawString(coldfilterpoint0.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 55);
+            e.Graphics.DrawString(textBoxNo0.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 55);
+            e.Graphics.DrawString(textBoxOp0.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 55);
+            e.Graphics.DrawString(textBoxTime0.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 55);
 
             e.Graphics.DrawString(DateTime.Now.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 9, 75);
-            e.Graphics.DrawString(textBoxRes2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 75);
-            e.Graphics.DrawString(textBoxNo2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 75);
-            e.Graphics.DrawString(textBoxOp2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 75);
-            e.Graphics.DrawString(textBoxTime2.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 75);
+            e.Graphics.DrawString(coldfilterpoint1.ToString(), new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 160, 75);
+            e.Graphics.DrawString(textBoxNo1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 260, 75);
+            e.Graphics.DrawString(textBoxOp1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 330, 75);
+            e.Graphics.DrawString(textBoxTime1.Text, new Font(new FontFamily("黑体"), 8), System.Drawing.Brushes.Black, 400, 75);
 
             e.Graphics.DrawLine(Pens.Black, 8, 200, 480, 200);
         }
@@ -192,6 +202,10 @@ namespace CommCtrlSystem
                         {
                             startUpdateRegs();
                         }
+                        else
+                        {
+                            btnStop.Enabled = false;
+                        }
                     }
                 }
             }
@@ -206,9 +220,12 @@ namespace CommCtrlSystem
         public void DoUpdateRegs()
         {
             Thread.Sleep(1000);
-            inputCommPortSingleton.GetInstance().initComm();
-            inputCommPortSingleton.GetInstance().openComm();
-            Random random = new Random();
+            //inputCommPortSingleton.GetInstance().initComm();
+            //if (false == inputCommPortSingleton.GetInstance().openComm())
+            //{
+            //    btnStop_Click(null, null);
+            //}
+            //Random random = new Random();
             while (m_updateDataFlg)
             {
                 try
@@ -230,8 +247,8 @@ namespace CommCtrlSystem
 
         public void UpdateUIData(ModbusRegisters reg)
         {
-            textBoxRes1.Text = reg.stReg[CHECKFINISH].getHighRegString();
-            textBoxRes2.Text = reg.stReg[CHECKFINISH].getLowRegString();
+            textBoxRes0.Text = reg.stReg[CHECKFINISH].getHighRegString();
+            textBoxRes1.Text = reg.stReg[CHECKFINISH].getLowRegString();
 
             textBox2.Text = reg.stReg[TEMP_OIL0].getShortValue().ToString();
             textBox9.Text = reg.stReg[TEMP_OIL1].getShortValue().ToString();
@@ -251,8 +268,11 @@ namespace CommCtrlSystem
             int run_time_m1 = reg.stReg[RUNTIME_M].getLowReg() % 60;
             int run_time_s0 = reg.stReg[RUNTIME_S].getHighReg();
             int run_time_s1 = reg.stReg[RUNTIME_S].getLowReg();
-            textBoxTime1.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
-            textBoxTime2.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
+            textBoxTime0.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h0, run_time_m0, run_time_s0);
+            textBoxTime1.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", run_time_h1, run_time_m1, run_time_s1);
+
+            coldfilterpoint0 = reg.stReg[COLDFILTERPOINT0].getShortValue();
+            coldfilterpoint1 = reg.stReg[COLDFILTERPOINT1].getShortValue();
 
             WindowManager.GetInstance().wrd1.updateData(0, reg);
             WindowManager.GetInstance().wrd2.updateData(1, reg);
@@ -261,13 +281,13 @@ namespace CommCtrlSystem
             //WindowManager.GetInstance().wrd1.addPoint0(random.Next(0, 10), random.Next(30, 50));
             //WindowManager.GetInstance().wrd2.addPoint0(random.Next(90, 100), random.Next(10, 40));
 
-            if (reg.stReg[CHECKFINISH].getHighReg() != 0 && reg.stReg[CHECKFINISH].getLowReg() != 0)
+            if (reg.stReg[CHECKFINISH].getHighReg() != 0 && !l_report_flg)
             {
                 byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
-                byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
+                //byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
 
                 //Left room
-                string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '"+ textBoxTime1.Text + "', '" + textBoxRes1.Text + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageLeft)";
+                string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime0.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo0.Text + "', '" + textBoxOp0.Text + "', @imageLeft)";
 
                 OleDbParameter[] pars = new OleDbParameter[1];
 
@@ -278,16 +298,53 @@ namespace CommCtrlSystem
                 int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
 
                 //Right room
-                string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime2.Text + "','" + textBoxRes2.Text + "', '" + textBoxNo2.Text + "', '" + textBoxOp2.Text + "', @imageRight)";
+                //string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime2.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo2.Text + "', '" + textBoxOp2.Text + "', @imageRight)";
+                //OleDbParameter[] pars2 = new OleDbParameter[1];
+
+               // OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
+                //p2.Value = imageRight;
+
+                //pars2[0] = p2;
+                //i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
+                //stopUpdateRegs();
+                saveXMLFile(ROOMNUM_LEFT);
+                byte[] serverData = getAsciiData(coldfilterpoint0.ToString(), textBoxTime0.Text, textBoxNo0.Text, textBoxName0.Text, textBoxDevNo0.Text, textBoxOp0.Text);
+                transResultToServer(serverData);
+                //getAsciiData("", "", "", "", "", "");
+                l_report_flg = true;
+            }
+
+            if (reg.stReg[CHECKFINISH].getLowReg() != 0 && !r_report_flg)
+            {
+                //byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
+                byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
+
+                //Left room
+                //string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime1.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageLeft)";
+
+                //OleDbParameter[] pars = new OleDbParameter[1];
+
+                //OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
+                //p.Value = imageLeft;
+
+                //pars[0] = p;
+                //int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
+
+                //Right room
+                string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime1.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageRight)";
                 OleDbParameter[] pars2 = new OleDbParameter[1];
 
                 OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
                 p2.Value = imageRight;
 
                 pars2[0] = p2;
-                i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
-                stopUpdateRegs();
-                saveXMLFile();
+                int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
+                //stopUpdateRegs();
+                saveXMLFile(ROOMNUM_RIGHT);
+
+                byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
+                transResultToServer(serverData);
+                r_report_flg = true;
             }
         }
 
@@ -324,7 +381,18 @@ namespace CommCtrlSystem
         private void btnStart_Click(object sender, EventArgs e)
         {
             //mRealtimeFlg = 1;
-            startUpdateRegs();
+            l_report_flg = false;
+            r_report_flg = false;
+
+            inputCommPortSingleton.GetInstance().initComm();
+            if (false == inputCommPortSingleton.GetInstance().openComm())
+            {
+                btnStop_Click(null, null);
+            }
+            else
+            {
+                startUpdateRegs();
+            }
             //btnStart.Enabled = false;
             //btnStop.Enabled = true;
         }
@@ -458,17 +526,17 @@ namespace CommCtrlSystem
 
 
 
-                worksheet.Cells[2, l_no] = textBoxNo1.Text;
+                worksheet.Cells[2, l_no] = textBoxNo0.Text;
                 worksheet.Cells[2, l_date] = DateTime.Now.ToString();
-                worksheet.Cells[2, l_res] = textBoxRes1.Text;
-                worksheet.Cells[2, l_runtime] = textBoxTime1.Text;
-                worksheet.Cells[2, l_oper] = textBoxOp1.Text;
+                worksheet.Cells[2, l_res] = coldfilterpoint0.ToString();
+                worksheet.Cells[2, l_runtime] = textBoxTime0.Text;
+                worksheet.Cells[2, l_oper] = textBoxOp0.Text;
 
-                worksheet.Cells[3, l_no] = textBoxNo2.Text;
+                worksheet.Cells[3, l_no] = textBoxNo1.Text;
                 worksheet.Cells[3, l_date] = DateTime.Now.ToString();
-                worksheet.Cells[3, l_res] = textBoxRes2.Text;
-                worksheet.Cells[3, l_runtime] = textBoxTime2.Text;
-                worksheet.Cells[3, l_oper] = textBoxOp2.Text;
+                worksheet.Cells[3, l_res] = coldfilterpoint1.ToString();
+                worksheet.Cells[3, l_runtime] = textBoxTime1.Text;
+                worksheet.Cells[3, l_oper] = textBoxOp1.Text;
 
                 worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
                 workBook.Close(false, Type.Missing, Type.Missing);
@@ -543,7 +611,7 @@ namespace CommCtrlSystem
             }
         }
 
-        public void saveXMLFile()
+        public void saveXMLFile(int roomNo)
         {
             DateTime now = DateTime.Now;
             int iNo = 1;
@@ -560,28 +628,202 @@ namespace CommCtrlSystem
                 iNo++;
                 filename = String.Format("c:\\IN\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
             }
-            createXmlFile(filename);
+            createXmlFile(filename, roomNo);
         }
 
-        public bool createXmlFile(string filename)
+        public bool createXmlFile(string filename, int roomNo)
         {
-            LimsDoc l;
-            l = new LimsDoc("qhg", "qhg1111", "system");
+            try
+            {
+                Configure cfg = null;
+                if (File.Exists(@"cfg.json"))
+                {
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    if (cfg != null)
+                    {
+                        LimsDoc l;
+                        l = new LimsDoc(cfg.username, cfg.userpassword, "system");
 
-            LimsDocEntity entity = l.createEntity("SAMPLE", "RESULT_ENTRY");
-            entity.addFields("NAME", "in", "试验开始温度");
-            entity.addFields("TEXT", "in", "23.1");
+                        LimsDocEntity entity = l.createEntity("SAMPLE", "RESULT_ENTRY");
+                        LimsDocEntity entity2 = l.createEntity("TEST", null);
+                        LimsDocEntity entity3 = l.createEntity("RESULT", null);
 
+                        entity2.addFields("ANALYSIS", "in", cfg.analysis);
 
-            LimsDocEntity entity2 = l.createEntity("SAMPLE2", null);
-            entity2.addFields("NAME", "in", "试验开始温度");
-            entity2.addFields("TEXT", "in", "23.1");
+                        if (roomNo == ROOMNUM_LEFT)
+                        {
+                            entity.addFields("ID_NUMERIC", "in", textBoxNo0.Text);
 
-            entity.addChild(entity2.getElement());
+                            entity3.addFields("NAME", "in", "结果");
+                            entity3.addFields("TEXT", "in", coldfilterpoint0.ToString());
+                        }
+                        else if (roomNo == ROOMNUM_RIGHT)
+                        {
+                            entity.addFields("ID_NUMERIC", "in", textBoxNo1.Text);
 
-            l.getBody().addEntity(entity.getElement());
+                            entity3.addFields("NAME", "in", "结果");
+                            entity3.addFields("TEXT", "in", coldfilterpoint1.ToString());
+                        }
+                        else
+                        {
+                            return false;
+                        }
 
-            return l.createdoc(filename);
+                        entity2.addChild(entity3.getElement());
+
+                        entity.addChild(entity2.getElement());
+
+                        l.getBody().addEntity(entity.getElement());
+
+                        return l.createdoc(filename);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false;
+
+        }
+
+        private bool fillByteArray(ref byte[] src, ref byte[] dst, int maxcplen, int dstofs, byte maskedbyte)
+        {
+            for (int i = 0; i < maxcplen; i++)
+            {
+                Buffer.SetByte(dst, i + dstofs, maskedbyte);
+            }
+
+            if (src.Length > maxcplen)
+            {
+                Buffer.BlockCopy(src, 0, dst, dstofs, maxcplen);
+            }
+            else
+            {
+                Buffer.BlockCopy(src, 0, dst, dstofs, src.Length);
+            }
+            return true;
+        }
+
+        private byte[] getAsciiData(string res, string time, string id, string name, string devid, string oper)
+        {
+            const int BLOCK_LEN = 16;
+            const int NUM_OF_BLOCK = 6;
+            byte[] data = new byte[BLOCK_LEN * NUM_OF_BLOCK];
+
+            byte[] bRes = System.Text.Encoding.UTF8.GetBytes(res);
+            byte[] bTime = System.Text.Encoding.UTF8.GetBytes(time);
+            byte[] bID = System.Text.Encoding.UTF8.GetBytes(id);
+            byte[] bName = System.Text.Encoding.UTF8.GetBytes(name);
+            byte[] bDevid = System.Text.Encoding.UTF8.GetBytes(devid);
+            byte[] bOper = System.Text.Encoding.UTF8.GetBytes(oper);
+
+            fillByteArray(ref bRes, ref data, BLOCK_LEN, 0 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bTime, ref data, BLOCK_LEN, 1 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bID, ref data, BLOCK_LEN, 2 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bName, ref data, BLOCK_LEN, 3 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bDevid, ref data, BLOCK_LEN, 4 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bOper, ref data, BLOCK_LEN, 5 * BLOCK_LEN, 0x20);
+
+            return data;
+        }
+
+        private decimal GetNumber(string str)
+        {
+            decimal result = 0;
+            if (str != null && str != string.Empty)
+            {
+                // 正则表达式剔除非数字字符（不包含小数点.）
+                str = Regex.Replace(str, @"[^\d.\d]", "");
+                // 如果是数字，则转换为decimal类型
+                if (Regex.IsMatch(str, @"^[+-]?\d*[.]?\d*$"))
+                {
+                    result = decimal.Parse(str);
+                }
+            }
+            return result;
+        }
+
+        private bool transResultToServer(byte[] ascii)
+        {
+            try
+            {
+                Configure cfg = null;
+                if (File.Exists(@"cfg.json"))
+                {
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    if (cfg != null)
+                    {
+                        if (cfg.OutoutMethod == "串口")
+                        {
+                            using (SerialPort masterPort = new SerialPort(cfg.OutputSerialPortName))
+                            {
+                                // configure serial ports
+
+                                masterPort.BaudRate = (int)GetNumber(cfg.OutputSerialPortBaud);
+                                masterPort.DataBits = (int)GetNumber(cfg.OutputSerialPortDataBit);
+                                if (cfg.OutputSerialPortParity == "None Parity")
+                                {
+                                    masterPort.Parity = Parity.None;
+                                }
+                                else if (cfg.OutputSerialPortParity == "Odd Parity")
+                                {
+                                    masterPort.Parity = Parity.Odd;
+                                }
+                                else
+                                {
+                                    masterPort.Parity = Parity.Even;
+                                }
+
+                                if (cfg.OutputSerialPortStopBit == "1 Stop Bit")
+                                {
+                                    masterPort.StopBits = StopBits.One;
+                                }
+                                else
+                                {
+                                    masterPort.StopBits = StopBits.Two;
+                                }
+
+                                masterPort.Open();
+
+                                // create modbus master
+                                ModbusSerialMaster master = ModbusSerialMaster.CreateAscii(masterPort);
+
+                                master.Transport.Retries = 5;
+                                ushort startAddress = 0x08;
+                                ushort[] data = new ushort[ascii.Length / sizeof(short)];
+                                Buffer.BlockCopy(ascii, 0, data, 0, data.Length * sizeof(short));
+
+                                master.WriteMultipleRegisters(1, startAddress, data);
+                                // read five register values
+                                //ushort[] registers = master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
+                            }
+                        }
+                        else
+                        {
+
+                            using (TcpClient client = new TcpClient(cfg.ServerIp, (int)GetNumber(cfg.ServerPort)))
+                            {
+                                ModbusSerialMaster master = ModbusSerialMaster.CreateAscii(client);
+
+                                master.Transport.Retries = 5;
+                                ushort startAddress = 0x08;
+                                ushort[] data = new ushort[ascii.Length / sizeof(short)];
+                                Buffer.BlockCopy(ascii, 0, data, 0, data.Length * sizeof(short));
+
+                                master.WriteMultipleRegisters(1, startAddress, data);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return true;
         }
     }
 }

@@ -53,12 +53,19 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.checkBoxAutoStartOnLoad = new System.Windows.Forms.CheckBox();
-            this.textBoxIpAddr = new CommCtrlSystem.IPAddrTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxAnalysis = new System.Windows.Forms.TextBox();
+            this.textBoxIpAddr = new CommCtrlSystem.IPAddrTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -396,6 +403,69 @@
             this.checkBoxAutoStartOnLoad.Text = "打开程序时开始实时采集";
             this.checkBoxAutoStartOnLoad.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.textBoxAnalysis);
+            this.groupBox5.Controls.Add(this.textBoxPassword);
+            this.groupBox5.Controls.Add(this.textBoxUserName);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Location = new System.Drawing.Point(493, 276);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(178, 127);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "系统设定";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "用户名";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "密码";
+            // 
+            // textBoxUserName
+            // 
+            this.textBoxUserName.Location = new System.Drawing.Point(66, 18);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(96, 21);
+            this.textBoxUserName.TabIndex = 1;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(66, 43);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(96, 21);
+            this.textBoxPassword.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "分析方法";
+            // 
+            // textBoxAnalysis
+            // 
+            this.textBoxAnalysis.Location = new System.Drawing.Point(66, 67);
+            this.textBoxAnalysis.Name = "textBoxAnalysis";
+            this.textBoxAnalysis.Size = new System.Drawing.Size(96, 21);
+            this.textBoxAnalysis.TabIndex = 1;
+            // 
             // textBoxIpAddr
             // 
             this.textBoxIpAddr.Location = new System.Drawing.Point(8, 64);
@@ -405,19 +475,9 @@
             this.textBoxIpAddr.TabIndex = 5;
             this.textBoxIpAddr.Text = "0.0.0.0";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Location = new System.Drawing.Point(493, 276);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(178, 127);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "系统设定";
-            // 
             // FormSysCfg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(699, 428);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.checkBoxAutoStartOnLoad);
@@ -442,6 +502,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,5 +538,11 @@
         private System.Windows.Forms.CheckBox checkBoxAutoStartOnLoad;
         private IPAddrTextBox textBoxIpAddr;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBoxAnalysis;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -10,6 +10,7 @@ using System.IO.Ports;
 using System.IO;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace CommCtrlSystem
 {
@@ -99,25 +100,37 @@ namespace CommCtrlSystem
             }
         }
 
-        public void openComm()
+        public bool openComm()
         {
             lock (locker)
             {
                 if (port != null && !port.IsOpen)
                 {
-                    port.Open();
+                    try
+                    {
+                        port.Open();
 
-                    // create modbus master
-                    if (InputModbusType == "RTU")
-                    {
-                        master = ModbusSerialMaster.CreateRtu(port);
+                        // create modbus master
+                        if (InputModbusType == "RTU")
+                        {
+                            master = ModbusSerialMaster.CreateRtu(port);
+                        }
+                        else
+                        {
+                            master = ModbusSerialMaster.CreateAscii(port);
+                        }
+
+                        return true;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        master = ModbusSerialMaster.CreateAscii(port);
+                        MessageBox.Show("Port Can not open", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
                 }
             }
+
+            return false;
         }
 
         public void closeComm()

@@ -18,7 +18,7 @@ namespace CommCtrlSystem
         private static outputCommPortSingleton outputCommPort;
         private static readonly object locker = new object();
         SerialPort port;
-        string InputModbusType;
+        string OutputModbusType;
         IModbusSerialMaster master;
 
         private outputCommPortSingleton()
@@ -68,15 +68,15 @@ namespace CommCtrlSystem
                         cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
                     }
 
-                    port = new SerialPort(cfg.InputSerialPortName);
+                    port = new SerialPort(cfg.OutputSerialPortName);
 
-                    port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
-                    port.DataBits = (int)GetNumber(cfg.InputSerialPortDataBit);
-                    if (cfg.InputSerialPortParity == "None Parity")
+                    port.BaudRate = (int)GetNumber(cfg.OutputSerialPortBaud);
+                    port.DataBits = (int)GetNumber(cfg.OutputSerialPortDataBit);
+                    if (cfg.OutputSerialPortParity == "None Parity")
                     {
                         port.Parity = Parity.None;
                     }
-                    else if (cfg.InputSerialPortParity == "Odd Parity")
+                    else if (cfg.OutputSerialPortParity == "Odd Parity")
                     {
                         port.Parity = Parity.Odd;
                     }
@@ -85,7 +85,7 @@ namespace CommCtrlSystem
                         port.Parity = Parity.Even;
                     }
 
-                    if (cfg.InputSerialPortStopBit == "1 Stop Bit")
+                    if (cfg.OutputSerialPortStopBit == "1 Stop Bit")
                     {
                         port.StopBits = StopBits.One;
                     }
@@ -94,7 +94,7 @@ namespace CommCtrlSystem
                         port.StopBits = StopBits.Two;
                     }
 
-                    InputModbusType = cfg.InputModbusType;
+                    OutputModbusType = cfg.OutputModbusType;
                 }
             }
         }
@@ -108,7 +108,7 @@ namespace CommCtrlSystem
                     port.Open();
 
                     // create modbus master
-                    if (InputModbusType == "RTU")
+                    if (OutputModbusType == "RTU")
                     {
                         master = ModbusSerialMaster.CreateRtu(port);
                     }

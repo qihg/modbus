@@ -140,6 +140,10 @@ namespace CommCtrlSystem
                 {
                     comboBoxConnectMode.Text = cfg.OutoutMethod;
                 }
+
+                textBoxUserName.Text = cfg.username;
+                textBoxPassword.Text = cfg.userpassword;
+                textBoxAnalysis.Text = cfg.analysis;
             }
             catch (Exception ex)
             {
@@ -185,6 +189,11 @@ namespace CommCtrlSystem
                 cfg.ServerIp = textBoxIpAddr.Text.Trim();
                 cfg.ServerPort = maskedTextBoxServerPort.Text.Trim();
                 cfg.OutoutMethod = comboBoxConnectMode.Text.ToString();
+
+                cfg.username = textBoxUserName.Text.Trim();
+                cfg.userpassword = textBoxPassword.Text.Trim();
+                cfg.analysis = textBoxAnalysis.Text.Trim();
+
                 File.WriteAllText(@"cfg.json", JsonConvert.SerializeObject(cfg));
                 this.Close();
             } 

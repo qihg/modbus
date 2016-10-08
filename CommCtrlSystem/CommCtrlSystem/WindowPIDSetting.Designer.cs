@@ -648,6 +648,7 @@
             this.Controls.Add(this.buttonMain);
             this.Name = "WindowPIDSetting";
             this.Size = new System.Drawing.Size(757, 481);
+            this.Load += new System.EventHandler(this.WindowPIDSetting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

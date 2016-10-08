@@ -58,6 +58,7 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 throw ex;
             }
         }
@@ -131,9 +132,10 @@ namespace CommCtrlSystem
                 cmd.Parameters.Clear();
                 return reader;
             }
-            catch
+            catch(Exception ex)
             {
                 //关闭连接，抛出异常
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 conn.Close();
                 throw;
             }
@@ -165,8 +167,9 @@ namespace CommCtrlSystem
                     //返回ds
                     return ds;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    LogClass.GetInstance().WriteExceptionLog(ex);
                     //关闭连接，抛出异常
                     conn.Close();
                     throw;

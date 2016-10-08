@@ -13,8 +13,6 @@ namespace CommCtrlSystem
 {
     public partial class PictureViewForm : Form
     {
-        Image img;
-        ImageFormat fmt;
         public PictureViewForm()
         {
             InitializeComponent();

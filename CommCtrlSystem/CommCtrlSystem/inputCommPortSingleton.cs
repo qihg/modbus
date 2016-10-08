@@ -64,44 +64,55 @@ namespace CommCtrlSystem
                 if (port == null)
                 {
                     Configure cfg = null;
-                    if (File.Exists(@"cfg.json"))
+                    
+                    //MessageBox.Show(Environment.CurrentDirectory, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(Directory.GetCurrentDirectory(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                    if (File.Exists(cfgfile))
                     {
-                        cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
-                    }
+                        cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
+                        port = new SerialPort(cfg.InputSerialPortName);
 
-                    port = new SerialPort(cfg.InputSerialPortName);
+                        port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
+                        port.DataBits = (int)GetNumber(cfg.InputSerialPortDataBit);
+                        if (cfg.InputSerialPortParity == "None Parity")
+                        {
+                            port.Parity = Parity.None;
+                        }
+                        else if (cfg.InputSerialPortParity == "Odd Parity")
+                        {
+                            port.Parity = Parity.Odd;
+                        }
+                        else
+                        {
+                            port.Parity = Parity.Even;
+                        }
 
-                    port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
-                    port.DataBits = (int)GetNumber(cfg.InputSerialPortDataBit);
-                    if (cfg.InputSerialPortParity == "None Parity")
-                    {
-                        port.Parity = Parity.None;
-                    }
-                    else if (cfg.InputSerialPortParity == "Odd Parity")
-                    {
-                        port.Parity = Parity.Odd;
+                        if (cfg.InputSerialPortStopBit == "1 Stop Bit")
+                        {
+                            port.StopBits = StopBits.One;
+                        }
+                        else
+                        {
+                            port.StopBits = StopBits.Two;
+                        }
+
+                        port.ReadTimeout = 1000;
+                        port.WriteTimeout = 1000;
+
+                        InputModbusType = cfg.InputModbusType;
                     }
                     else
                     {
-                        port.Parity = Parity.Even;
+                        MessageBox.Show("Cannot find cfg.json!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    if (cfg.InputSerialPortStopBit == "1 Stop Bit")
-                    {
-                        port.StopBits = StopBits.One;
-                    }
-                    else
-                    {
-                        port.StopBits = StopBits.Two;
-                    }
-
-                    InputModbusType = cfg.InputModbusType;
                 }
             }
         }
 
         public bool openComm()
         {
+            LogClass.GetInstance().WriteLogFile("OpenComm Called " + port.PortName);
             lock (locker)
             {
                 if (port != null && !port.IsOpen)
@@ -109,7 +120,7 @@ namespace CommCtrlSystem
                     try
                     {
                         port.Open();
-
+                        LogClass.GetInstance().WriteLogFile("port opened");
                         // create modbus master
                         if (InputModbusType == "RTU")
                         {
@@ -124,41 +135,66 @@ namespace CommCtrlSystem
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Port Can not open", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        LogClass.GetInstance().WriteExceptionLog(ex);
+                        MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
             }
 
-            return false;
+            return true;
         }
 
         public void closeComm()
         {
+            LogClass.GetInstance().WriteLogFile("closeComm Called " + port.PortName);
             lock (locker)
             {
                 if (port != null && port.IsOpen)
                 {
                     port.Close();
+                    LogClass.GetInstance().WriteLogFile("port Close");
                 }
             }
         }
 
-        public void readRegister(ref ModbusRegisters regs)
+        public bool readRegister(ref ModbusRegisters regs)
         {
             if (master == null)
             {
-                return;
+                return false;
             }
 
             lock (locker)
             {
-                regs.values = master.ReadHoldingRegisters(regs.slaveid, regs.startAddress, regs.numRegisters);
-                for (int i = 0; i < regs.numRegisters; i++)
+                if (port.IsOpen == false)
                 {
-                    regs.stReg[i].value = regs.values[i];
+                    return false;
+                }
+
+                try
+                {
+                    regs.values = master.ReadHoldingRegisters(regs.slaveid, regs.startAddress, regs.numRegisters);
+                    for (int i = 0; i < regs.numRegisters; i++)
+                    {
+                        regs.stReg[i].value = regs.values[i];
+                    }
+                }
+                catch (TimeoutException ex)
+                {
+                    LogClass.GetInstance().WriteLogFile("ReadHoldingRegisters Timeout:" + port.ReadTimeout.ToString());
+                    MessageBox.Show("Serial Port Read Timeout:" + port.ReadTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    LogClass.GetInstance().WriteExceptionLog(ex);
+                    //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
+
+            return true;
         }
 
         public void writeMultiRegisters(ModbusRegisters regs)
@@ -170,26 +206,50 @@ namespace CommCtrlSystem
 
             lock (locker)
             {
-                for (int i = 0; i < regs.numRegisters; i++)
+                try
                 {
-                    regs.values[i] = regs.stReg[i].value;
+                    for (int i = 0; i < regs.numRegisters; i++)
+                    {
+                        regs.values[i] = regs.stReg[i].value;
+                    }
+
+                    master.WriteMultipleRegisters(regs.slaveid, regs.startAddress, regs.values);
                 }
-
-                master.WriteMultipleRegisters(regs.slaveid, regs.startAddress, regs.values);
-
+                catch (TimeoutException ex)
+                {
+                    LogClass.GetInstance().WriteLogFile("WriteMultipleRegisters Timeout:" + port.WriteTimeout.ToString());
+                    MessageBox.Show("Serial Port Write Timeout:" + port.WriteTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    LogClass.GetInstance().WriteExceptionLog(ex);
+                    MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
 
         public void writeSingleRegister(ModbusRegisters regs, ushort value)
         {
-            if (master == null)
+            try
             {
-                return;
-            }
 
-            lock (locker)
+                if (master == null)
+                {
+                    return;
+                }
+
+                lock (locker)
+                {
+                    master.WriteSingleRegister(regs.slaveid, regs.startAddress, value);
+                }
+            }
+            catch (Exception ex)
             {
-                master.WriteSingleRegister(regs.slaveid, regs.startAddress, value);
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }

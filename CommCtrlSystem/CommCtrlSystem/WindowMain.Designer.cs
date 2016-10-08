@@ -30,7 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowMain));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxName1 = new System.Windows.Forms.TextBox();
+            this.textBoxDevNo1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxOp1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxNo0 = new System.Windows.Forms.TextBox();
+            this.textBoxOp0 = new System.Windows.Forms.TextBox();
+            this.textBoxDevNo0 = new System.Windows.Forms.TextBox();
+            this.textBoxName0 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBoxRes0 = new System.Windows.Forms.TextBox();
             this.textBoxRes1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -41,10 +55,7 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBoxTime0 = new System.Windows.Forms.TextBox();
             this.textBoxTime1 = new System.Windows.Forms.TextBox();
-            this.textBoxNo0 = new System.Windows.Forms.TextBox();
             this.textBoxNo1 = new System.Windows.Forms.TextBox();
-            this.textBoxOp0 = new System.Windows.Forms.TextBox();
-            this.textBoxOp1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,9 +67,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.btnRTData1 = new System.Windows.Forms.Button();
             this.btnHistReport = new System.Windows.Forms.Button();
             this.btnRTData2 = new System.Windows.Forms.Button();
@@ -80,14 +88,8 @@
             this.textBoxCom1 = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.textBoxDevNo0 = new System.Windows.Forms.TextBox();
-            this.textBoxName0 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBoxDevNo1 = new System.Windows.Forms.TextBox();
-            this.textBoxName1 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.TextXmlBtn = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,12 +105,95 @@
             this.groupBox2.Controls.Add(this.textBoxOp1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox2.Location = new System.Drawing.Point(394, 3);
+            this.groupBox2.Location = new System.Drawing.Point(525, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(332, 340);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(443, 453);
             this.groupBox2.TabIndex = 102;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "右室";
+            // 
+            // textBoxName1
+            // 
+            this.textBoxName1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxName1.Location = new System.Drawing.Point(171, 307);
+            this.textBoxName1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxName1.Name = "textBoxName1";
+            this.textBoxName1.Size = new System.Drawing.Size(216, 33);
+            this.textBoxName1.TabIndex = 94;
+            this.textBoxName1.Text = "0";
+            this.textBoxName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDevNo1
+            // 
+            this.textBoxDevNo1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxDevNo1.Location = new System.Drawing.Point(171, 355);
+            this.textBoxDevNo1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxDevNo1.Name = "textBoxDevNo1";
+            this.textBoxDevNo1.Size = new System.Drawing.Size(216, 33);
+            this.textBoxDevNo1.TabIndex = 94;
+            this.textBoxDevNo1.Text = "0";
+            this.textBoxDevNo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label21.Location = new System.Drawing.Point(28, 364);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 16);
+            this.label21.TabIndex = 99;
+            this.label21.Text = "仪器编号";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(28, 269);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 16);
+            this.label14.TabIndex = 99;
+            this.label14.Text = "试样编号";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label20.Location = new System.Drawing.Point(28, 412);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 16);
+            this.label20.TabIndex = 93;
+            this.label20.Text = "操作员";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(28, 319);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 16);
+            this.label15.TabIndex = 93;
+            this.label15.Text = "试样名称";
+            // 
+            // textBoxOp1
+            // 
+            this.textBoxOp1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxOp1.Location = new System.Drawing.Point(171, 403);
+            this.textBoxOp1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxOp1.Name = "textBoxOp1";
+            this.textBoxOp1.Size = new System.Drawing.Size(216, 33);
+            this.textBoxOp1.TabIndex = 94;
+            this.textBoxOp1.Text = "0";
+            this.textBoxOp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox1
             // 
@@ -121,33 +206,115 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox1.Location = new System.Drawing.Point(44, 3);
+            this.groupBox1.Location = new System.Drawing.Point(59, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 340);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(443, 453);
             this.groupBox1.TabIndex = 100;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "左室";
             // 
-            // textBoxRes1
+            // textBoxNo0
+            // 
+            this.textBoxNo0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxNo0.Location = new System.Drawing.Point(155, 261);
+            this.textBoxNo0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxNo0.Name = "textBoxNo0";
+            this.textBoxNo0.Size = new System.Drawing.Size(216, 33);
+            this.textBoxNo0.TabIndex = 72;
+            this.textBoxNo0.Text = "0";
+            this.textBoxNo0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxOp0
+            // 
+            this.textBoxOp0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxOp0.Location = new System.Drawing.Point(155, 403);
+            this.textBoxOp0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxOp0.Name = "textBoxOp0";
+            this.textBoxOp0.Size = new System.Drawing.Size(216, 33);
+            this.textBoxOp0.TabIndex = 84;
+            this.textBoxOp0.Text = "0";
+            this.textBoxOp0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDevNo0
+            // 
+            this.textBoxDevNo0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxDevNo0.Location = new System.Drawing.Point(155, 356);
+            this.textBoxDevNo0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxDevNo0.Name = "textBoxDevNo0";
+            this.textBoxDevNo0.Size = new System.Drawing.Size(216, 33);
+            this.textBoxDevNo0.TabIndex = 84;
+            this.textBoxDevNo0.Text = "0";
+            this.textBoxDevNo0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxName0
+            // 
+            this.textBoxName0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxName0.Location = new System.Drawing.Point(155, 308);
+            this.textBoxName0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxName0.Name = "textBoxName0";
+            this.textBoxName0.Size = new System.Drawing.Size(216, 33);
+            this.textBoxName0.TabIndex = 84;
+            this.textBoxName0.Text = "0";
+            this.textBoxName0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label19.Location = new System.Drawing.Point(21, 415);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(56, 16);
+            this.label19.TabIndex = 96;
+            this.label19.Text = "操作员";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(21, 368);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 96;
+            this.label1.Text = "仪器编号";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(21, 320);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.TabIndex = 96;
+            this.label8.Text = "试样名称";
+            // 
+            // textBoxRes0
             // 
             this.textBoxRes0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxRes0.Location = new System.Drawing.Point(160, 22);
-            this.textBoxRes0.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxRes0.Name = "textBoxRes1";
+            this.textBoxRes0.Location = new System.Drawing.Point(213, 29);
+            this.textBoxRes0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxRes0.Name = "textBoxRes0";
             this.textBoxRes0.ReadOnly = true;
-            this.textBoxRes0.Size = new System.Drawing.Size(163, 33);
+            this.textBoxRes0.Size = new System.Drawing.Size(216, 33);
             this.textBoxRes0.TabIndex = 75;
             this.textBoxRes0.TabStop = false;
             this.textBoxRes0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxRes2
+            // textBoxRes1
             // 
             this.textBoxRes1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxRes1.Location = new System.Drawing.Point(522, 22);
-            this.textBoxRes1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxRes1.Name = "textBoxRes2";
+            this.textBoxRes1.Location = new System.Drawing.Point(696, 29);
+            this.textBoxRes1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxRes1.Name = "textBoxRes1";
             this.textBoxRes1.ReadOnly = true;
-            this.textBoxRes1.Size = new System.Drawing.Size(163, 33);
+            this.textBoxRes1.Size = new System.Drawing.Size(216, 33);
             this.textBoxRes1.TabIndex = 77;
             this.textBoxRes1.TabStop = false;
             this.textBoxRes1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -155,11 +322,11 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(160, 57);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox2.Location = new System.Drawing.Point(213, 76);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(163, 33);
+            this.textBox2.Size = new System.Drawing.Size(216, 33);
             this.textBox2.TabIndex = 79;
             this.textBox2.TabStop = false;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -167,11 +334,11 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox9.Location = new System.Drawing.Point(522, 57);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox9.Location = new System.Drawing.Point(696, 76);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(163, 33);
+            this.textBox9.Size = new System.Drawing.Size(216, 33);
             this.textBox9.TabIndex = 78;
             this.textBox9.TabStop = false;
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -179,11 +346,11 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(160, 92);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox3.Location = new System.Drawing.Point(213, 123);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(163, 33);
+            this.textBox3.Size = new System.Drawing.Size(216, 33);
             this.textBox3.TabIndex = 71;
             this.textBox3.TabStop = false;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -191,11 +358,11 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox10.Location = new System.Drawing.Point(522, 92);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox10.Location = new System.Drawing.Point(696, 123);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(163, 33);
+            this.textBox10.Size = new System.Drawing.Size(216, 33);
             this.textBox10.TabIndex = 70;
             this.textBox10.TabStop = false;
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -203,11 +370,11 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(160, 127);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox4.Location = new System.Drawing.Point(213, 169);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(163, 33);
+            this.textBox4.Size = new System.Drawing.Size(216, 33);
             this.textBox4.TabIndex = 69;
             this.textBox4.TabStop = false;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -215,88 +382,56 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox11.Location = new System.Drawing.Point(522, 127);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.textBox11.Location = new System.Drawing.Point(696, 169);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(163, 33);
+            this.textBox11.Size = new System.Drawing.Size(216, 33);
             this.textBox11.TabIndex = 74;
             this.textBox11.TabStop = false;
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxTime1
+            // textBoxTime0
             // 
             this.textBoxTime0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxTime0.Location = new System.Drawing.Point(160, 162);
-            this.textBoxTime0.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxTime0.Name = "textBoxTime1";
+            this.textBoxTime0.Location = new System.Drawing.Point(213, 216);
+            this.textBoxTime0.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxTime0.Name = "textBoxTime0";
             this.textBoxTime0.ReadOnly = true;
-            this.textBoxTime0.Size = new System.Drawing.Size(163, 33);
+            this.textBoxTime0.Size = new System.Drawing.Size(216, 33);
             this.textBoxTime0.TabIndex = 73;
             this.textBoxTime0.TabStop = false;
             this.textBoxTime0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxTime2
+            // textBoxTime1
             // 
             this.textBoxTime1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxTime1.Location = new System.Drawing.Point(522, 162);
-            this.textBoxTime1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxTime1.Name = "textBoxTime2";
+            this.textBoxTime1.Location = new System.Drawing.Point(696, 216);
+            this.textBoxTime1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxTime1.Name = "textBoxTime1";
             this.textBoxTime1.ReadOnly = true;
-            this.textBoxTime1.Size = new System.Drawing.Size(163, 33);
+            this.textBoxTime1.Size = new System.Drawing.Size(216, 33);
             this.textBoxTime1.TabIndex = 76;
             this.textBoxTime1.TabStop = false;
             this.textBoxTime1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxNo1
             // 
-            this.textBoxNo0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxNo0.Location = new System.Drawing.Point(116, 196);
-            this.textBoxNo0.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxNo0.Name = "textBoxNo1";
-            this.textBoxNo0.Size = new System.Drawing.Size(163, 33);
-            this.textBoxNo0.TabIndex = 72;
-            this.textBoxNo0.Text = "0";
-            this.textBoxNo0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxNo2
-            // 
             this.textBoxNo1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxNo1.Location = new System.Drawing.Point(522, 197);
-            this.textBoxNo1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxNo1.Name = "textBoxNo2";
-            this.textBoxNo1.Size = new System.Drawing.Size(163, 33);
+            this.textBoxNo1.Location = new System.Drawing.Point(696, 263);
+            this.textBoxNo1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.textBoxNo1.Name = "textBoxNo1";
+            this.textBoxNo1.Size = new System.Drawing.Size(216, 33);
             this.textBoxNo1.TabIndex = 80;
             this.textBoxNo1.Text = "0";
             this.textBoxNo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxOp1
-            // 
-            this.textBoxOp0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxOp0.Location = new System.Drawing.Point(116, 302);
-            this.textBoxOp0.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxOp0.Name = "textBoxOp1";
-            this.textBoxOp0.Size = new System.Drawing.Size(163, 33);
-            this.textBoxOp0.TabIndex = 84;
-            this.textBoxOp0.Text = "0";
-            this.textBoxOp0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxOp2
-            // 
-            this.textBoxOp1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxOp1.Location = new System.Drawing.Point(128, 302);
-            this.textBoxOp1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.textBoxOp1.Name = "textBoxOp2";
-            this.textBoxOp1.Size = new System.Drawing.Size(163, 33);
-            this.textBoxOp1.TabIndex = 94;
-            this.textBoxOp1.Text = "0";
-            this.textBoxOp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(60, 32);
+            this.label2.Location = new System.Drawing.Point(80, 43);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 88;
@@ -306,7 +441,8 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(415, 32);
+            this.label9.Location = new System.Drawing.Point(553, 43);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 16);
             this.label9.TabIndex = 89;
@@ -316,7 +452,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(60, 67);
+            this.label3.Location = new System.Drawing.Point(80, 89);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 90;
@@ -326,7 +463,8 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(415, 66);
+            this.label10.Location = new System.Drawing.Point(553, 88);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 92;
@@ -336,7 +474,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(60, 102);
+            this.label4.Location = new System.Drawing.Point(80, 136);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 91;
@@ -346,7 +485,8 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(415, 101);
+            this.label11.Location = new System.Drawing.Point(553, 135);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 16);
             this.label11.TabIndex = 86;
@@ -356,7 +496,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(60, 136);
+            this.label5.Location = new System.Drawing.Point(80, 181);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 87;
@@ -366,7 +507,8 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(415, 136);
+            this.label12.Location = new System.Drawing.Point(553, 181);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 16);
             this.label12.TabIndex = 95;
@@ -376,7 +518,8 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(60, 171);
+            this.label6.Location = new System.Drawing.Point(80, 228);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 85;
@@ -386,7 +529,8 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(415, 171);
+            this.label13.Location = new System.Drawing.Point(553, 228);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 16);
             this.label13.TabIndex = 97;
@@ -396,51 +540,20 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(60, 207);
+            this.label7.Location = new System.Drawing.Point(80, 276);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 16);
             this.label7.TabIndex = 98;
             this.label7.Text = "试样编号";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(21, 202);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 16);
-            this.label14.TabIndex = 99;
-            this.label14.Text = "试样编号";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(16, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 16);
-            this.label8.TabIndex = 96;
-            this.label8.Text = "试样名称";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(21, 239);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 16);
-            this.label15.TabIndex = 93;
-            this.label15.Text = "试样名称";
-            // 
             // btnRTData1
             // 
             this.btnRTData1.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRTData1.Location = new System.Drawing.Point(44, 350);
+            this.btnRTData1.Location = new System.Drawing.Point(59, 467);
+            this.btnRTData1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRTData1.Name = "btnRTData1";
-            this.btnRTData1.Size = new System.Drawing.Size(88, 38);
+            this.btnRTData1.Size = new System.Drawing.Size(117, 51);
             this.btnRTData1.TabIndex = 101;
             this.btnRTData1.Text = "#1实时数据";
             this.btnRTData1.UseVisualStyleBackColor = true;
@@ -449,9 +562,10 @@
             // btnHistReport
             // 
             this.btnHistReport.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnHistReport.Location = new System.Drawing.Point(44, 394);
+            this.btnHistReport.Location = new System.Drawing.Point(59, 525);
+            this.btnHistReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHistReport.Name = "btnHistReport";
-            this.btnHistReport.Size = new System.Drawing.Size(88, 38);
+            this.btnHistReport.Size = new System.Drawing.Size(117, 51);
             this.btnHistReport.TabIndex = 106;
             this.btnHistReport.Text = "历史报表";
             this.btnHistReport.UseVisualStyleBackColor = true;
@@ -460,9 +574,10 @@
             // btnRTData2
             // 
             this.btnRTData2.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRTData2.Location = new System.Drawing.Point(138, 350);
+            this.btnRTData2.Location = new System.Drawing.Point(184, 467);
+            this.btnRTData2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRTData2.Name = "btnRTData2";
-            this.btnRTData2.Size = new System.Drawing.Size(88, 38);
+            this.btnRTData2.Size = new System.Drawing.Size(117, 51);
             this.btnRTData2.TabIndex = 103;
             this.btnRTData2.Text = "#2实时数据";
             this.btnRTData2.UseVisualStyleBackColor = true;
@@ -471,9 +586,10 @@
             // btnBaseSetting
             // 
             this.btnBaseSetting.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBaseSetting.Location = new System.Drawing.Point(232, 350);
+            this.btnBaseSetting.Location = new System.Drawing.Point(309, 467);
+            this.btnBaseSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBaseSetting.Name = "btnBaseSetting";
-            this.btnBaseSetting.Size = new System.Drawing.Size(88, 38);
+            this.btnBaseSetting.Size = new System.Drawing.Size(117, 51);
             this.btnBaseSetting.TabIndex = 104;
             this.btnBaseSetting.Text = "基本设置";
             this.btnBaseSetting.UseVisualStyleBackColor = true;
@@ -482,9 +598,10 @@
             // btnTempCorret
             // 
             this.btnTempCorret.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnTempCorret.Location = new System.Drawing.Point(138, 394);
+            this.btnTempCorret.Location = new System.Drawing.Point(184, 525);
+            this.btnTempCorret.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTempCorret.Name = "btnTempCorret";
-            this.btnTempCorret.Size = new System.Drawing.Size(88, 38);
+            this.btnTempCorret.Size = new System.Drawing.Size(117, 51);
             this.btnTempCorret.TabIndex = 105;
             this.btnTempCorret.Text = "温度修正";
             this.btnTempCorret.UseVisualStyleBackColor = true;
@@ -493,9 +610,10 @@
             // btnPIDSetting
             // 
             this.btnPIDSetting.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPIDSetting.Location = new System.Drawing.Point(232, 394);
+            this.btnPIDSetting.Location = new System.Drawing.Point(309, 525);
+            this.btnPIDSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPIDSetting.Name = "btnPIDSetting";
-            this.btnPIDSetting.Size = new System.Drawing.Size(88, 38);
+            this.btnPIDSetting.Size = new System.Drawing.Size(117, 51);
             this.btnPIDSetting.TabIndex = 110;
             this.btnPIDSetting.Text = "PID设置";
             this.btnPIDSetting.UseVisualStyleBackColor = true;
@@ -504,9 +622,10 @@
             // btnManualTest
             // 
             this.btnManualTest.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnManualTest.Location = new System.Drawing.Point(44, 438);
+            this.btnManualTest.Location = new System.Drawing.Point(59, 584);
+            this.btnManualTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnManualTest.Name = "btnManualTest";
-            this.btnManualTest.Size = new System.Drawing.Size(88, 38);
+            this.btnManualTest.Size = new System.Drawing.Size(117, 51);
             this.btnManualTest.TabIndex = 107;
             this.btnManualTest.Text = "手动测试";
             this.btnManualTest.UseVisualStyleBackColor = true;
@@ -515,9 +634,10 @@
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Location = new System.Drawing.Point(138, 438);
+            this.btnPrint.Location = new System.Drawing.Point(184, 584);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(88, 38);
+            this.btnPrint.Size = new System.Drawing.Size(117, 51);
             this.btnPrint.TabIndex = 109;
             this.btnPrint.Text = "打印";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -526,9 +646,10 @@
             // btnSaveExcel
             // 
             this.btnSaveExcel.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSaveExcel.Location = new System.Drawing.Point(232, 438);
+            this.btnSaveExcel.Location = new System.Drawing.Point(309, 584);
+            this.btnSaveExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveExcel.Name = "btnSaveExcel";
-            this.btnSaveExcel.Size = new System.Drawing.Size(88, 38);
+            this.btnSaveExcel.Size = new System.Drawing.Size(117, 51);
             this.btnSaveExcel.TabIndex = 108;
             this.btnSaveExcel.Text = "保存Excel";
             this.btnSaveExcel.UseVisualStyleBackColor = true;
@@ -538,7 +659,8 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(440, 357);
+            this.label16.Location = new System.Drawing.Point(587, 476);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 20);
             this.label16.TabIndex = 111;
@@ -548,7 +670,8 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(440, 399);
+            this.label17.Location = new System.Drawing.Point(587, 532);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 20);
             this.label17.TabIndex = 113;
@@ -558,7 +681,8 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(440, 443);
+            this.label18.Location = new System.Drawing.Point(587, 591);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 20);
             this.label18.TabIndex = 112;
@@ -567,9 +691,10 @@
             // btnSysCfg
             // 
             this.btnSysCfg.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSysCfg.Location = new System.Drawing.Point(647, 353);
+            this.btnSysCfg.Location = new System.Drawing.Point(863, 471);
+            this.btnSysCfg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSysCfg.Name = "btnSysCfg";
-            this.btnSysCfg.Size = new System.Drawing.Size(79, 74);
+            this.btnSysCfg.Size = new System.Drawing.Size(105, 99);
             this.btnSysCfg.TabIndex = 116;
             this.btnSysCfg.Text = "系统配置";
             this.btnSysCfg.UseVisualStyleBackColor = true;
@@ -577,60 +702,70 @@
             // 
             // btnStart
             // 
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
             this.btnStart.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStart.Location = new System.Drawing.Point(326, 348);
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnStart.Location = new System.Drawing.Point(435, 467);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(79, 61);
+            this.btnStart.Size = new System.Drawing.Size(105, 51);
             this.btnStart.TabIndex = 115;
             this.btnStart.Text = "开始";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
+            this.btnStop.BackColor = System.Drawing.Color.Transparent;
             this.btnStop.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStop.Location = new System.Drawing.Point(326, 415);
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnStop.Location = new System.Drawing.Point(435, 525);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(79, 61);
+            this.btnStop.Size = new System.Drawing.Size(105, 51);
             this.btnStop.TabIndex = 114;
             this.btnStop.Text = "停止";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // textBoxServerIP
             // 
             this.textBoxServerIP.Enabled = false;
             this.textBoxServerIP.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxServerIP.Location = new System.Drawing.Point(520, 440);
+            this.textBoxServerIP.Location = new System.Drawing.Point(693, 587);
+            this.textBoxServerIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxServerIP.Name = "textBoxServerIP";
-            this.textBoxServerIP.Size = new System.Drawing.Size(126, 26);
+            this.textBoxServerIP.Size = new System.Drawing.Size(167, 26);
             this.textBoxServerIP.TabIndex = 119;
             // 
             // textBoxServerPort
             // 
             this.textBoxServerPort.Enabled = false;
             this.textBoxServerPort.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxServerPort.Location = new System.Drawing.Point(652, 440);
+            this.textBoxServerPort.Location = new System.Drawing.Point(869, 587);
+            this.textBoxServerPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxServerPort.Name = "textBoxServerPort";
-            this.textBoxServerPort.Size = new System.Drawing.Size(74, 26);
+            this.textBoxServerPort.Size = new System.Drawing.Size(97, 26);
             this.textBoxServerPort.TabIndex = 120;
             // 
             // textBoxCom2
             // 
             this.textBoxCom2.Enabled = false;
             this.textBoxCom2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxCom2.Location = new System.Drawing.Point(520, 396);
+            this.textBoxCom2.Location = new System.Drawing.Point(693, 528);
+            this.textBoxCom2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxCom2.Name = "textBoxCom2";
-            this.textBoxCom2.Size = new System.Drawing.Size(102, 26);
+            this.textBoxCom2.Size = new System.Drawing.Size(135, 26);
             this.textBoxCom2.TabIndex = 117;
             // 
             // textBoxCom1
             // 
             this.textBoxCom1.Enabled = false;
             this.textBoxCom1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxCom1.Location = new System.Drawing.Point(520, 354);
+            this.textBoxCom1.Location = new System.Drawing.Point(693, 472);
+            this.textBoxCom1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxCom1.Name = "textBoxCom1";
-            this.textBoxCom1.Size = new System.Drawing.Size(102, 26);
+            this.textBoxCom1.Size = new System.Drawing.Size(135, 26);
             this.textBoxCom1.TabIndex = 118;
             // 
             // printPreviewDialog1
@@ -643,98 +778,26 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // textBoxDevNo1
+            // TextXmlBtn
             // 
-            this.textBoxDevNo0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxDevNo0.Location = new System.Drawing.Point(116, 267);
-            this.textBoxDevNo0.Margin = new System.Windows.Forms.Padding(10);
-            this.textBoxDevNo0.Name = "textBoxDevNo1";
-            this.textBoxDevNo0.Size = new System.Drawing.Size(163, 33);
-            this.textBoxDevNo0.TabIndex = 84;
-            this.textBoxDevNo0.Text = "0";
-            this.textBoxDevNo0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextXmlBtn.Location = new System.Drawing.Point(435, 584);
+            this.TextXmlBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextXmlBtn.Name = "TextXmlBtn";
+            this.TextXmlBtn.Size = new System.Drawing.Size(105, 51);
+            this.TextXmlBtn.TabIndex = 121;
+            this.TextXmlBtn.Text = "XML测试";
+            this.TextXmlBtn.UseVisualStyleBackColor = true;
+            this.TextXmlBtn.Click += new System.EventHandler(this.TextXmlBtn_Click);
             // 
-            // textBoxName1
+            // printDialog1
             // 
-            this.textBoxName0.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxName0.Location = new System.Drawing.Point(116, 231);
-            this.textBoxName0.Margin = new System.Windows.Forms.Padding(10);
-            this.textBoxName0.Name = "textBoxName1";
-            this.textBoxName0.Size = new System.Drawing.Size(163, 33);
-            this.textBoxName0.TabIndex = 84;
-            this.textBoxName0.Text = "0";
-            this.textBoxName0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(16, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 96;
-            this.label1.Text = "仪器编号";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label19.Location = new System.Drawing.Point(16, 311);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 16);
-            this.label19.TabIndex = 96;
-            this.label19.Text = "操作员";
-            // 
-            // textBoxDevNo2
-            // 
-            this.textBoxDevNo1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxDevNo1.Location = new System.Drawing.Point(128, 266);
-            this.textBoxDevNo1.Margin = new System.Windows.Forms.Padding(10);
-            this.textBoxDevNo1.Name = "textBoxDevNo2";
-            this.textBoxDevNo1.Size = new System.Drawing.Size(163, 33);
-            this.textBoxDevNo1.TabIndex = 94;
-            this.textBoxDevNo1.Text = "0";
-            this.textBoxDevNo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxName2
-            // 
-            this.textBoxName1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxName1.Location = new System.Drawing.Point(128, 230);
-            this.textBoxName1.Margin = new System.Windows.Forms.Padding(10);
-            this.textBoxName1.Name = "textBoxName2";
-            this.textBoxName1.Size = new System.Drawing.Size(163, 33);
-            this.textBoxName1.TabIndex = 94;
-            this.textBoxName1.Text = "0";
-            this.textBoxName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(21, 309);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(56, 16);
-            this.label20.TabIndex = 93;
-            this.label20.Text = "操作员";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("SimHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label21.Location = new System.Drawing.Point(21, 273);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(72, 16);
-            this.label21.TabIndex = 99;
-            this.label21.Text = "仪器编号";
+            this.printDialog1.UseEXDialog = true;
             // 
             // WindowMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TextXmlBtn);
             this.Controls.Add(this.textBoxCom1);
             this.Controls.Add(this.textBoxCom2);
             this.Controls.Add(this.textBoxServerPort);
@@ -778,8 +841,9 @@
             this.Controls.Add(this.textBoxRes0);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "WindowMain";
-            this.Size = new System.Drawing.Size(757, 481);
+            this.Size = new System.Drawing.Size(1009, 641);
             this.Load += new System.EventHandler(this.WindowMain_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -851,6 +915,8 @@
         private System.Windows.Forms.TextBox textBoxName0;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button TextXmlBtn;
+        private System.Windows.Forms.PrintDialog printDialog1;
 
     }
 }

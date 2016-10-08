@@ -41,9 +41,10 @@ namespace CommCtrlSystem
             try
             {
                 Configure cfg = null;
-                if (File.Exists(@"cfg.json"))
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                if (File.Exists(cfgfile))
                 {
-                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                 }
 
                 string[] portList = System.IO.Ports.SerialPort.GetPortNames();
@@ -147,6 +148,7 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -193,12 +195,13 @@ namespace CommCtrlSystem
                 cfg.username = textBoxUserName.Text.Trim();
                 cfg.userpassword = textBoxPassword.Text.Trim();
                 cfg.analysis = textBoxAnalysis.Text.Trim();
-
-                File.WriteAllText(@"cfg.json", JsonConvert.SerializeObject(cfg));
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                File.WriteAllText(cfgfile, JsonConvert.SerializeObject(cfg));
                 this.Close();
             } 
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

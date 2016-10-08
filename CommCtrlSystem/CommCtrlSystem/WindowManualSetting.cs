@@ -157,5 +157,11 @@ namespace CommCtrlSystem
                 inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
             }
         }
+
+        private void WindowManualSetting_Load(object sender, EventArgs e)
+        {
+            inputCommPortSingleton.GetInstance().initComm();
+            inputCommPortSingleton.GetInstance().openComm();
+        }
     }
 }

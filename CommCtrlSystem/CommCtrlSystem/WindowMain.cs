@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
 using Newtonsoft.Json;
-using System.Drawing;
 using System.Drawing.Printing;
 using Modbus.Device;
 using Modbus.IO;
@@ -64,8 +63,6 @@ namespace CommCtrlSystem
         private short coldfilterpoint0 = 0;
         private short coldfilterpoint1 = 0;
 
-        private TextBox[] tbmain;
-
         private bool l_report_flg = false;
         private bool r_report_flg = false;
 
@@ -76,7 +73,8 @@ namespace CommCtrlSystem
         {
             InitializeComponent();
             InitializeRegs();
-            AccessHelper.initAccessHelper("CCSData.accdb");
+            string dbfile = System.IO.Path.Combine(Application.StartupPath, "CCSData.mdb");
+            AccessHelper.initAccessHelper(dbfile);
             getConfig();
 
             wrd1 = new WindowRealtimeData();
@@ -134,19 +132,23 @@ namespace CommCtrlSystem
         private void btnPrint_Click(object sender, EventArgs e)
         {
             PaperSize p = null;
-            foreach (PaperSize ps in printDocument1.PrinterSettings.PaperSizes)
+            this.printDialog1.Document = printDocument1;
+            DialogResult dr = this.printDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                if (ps.PaperName.Equals("A4"))
-                    p = ps;
+                foreach (PaperSize ps in printDocument1.PrinterSettings.PaperSizes)
+                {
+                    if (ps.PaperName.Equals("A4"))
+                        p = ps;
+                }
+
+                this.printDocument1.DefaultPageSettings.PaperSize = p;
+                this.printDocument1.PrintPage += new PrintPageEventHandler(this.MyPrintDocument_PrintPage);
+
+                printPreviewDialog1.Document = printDocument1;
+
+                printPreviewDialog1.ShowDialog();
             }
-
-            this.printDocument1.DefaultPageSettings.PaperSize = p;
-            this.printDocument1.PrintPage += new PrintPageEventHandler(this.MyPrintDocument_PrintPage);
-
-            printPreviewDialog1.Document = printDocument1;
-            DialogResult result = printPreviewDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-                this.printDocument1.Print();
         }
 
         private void MyPrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -189,9 +191,10 @@ namespace CommCtrlSystem
             try
             {
                 Configure cfg = null;
-                if (File.Exists(@"cfg.json"))
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                if (File.Exists(cfgfile))
                 {
-                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                     if (cfg != null)
                     {
                         textBoxCom1.Text = cfg.InputSerialPortName;
@@ -205,12 +208,15 @@ namespace CommCtrlSystem
                         else
                         {
                             btnStop.Enabled = false;
+                            btnRTData1.Enabled = false;
+                            btnRTData2.Enabled = false;
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -226,21 +232,36 @@ namespace CommCtrlSystem
             //    btnStop_Click(null, null);
             //}
             //Random random = new Random();
-            while (m_updateDataFlg)
+            while (m_updateDataFlg)  
             {
                 try
                 {
-                    inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
+                    if (false == inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs))
+                    {
+                        break;
+                    }
                     UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
                     BeginInvoke(umi, modbusRegs);
                     Thread.Sleep(1000);
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LogClass.GetInstance().WriteExceptionLog(ex);
+                    MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
+            }
 
+            while (m_updateDataFlg)
+            {
+                try
+                {
+                    Thread.Sleep(1000);
+                }
+                catch (Exception ex)
+                {
+                    LogClass.GetInstance().WriteExceptionLog(ex);
+                }
             }
             inputCommPortSingleton.GetInstance().closeComm();
         }
@@ -250,8 +271,8 @@ namespace CommCtrlSystem
             textBoxRes0.Text = reg.stReg[CHECKFINISH].getHighRegString();
             textBoxRes1.Text = reg.stReg[CHECKFINISH].getLowRegString();
 
-            textBox2.Text = reg.stReg[TEMP_OIL0].getShortValue().ToString();
-            textBox9.Text = reg.stReg[TEMP_OIL1].getShortValue().ToString();
+            textBox2.Text = reg.stReg[TEMP_OIL0].getFloatValue().ToString();
+            textBox9.Text = reg.stReg[TEMP_OIL1].getFloatValue().ToString();
 
             textBox3.Text = reg.stReg[TEMP_BATH0].getShortValue().ToString();
             textBox10.Text = reg.stReg[TEMP_BATH1].getShortValue().ToString();
@@ -352,6 +373,8 @@ namespace CommCtrlSystem
         {
             btnStart.Enabled = false;
             btnStop.Enabled = true;
+            btnRTData1.Enabled = true;
+            btnRTData2.Enabled = true;
 
             lock (locker)
             {
@@ -376,6 +399,8 @@ namespace CommCtrlSystem
             }
             btnStart.Enabled = true;
             btnStop.Enabled = false;
+            btnRTData1.Enabled = false;
+            btnRTData2.Enabled = false;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -544,7 +569,8 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
-
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -636,9 +662,10 @@ namespace CommCtrlSystem
             try
             {
                 Configure cfg = null;
-                if (File.Exists(@"cfg.json"))
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                if (File.Exists(cfgfile))
                 {
-                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                     if (cfg != null)
                     {
                         LimsDoc l;
@@ -681,6 +708,7 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -750,13 +778,18 @@ namespace CommCtrlSystem
             try
             {
                 Configure cfg = null;
-                if (File.Exists(@"cfg.json"))
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                if (File.Exists(cfgfile))
                 {
-                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                    cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                     if (cfg != null)
                     {
                         if (cfg.OutoutMethod == "串口")
                         {
+                            if (cfg.OutputSerialPortName.Length == 0)
+                            {
+                                return true;
+                            }
                             using (SerialPort masterPort = new SerialPort(cfg.OutputSerialPortName))
                             {
                                 // configure serial ports
@@ -820,10 +853,17 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
+                LogClass.GetInstance().WriteExceptionLog(ex);
                 MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return true;
+        }
+
+        private void TextXmlBtn_Click(object sender, EventArgs e)
+        {
+            TestXMLForm testXMLForm = new TestXMLForm();
+            testXMLForm.ShowDialog();
         }
     }
 }

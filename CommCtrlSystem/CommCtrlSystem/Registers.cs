@@ -21,6 +21,20 @@ namespace CommCtrlSystem
             return (short)value;
         }
 
+        public float getFloatValue(int divisor = 100)
+        {
+            //int iValue = (int)value;
+            //if (value >= 0x8000)
+            //{
+            //    iValue = 0x10000 - iValue;
+            //}
+            if (divisor == 0)
+            {
+                divisor = 1;
+            }
+            return (float)value / divisor;
+        }
+
         public void setValue(ushort value)
         {
             this.value = value;

@@ -15,7 +15,7 @@ namespace CommCtrlSystem
         private Thread updateDataThread;
         private ModbusRegisters modbusRegs;
         private delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
-        private TextBox[] tbBaseSetting;
+        private List<RegTextBox> lRegTextBox;
         private const byte SLAVEID = 1;
         private const ushort STARTADDRESS = 0x13;
         private const ushort REGNUM = 8;
@@ -28,23 +28,18 @@ namespace CommCtrlSystem
 
         void InitializeRegs()
         {
-            tbBaseSetting = new TextBox[10];
+            lRegTextBox = new List<RegTextBox>();
             modbusRegs = new ModbusRegisters(SLAVEID, STARTADDRESS, REGNUM);
-            tbBaseSetting[0] = textBox1;
-            tbBaseSetting[1] = textBox2;
-            tbBaseSetting[2] = textBox3;
-            tbBaseSetting[3] = textBox4;
-            tbBaseSetting[4] = textBox5;
-            tbBaseSetting[5] = textBox6;
-            tbBaseSetting[6] = textBox7;
-            tbBaseSetting[7] = textBox8;
-            tbBaseSetting[8] = textBox9;
-            tbBaseSetting[9] = textBox10;
 
-            for (int i = 0; i < 10; i++)
+            foreach (Control control in this.Controls)//遍历本窗体中所有的ComboBox控件 
             {
-                tbBaseSetting[i].KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
-            }
+                if (control.GetType().ToString() == "CommCtrlSystem.RegTextBox")
+                {
+                    (control as CommCtrlSystem.RegTextBox).setReg(ref modbusRegs);
+                    //(control as CommCtrlSystem.RegTextBox).KeyPress += new KeyPressEventHandler(new CheckUserInput().CheckIsNumber);
+                    lRegTextBox.Add(control as CommCtrlSystem.RegTextBox);
+                }
+            } 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,18 +51,28 @@ namespace CommCtrlSystem
 
         public void DoUpdateRegs()
         {
-            inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
-            UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
-            BeginInvoke(umi, modbusRegs);
+            try
+            {
+                inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
+                UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
+                BeginInvoke(umi, modbusRegs);
+            }
+            catch (Exception ex)
+            {
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
         }
 
         public void UpdateUIData(ModbusRegisters reg)
         {
-            for (int i = 0; i < reg.numRegisters; i++)
+            for (int i = 0; i < lRegTextBox.Count; i++)
             {
-                tbBaseSetting[i].Text = reg.stReg[i].getShortValue().ToString();
+                lRegTextBox[i].UpdateData();
             }
+            //regTextBox1.UpdateData();
         }
 
         private void buttonRead_Click(object sender, EventArgs e)
@@ -78,9 +83,17 @@ namespace CommCtrlSystem
 
         private void buttonWrite_Click(object sender, EventArgs e)
         {
-            modbusRegs.stReg[0].setValue(ushort.Parse(tbBaseSetting[0].Text.ToString()));
-            modbusRegs.stReg[1].setValue(ushort.Parse(tbBaseSetting[1].Text.ToString()));
+            //modbusRegs.stReg[0].setValue(ushort.Parse(tbBaseSetting[0].Text.ToString()));
+            //modbusRegs.stReg[1].setValue(ushort.Parse(tbBaseSetting[1].Text.ToString()));
             inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+        }
+
+        private void WindowBaseSetting_Load(object sender, EventArgs e)
+        {
+            inputCommPortSingleton.GetInstance().initComm();
+            inputCommPortSingleton.GetInstance().openComm();
+            updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
+            updateDataThread.Start();
         }
     }
 }

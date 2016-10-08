@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
 using Newtonsoft.Json;
-using System.Drawing;
 using System.Drawing.Printing;
 using Modbus.Device;
 using Modbus.IO;

@@ -228,6 +228,7 @@
             this.Controls.Add(this.button17);
             this.Name = "WindowManualSetting";
             this.Size = new System.Drawing.Size(757, 481);
+            this.Load += new System.EventHandler(this.WindowManualSetting_Load);
             this.ResumeLayout(false);
 
         }

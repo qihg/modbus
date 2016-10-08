@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using System.Drawing;
 using System.Drawing.Printing;
 
 namespace CommCtrlSystem
@@ -17,7 +16,7 @@ namespace CommCtrlSystem
         DateTime start_datetime;
         DateTime end_datetime;
         bool bSelectDateFlg = false;
-        bool bDataLoaded = false;
+        //bool bDataLoaded = false;
         List<int> dellist_left, dellist_right;
 
         string resToPrint;
@@ -72,7 +71,7 @@ namespace CommCtrlSystem
 
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
             dataGridView1.AllowUserToAddRows = false;//datagridview
-            //dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             DataSet ds2 = new DataSet();
@@ -104,7 +103,7 @@ namespace CommCtrlSystem
 
             dellist_left.Clear();
             dellist_right.Clear();
-            bDataLoaded = true;
+            //bDataLoaded = true;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -143,19 +142,23 @@ namespace CommCtrlSystem
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             PaperSize p = null;
-            foreach (PaperSize ps in printDocument1.PrinterSettings.PaperSizes)
+            this.printDialog1.Document = printDocument1;
+            DialogResult dr = this.printDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                if (ps.PaperName.Equals("A4"))
-                    p = ps;
+                foreach (PaperSize ps in printDocument1.PrinterSettings.PaperSizes)
+                {
+                    if (ps.PaperName.Equals("A4"))
+                        p = ps;
+                }
+
+                this.printDocument1.DefaultPageSettings.PaperSize = p;
+                this.printDocument1.PrintPage += new PrintPageEventHandler(this.MyPrintDocument_PrintPage);
+
+                printPreviewDialog1.Document = printDocument1;
+
+                printPreviewDialog1.ShowDialog();
             }
-
-            this.printDocument1.DefaultPageSettings.PaperSize = p;
-            this.printDocument1.PrintPage += new PrintPageEventHandler(this.MyPrintDocument_PrintPage);
-
-            printPreviewDialog1.Document = printDocument1;
-            DialogResult result = printPreviewDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-                this.printDocument1.Print();
         }
 
         private void MyPrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -277,6 +280,22 @@ namespace CommCtrlSystem
             noToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             operatorToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             timeToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            resToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            noToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            operatorToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            timeToPrint = this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            resToPrint = this.dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+            noToPrint = this.dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+            operatorToPrint = this.dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+            timeToPrint = this.dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
     }
 }

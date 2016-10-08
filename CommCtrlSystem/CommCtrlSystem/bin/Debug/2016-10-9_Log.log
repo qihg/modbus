@@ -1,0 +1,26 @@
+当前时间：2016-10-9 1:47:39
+异常信息：Access to the port 'COM7' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 122
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-9 1:57:35
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.ModbusRtuTransport.Read(Int32 count)
+   at Modbus.IO.ModbusRtuTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at CommCtrlSystem.inputCommPortSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 177
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+

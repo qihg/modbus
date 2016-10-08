@@ -10,6 +10,7 @@ using System.IO.Ports;
 using System.IO;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace CommCtrlSystem
 {
@@ -63,9 +64,10 @@ namespace CommCtrlSystem
                 if (port == null)
                 {
                     Configure cfg = null;
-                    if (File.Exists(@"cfg.json"))
+                    string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                    if (File.Exists(cfgfile))
                     {
-                        cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(@"cfg.json"));
+                        cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                     }
 
                     port = new SerialPort(cfg.OutputSerialPortName);

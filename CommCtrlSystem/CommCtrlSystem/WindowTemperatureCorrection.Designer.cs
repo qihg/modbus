@@ -504,6 +504,7 @@
             this.Controls.Add(this.buttonWTRead);
             this.Name = "WindowTemperatureCorrection";
             this.Size = new System.Drawing.Size(757, 481);
+            this.Load += new System.EventHandler(this.WindowTemperatureCorrection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

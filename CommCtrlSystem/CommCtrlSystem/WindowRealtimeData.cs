@@ -15,7 +15,6 @@ namespace CommCtrlSystem
     public partial class WindowRealtimeData : UserControl
     {
         private Random random = new Random();
-        private int pointIndex = 0;
 
         // Register define
         private const int TEMP_OIL0 = 0;
@@ -52,7 +51,7 @@ namespace CommCtrlSystem
             realtimeChart1.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
 
             realtimeChart1.ChartAreas[0].AxisY.Minimum = 0;
-            realtimeChart1.ChartAreas[0].AxisY.Maximum = 10;
+            realtimeChart1.ChartAreas[0].AxisY.Maximum = 100;
             // Reset number of series in the chart.
             realtimeChart1.Series.Clear();
 
@@ -146,6 +145,26 @@ namespace CommCtrlSystem
                 {
                     realtimeChart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
                 }
+
+                if (value1 > realtimeChart1.ChartAreas[0].AxisY.Maximum)
+                {
+                    realtimeChart1.ChartAreas[0].AxisY.Maximum = value1 + 10;
+                }
+
+                if (value2 > realtimeChart1.ChartAreas[0].AxisY.Maximum)
+                {
+                    realtimeChart1.ChartAreas[0].AxisY.Maximum = value2 + 10;
+                }
+
+                if (value1 < realtimeChart1.ChartAreas[0].AxisY.Minimum)
+                {
+                    realtimeChart1.ChartAreas[0].AxisY.Minimum = value1 - 10;
+                }
+
+                if (value2 < realtimeChart1.ChartAreas[0].AxisY.Minimum)
+                {
+                    realtimeChart1.ChartAreas[0].AxisY.Minimum = value2 - 10;
+                }
                 // Adjust Y & X axis scale
                 realtimeChart1.ResetAutoValues();
 
@@ -153,7 +172,8 @@ namespace CommCtrlSystem
             }
             catch (Exception ex)
             {
-                
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

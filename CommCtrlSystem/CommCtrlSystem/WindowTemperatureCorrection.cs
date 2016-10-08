@@ -92,5 +92,13 @@ namespace CommCtrlSystem
             }
             inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
         }
+
+        private void WindowTemperatureCorrection_Load(object sender, EventArgs e)
+        {
+            inputCommPortSingleton.GetInstance().initComm();
+            inputCommPortSingleton.GetInstance().openComm();
+            updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
+            updateDataThread.Start();
+        }
     }
 }

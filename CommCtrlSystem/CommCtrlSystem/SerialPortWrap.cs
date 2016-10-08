@@ -37,6 +37,7 @@ namespace CommCtrlSystem
                 }
                 catch (Exception ex)
                 {
+                    LogClass.GetInstance().WriteExceptionLog(ex);
                     MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

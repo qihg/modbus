@@ -1,0 +1,8 @@
+当前时间：2016-10-15 11:33:12
+异常信息：不能访问“12.xls”。
+异常对象：Microsoft Office Excel
+调用堆栈：
+at Microsoft.Office.Interop.Excel._Worksheet.SaveAs(String Filename, Object FileFormat, Object Password, Object WriteResPassword, Object ReadOnlyRecommended, Object CreateBackup, Object AddToMru, Object TextCodepage, Object TextVisualLayout, Object Local)
+   at CommCtrlSystem.WindowMain.CreateExcelFile(String FileName) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 602
+触发方法：Void SaveAs(System.String, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object)
+

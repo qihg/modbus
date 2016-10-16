@@ -173,7 +173,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

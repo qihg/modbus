@@ -57,7 +57,23 @@ namespace CommCtrlSystem
             return result;
         }
 
-        public void initComm()
+        public bool checkSerialPort(string portname)
+        {
+            string[] portList = System.IO.Ports.SerialPort.GetPortNames();
+
+            for (int i = 0; i < portList.Length; ++i)
+            {
+                string name = portList[i];
+                if (name.ToLower() == portname.ToLower())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool initComm()
         {
             lock (locker)
             {
@@ -71,6 +87,12 @@ namespace CommCtrlSystem
                     if (File.Exists(cfgfile))
                     {
                         cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
+
+                        if (!checkSerialPort(cfg.InputSerialPortName))
+                        {
+                            return false;
+                        }
+
                         port = new SerialPort(cfg.InputSerialPortName);
 
                         port.BaudRate = (int)GetNumber(cfg.InputSerialPortBaud);
@@ -105,9 +127,12 @@ namespace CommCtrlSystem
                     else
                     {
                         MessageBox.Show("Cannot find cfg.json!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
                 }
             }
+
+            return true;
         }
 
         public bool openComm()
@@ -136,7 +161,7 @@ namespace CommCtrlSystem
                     catch (Exception ex)
                     {
                         LogClass.GetInstance().WriteExceptionLog(ex);
-                        MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -147,7 +172,7 @@ namespace CommCtrlSystem
 
         public void closeComm()
         {
-            LogClass.GetInstance().WriteLogFile("closeComm Called " + port.PortName);
+            LogClass.GetInstance().WriteLogFile("closeComm Called");
             lock (locker)
             {
                 if (port != null && port.IsOpen)
@@ -183,7 +208,7 @@ namespace CommCtrlSystem
                 catch (TimeoutException ex)
                 {
                     LogClass.GetInstance().WriteLogFile("ReadHoldingRegisters Timeout:" + port.ReadTimeout.ToString());
-                    MessageBox.Show("Serial Port Read Timeout:" + port.ReadTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Serial Port Read Timeout:" + port.ReadTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 catch (Exception ex)
@@ -218,13 +243,13 @@ namespace CommCtrlSystem
                 catch (TimeoutException ex)
                 {
                     LogClass.GetInstance().WriteLogFile("WriteMultipleRegisters Timeout:" + port.WriteTimeout.ToString());
-                    MessageBox.Show("Serial Port Write Timeout:" + port.WriteTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Serial Port Write Timeout:" + port.WriteTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 catch (Exception ex)
                 {
                     LogClass.GetInstance().WriteExceptionLog(ex);
-                    MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -248,7 +273,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

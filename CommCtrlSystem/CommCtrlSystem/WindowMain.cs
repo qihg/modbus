@@ -197,13 +197,41 @@ namespace CommCtrlSystem
                     cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
                     if (cfg != null)
                     {
-                        textBoxCom1.Text = cfg.InputSerialPortName;
-                        textBoxCom2.Text = cfg.OutputSerialPortName;
+                        if (inputCommPortSingleton.GetInstance().checkSerialPort(cfg.InputSerialPortName))
+                        {
+                            textBoxCom1.Text = cfg.InputSerialPortName;
+                        }
+                        else
+                        {
+                            textBoxCom1.Text = "";
+                        }
+
+                        if (inputCommPortSingleton.GetInstance().checkSerialPort(cfg.OutputSerialPortName))
+                        {
+                            textBoxCom2.Text = cfg.OutputSerialPortName;
+                        }
+                        else
+                        {
+                            textBoxCom2.Text = "";
+                        }    
+
                         textBoxServerIP.Text = cfg.ServerIp;
                         textBoxServerPort.Text = cfg.ServerPort.ToString();
-                        if (cfg.bGetDataOnload)
+                        if (cfg.bGetDataOnload && inputCommPortSingleton.GetInstance().checkSerialPort(cfg.InputSerialPortName))
                         {
-                            startUpdateRegs();
+                            //startUpdateRegs();
+
+                            l_report_flg = false;
+                            r_report_flg = false;
+
+                            if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                            {
+                                btnStop_Click(null, null);
+                            }
+                            else
+                            {
+                                startUpdateRegs();
+                            }
                         }
                         else
                         {
@@ -217,7 +245,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -225,7 +253,7 @@ namespace CommCtrlSystem
 
         public void DoUpdateRegs()
         {
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             //inputCommPortSingleton.GetInstance().initComm();
             //if (false == inputCommPortSingleton.GetInstance().openComm())
             //{
@@ -241,13 +269,83 @@ namespace CommCtrlSystem
                         break;
                     }
                     UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
+
+                    while (!this.IsHandleCreated)
+                    {
+                        Thread.Sleep(100);
+                    }
                     BeginInvoke(umi, modbusRegs);
+                    if (modbusRegs.stReg[CHECKFINISH].getHighReg() != 0 && !l_report_flg)
+                    {
+                        byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
+                        //byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
+
+                        //Left room
+                        string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime0.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo0.Text + "', '" + textBoxOp0.Text + "', @imageLeft)";
+
+                        OleDbParameter[] pars = new OleDbParameter[1];
+
+                        OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
+                        p.Value = imageLeft;
+
+                        pars[0] = p;
+                        int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
+
+                        //Right room
+                        //string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime2.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo2.Text + "', '" + textBoxOp2.Text + "', @imageRight)";
+                        //OleDbParameter[] pars2 = new OleDbParameter[1];
+
+                        // OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
+                        //p2.Value = imageRight;
+
+                        //pars2[0] = p2;
+                        //i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
+                        //stopUpdateRegs();
+                        saveXMLFile(ROOMNUM_LEFT);
+                        byte[] serverData = getAsciiData(coldfilterpoint0.ToString(), textBoxTime0.Text, textBoxNo0.Text, textBoxName0.Text, textBoxDevNo0.Text, textBoxOp0.Text);
+                        transResultToServer(serverData);
+                        //getAsciiData("", "", "", "", "", "");
+                        l_report_flg = true;
+                    }
+
+                    if (modbusRegs.stReg[CHECKFINISH].getLowReg() != 0 && !r_report_flg)
+                    {
+                        //byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
+                        byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
+
+                        //Left room
+                        //string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime1.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageLeft)";
+
+                        //OleDbParameter[] pars = new OleDbParameter[1];
+
+                        //OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
+                        //p.Value = imageLeft;
+
+                        //pars[0] = p;
+                        //int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
+
+                        //Right room
+                        string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime1.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageRight)";
+                        OleDbParameter[] pars2 = new OleDbParameter[1];
+
+                        OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
+                        p2.Value = imageRight;
+
+                        pars2[0] = p2;
+                        int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
+                        //stopUpdateRegs();
+                        saveXMLFile(ROOMNUM_RIGHT);
+
+                        byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
+                        transResultToServer(serverData);
+                        r_report_flg = true;
+                    }
                     Thread.Sleep(1000);
                 }
                 catch (Exception ex)
                 {
                     LogClass.GetInstance().WriteExceptionLog(ex);
-                    MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
             }
@@ -301,72 +399,6 @@ namespace CommCtrlSystem
             //Random random = new Random();
             //WindowManager.GetInstance().wrd1.addPoint0(random.Next(0, 10), random.Next(30, 50));
             //WindowManager.GetInstance().wrd2.addPoint0(random.Next(90, 100), random.Next(10, 40));
-
-            if (reg.stReg[CHECKFINISH].getHighReg() != 0 && !l_report_flg)
-            {
-                byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
-                //byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
-
-                //Left room
-                string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime0.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo0.Text + "', '" + textBoxOp0.Text + "', @imageLeft)";
-
-                OleDbParameter[] pars = new OleDbParameter[1];
-
-                OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
-                p.Value = imageLeft;
-
-                pars[0] = p;
-                int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
-
-                //Right room
-                //string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime2.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo2.Text + "', '" + textBoxOp2.Text + "', @imageRight)";
-                //OleDbParameter[] pars2 = new OleDbParameter[1];
-
-               // OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
-                //p2.Value = imageRight;
-
-                //pars2[0] = p2;
-                //i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
-                //stopUpdateRegs();
-                saveXMLFile(ROOMNUM_LEFT);
-                byte[] serverData = getAsciiData(coldfilterpoint0.ToString(), textBoxTime0.Text, textBoxNo0.Text, textBoxName0.Text, textBoxDevNo0.Text, textBoxOp0.Text);
-                transResultToServer(serverData);
-                //getAsciiData("", "", "", "", "", "");
-                l_report_flg = true;
-            }
-
-            if (reg.stReg[CHECKFINISH].getLowReg() != 0 && !r_report_flg)
-            {
-                //byte[] imageLeft = WindowManager.GetInstance().wrd1.getImageData();
-                byte[] imageRight = WindowManager.GetInstance().wrd2.getImageData();
-
-                //Left room
-                //string sql1 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('left','" + DateTime.Now + "', '" + textBoxTime1.Text + "', '" + coldfilterpoint0.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageLeft)";
-
-                //OleDbParameter[] pars = new OleDbParameter[1];
-
-                //OleDbParameter p = new OleDbParameter("@imageLeft", OleDbType.VarBinary, imageLeft.Length);
-                //p.Value = imageLeft;
-
-                //pars[0] = p;
-                //int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql1, pars);
-
-                //Right room
-                string sql2 = "insert into ModbusResultTable(room, TestDate, TestTime, TestResult, TestNo, Operator, [TestImage]) values('right','" + DateTime.Now + "', '" + textBoxTime1.Text + "','" + coldfilterpoint1.ToString() + "', '" + textBoxNo1.Text + "', '" + textBoxOp1.Text + "', @imageRight)";
-                OleDbParameter[] pars2 = new OleDbParameter[1];
-
-                OleDbParameter p2 = new OleDbParameter("@imageRight", OleDbType.VarBinary, imageRight.Length);
-                p2.Value = imageRight;
-
-                pars2[0] = p2;
-                int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
-                //stopUpdateRegs();
-                saveXMLFile(ROOMNUM_RIGHT);
-
-                byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
-                transResultToServer(serverData);
-                r_report_flg = true;
-            }
         }
 
         public void startUpdateRegs()
@@ -394,7 +426,9 @@ namespace CommCtrlSystem
                 if (m_updateDataFlg)
                 {
                     m_updateDataFlg = false;
+                    LogClass.GetInstance().WriteLogFile("Join");
                     updateDataThread.Join();
+                    LogClass.GetInstance().WriteLogFile("Joined");
                 }
             }
             btnStart.Enabled = true;
@@ -409,10 +443,15 @@ namespace CommCtrlSystem
             l_report_flg = false;
             r_report_flg = false;
 
-            inputCommPortSingleton.GetInstance().initComm();
-            if (false == inputCommPortSingleton.GetInstance().openComm())
+            //inputCommPortSingleton.GetInstance().initComm();
+            if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
             {
                 btnStop_Click(null, null);
+
+                if (textBoxCom1.Text == "")
+                {
+                    btnSysCfg_Click(null, null);
+                }
             }
             else
             {
@@ -459,6 +498,7 @@ namespace CommCtrlSystem
             GroupBox tgb =  WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wbs);
+            WindowManager.GetInstance().wbs.update();
         }
 
         private void btnHistReport_Click(object sender, EventArgs e)
@@ -482,6 +522,7 @@ namespace CommCtrlSystem
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wtc);
+            WindowManager.GetInstance().wtc.update();
         }
 
         private void btnPIDSetting_Click(object sender, EventArgs e)
@@ -493,6 +534,7 @@ namespace CommCtrlSystem
             GroupBox tgb = WindowManager.GetInstance().gb;
             tgb.Controls.Clear();
             tgb.Controls.Add(WindowManager.GetInstance().wps);
+            WindowManager.GetInstance().wps.update();
         }
 
         private void btnManualTest_Click(object sender, EventArgs e)
@@ -549,8 +591,6 @@ namespace CommCtrlSystem
                 worksheet.Cells[1, l_runtime] = "运行时间";
                 worksheet.Cells[1, l_oper] = "操作员";
 
-
-
                 worksheet.Cells[2, l_no] = textBoxNo0.Text;
                 worksheet.Cells[2, l_date] = DateTime.Now.ToString();
                 worksheet.Cells[2, l_res] = coldfilterpoint0.ToString();
@@ -562,7 +602,7 @@ namespace CommCtrlSystem
                 worksheet.Cells[3, l_res] = coldfilterpoint1.ToString();
                 worksheet.Cells[3, l_runtime] = textBoxTime1.Text;
                 worksheet.Cells[3, l_oper] = textBoxOp1.Text;
-
+                ((Excel.Range)worksheet.Columns["A:E", System.Type.Missing]).AutoFit();
                 worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
                 workBook.Close(false, Type.Missing, Type.Missing);
                 app.Quit();
@@ -570,7 +610,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -709,7 +749,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return false;
@@ -790,47 +830,55 @@ namespace CommCtrlSystem
                             {
                                 return true;
                             }
-                            using (SerialPort masterPort = new SerialPort(cfg.OutputSerialPortName))
+
+                            if (cfg.bGetDataOnload && inputCommPortSingleton.GetInstance().checkSerialPort(cfg.OutputSerialPortName))
                             {
-                                // configure serial ports
 
-                                masterPort.BaudRate = (int)GetNumber(cfg.OutputSerialPortBaud);
-                                masterPort.DataBits = (int)GetNumber(cfg.OutputSerialPortDataBit);
-                                if (cfg.OutputSerialPortParity == "None Parity")
+                                using (SerialPort masterPort = new SerialPort(cfg.OutputSerialPortName))
                                 {
-                                    masterPort.Parity = Parity.None;
-                                }
-                                else if (cfg.OutputSerialPortParity == "Odd Parity")
-                                {
-                                    masterPort.Parity = Parity.Odd;
-                                }
-                                else
-                                {
-                                    masterPort.Parity = Parity.Even;
-                                }
+                                    // configure serial ports
 
-                                if (cfg.OutputSerialPortStopBit == "1 Stop Bit")
-                                {
-                                    masterPort.StopBits = StopBits.One;
+                                    masterPort.BaudRate = (int)GetNumber(cfg.OutputSerialPortBaud);
+                                    masterPort.DataBits = (int)GetNumber(cfg.OutputSerialPortDataBit);
+                                    if (cfg.OutputSerialPortParity == "None Parity")
+                                    {
+                                        masterPort.Parity = Parity.None;
+                                    }
+                                    else if (cfg.OutputSerialPortParity == "Odd Parity")
+                                    {
+                                        masterPort.Parity = Parity.Odd;
+                                    }
+                                    else
+                                    {
+                                        masterPort.Parity = Parity.Even;
+                                    }
+
+                                    if (cfg.OutputSerialPortStopBit == "1 Stop Bit")
+                                    {
+                                        masterPort.StopBits = StopBits.One;
+                                    }
+                                    else
+                                    {
+                                        masterPort.StopBits = StopBits.Two;
+                                    }
+
+                                    masterPort.ReadTimeout = 1000;
+                                    masterPort.WriteTimeout = 1000;
+
+                                    masterPort.Open();
+
+                                    // create modbus master
+                                    ModbusSerialMaster master = ModbusSerialMaster.CreateAscii(masterPort);
+
+                                    master.Transport.Retries = 5;
+                                    ushort startAddress = 0x08;
+                                    ushort[] data = new ushort[ascii.Length / sizeof(short)];
+                                    Buffer.BlockCopy(ascii, 0, data, 0, data.Length * sizeof(short));
+
+                                    master.WriteMultipleRegisters(1, startAddress, data);
+                                    // read five register values
+                                    //ushort[] registers = master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
                                 }
-                                else
-                                {
-                                    masterPort.StopBits = StopBits.Two;
-                                }
-
-                                masterPort.Open();
-
-                                // create modbus master
-                                ModbusSerialMaster master = ModbusSerialMaster.CreateAscii(masterPort);
-
-                                master.Transport.Retries = 5;
-                                ushort startAddress = 0x08;
-                                ushort[] data = new ushort[ascii.Length / sizeof(short)];
-                                Buffer.BlockCopy(ascii, 0, data, 0, data.Length * sizeof(short));
-
-                                master.WriteMultipleRegisters(1, startAddress, data);
-                                // read five register values
-                                //ushort[] registers = master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
                             }
                         }
                         else
@@ -844,7 +892,8 @@ namespace CommCtrlSystem
                                 ushort startAddress = 0x08;
                                 ushort[] data = new ushort[ascii.Length / sizeof(short)];
                                 Buffer.BlockCopy(ascii, 0, data, 0, data.Length * sizeof(short));
-
+                                client.SendTimeout = 1000;
+                                client.ReceiveTimeout = 1000;
                                 master.WriteMultipleRegisters(1, startAddress, data);
                             }
                         }
@@ -854,7 +903,7 @@ namespace CommCtrlSystem
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
-                MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Error - No Ports available", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return true;
@@ -864,6 +913,18 @@ namespace CommCtrlSystem
         {
             TestXMLForm testXMLForm = new TestXMLForm();
             testXMLForm.ShowDialog();
+        }
+
+        private void buttonTestLeftRoom_Click(object sender, EventArgs e)
+        {
+            byte[] serverData = getAsciiData(coldfilterpoint0.ToString(), textBoxTime0.Text, textBoxNo0.Text, textBoxName0.Text, textBoxDevNo0.Text, textBoxOp0.Text);
+            transResultToServer(serverData);
+        }
+
+        private void buttonTestRightRoom_Click(object sender, EventArgs e)
+        {
+            byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
+            transResultToServer(serverData);
         }
     }
 }

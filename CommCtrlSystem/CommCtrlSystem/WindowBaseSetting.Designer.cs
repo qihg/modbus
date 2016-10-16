@@ -187,7 +187,7 @@
             // 
             this.regTextBox10.dataType = CommCtrlSystem.RegTextBox.DataType.dtLByte;
             this.regTextBox10.dtDivValue = 1;
-            this.regTextBox10.dtMaxValue = 20;
+            this.regTextBox10.dtMaxValue = 0;
             this.regTextBox10.dtMinValue = 0;
             this.regTextBox10.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.regTextBox10.Location = new System.Drawing.Point(531, 259);
@@ -362,7 +362,6 @@
             this.Controls.Add(this.buttonMain);
             this.Name = "WindowBaseSetting";
             this.Size = new System.Drawing.Size(757, 481);
-            this.Load += new System.EventHandler(this.WindowBaseSetting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

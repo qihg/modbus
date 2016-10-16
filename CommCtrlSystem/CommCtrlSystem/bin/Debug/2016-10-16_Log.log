@@ -1,0 +1,886 @@
+当前时间：2016-10-16 14:47:21
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 14:47:29
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 15:51:04
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:11:43
+异常信息：Thread was being aborted.
+异常对象：mscorlib
+调用堆栈：
+at System.Threading.WaitHandle.WaitOneNative(SafeHandle waitableSafeHandle, UInt32 millisecondsTimeout, Boolean hasThreadAffinity, Boolean exitContext)
+   at System.Threading.WaitHandle.InternalWaitOne(SafeHandle waitableSafeHandle, Int64 millisecondsTimeout, Boolean hasThreadAffinity, Boolean exitContext)
+   at System.Threading.WaitHandle.WaitOne(Int32 millisecondsTimeout, Boolean exitContext)
+   at System.Threading.WaitHandle.WaitOne()
+   at System.IO.Ports.SerialStream.EndRead(IAsyncResult asyncResult)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.ModbusRtuTransport.Read(Int32 count)
+   at Modbus.IO.ModbusRtuTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at CommCtrlSystem.inputCommPortSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 202
+触发方法：Int32 WaitOneNative(System.Runtime.InteropServices.SafeHandle, UInt32, Boolean, Boolean)
+
+当前时间：2016-10-16 16:43:30
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:44:57
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:45:07
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:45:25
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:46:38
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-16 16:51:44
+异常信息：Checksums failed to match 1, 16, 0, 8, 0, 48 != 1, 16, 0, 8, 0, 48, 96, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 48, 51, 58, 58, 50, 50, 51, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 105
+异常对象：NModbus4
+调用堆栈：
+at Modbus.IO.ModbusSerialTransport.CreateResponse[T](Byte[] frame)
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Modbus.Message.IModbusMessage CreateResponse[T](Byte[])
+
+当前时间：2016-10-16 16:51:46
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:47
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:49
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:50
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:51
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:53
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:54
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:56
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:58
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:51:59
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:55:12
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:55:33
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:55:36
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:56:17
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 16:56:23
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:00:00
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:00:01
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:00:10
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:00:11
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:01:03
+异常信息：Checksums failed to match 1, 16, 0, 8, 0, 48 != 1, 16, 0, 8, 0, 48, 96, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 48, 51, 58, 58, 50, 50, 51, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 48, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 105
+异常对象：NModbus4
+调用堆栈：
+at Modbus.IO.ModbusSerialTransport.CreateResponse[T](Byte[] frame)
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Modbus.Message.IModbusMessage CreateResponse[T](Byte[])
+
+当前时间：2016-10-16 17:01:04
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:05:43
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:05:44
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:06:42
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:06:49
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:33:48
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:33:49
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:34:41
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:34:43
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:45:52
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:45:53
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:47:38
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:47:39
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:48:14
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:48:17
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:48:20
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:52:45
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:52:52
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 872
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-16 17:54:22
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:54:28
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 882
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-16 17:58:16
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 867
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 17:59:05
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 867
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:00:51
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 867
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:01:05
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 867
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:05:16
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:05:22
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:07:55
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:08:01
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:08:20
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:08:26
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:08:37
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:08:37
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 879
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:09:12
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 880
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:09:14
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 880
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:10:57
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:10:58
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:11:00
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:11:01
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 881
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:14:57
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:15:03
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:15:22
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:15:31
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:15:55
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:16:33
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:16:44
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-16 18:17:08
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+

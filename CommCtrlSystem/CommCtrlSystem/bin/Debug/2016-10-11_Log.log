@@ -1,0 +1,49 @@
+当前时间：2016-10-11 17:08:38
+异常信息：The port 'COM7' does not exist.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 122
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-11 17:10:31
+异常信息：The port 'COM7' does not exist.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 122
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-11 17:19:20
+异常信息：The port 'COM7' does not exist.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-11 17:20:19
+异常信息：The port 'COM7' does not exist.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at CommCtrlSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\inputCommPortSingleton.cs:line 147
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-10-11 17:47:44
+异常信息：Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+异常对象：System.Windows.Forms
+调用堆栈：
+at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.BeginInvoke(Delegate method, Object[] args)
+   at CommCtrlSystem.WindowMain.DoUpdateRegs() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 264
+触发方法：System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean)
+

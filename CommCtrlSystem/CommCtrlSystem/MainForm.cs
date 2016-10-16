@@ -32,6 +32,7 @@ namespace CommCtrlSystem
  
         public MainForm()
         {
+            LogClass.GetInstance().WriteLogFile("MainForm Start-------------------------");
             InitializeComponent();
             //getConfig();
             //InitializeRegs();
@@ -40,6 +41,31 @@ namespace CommCtrlSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            #region 判断系统是否已启动
+
+            System.Diagnostics.Process[] myProcesses = System.Diagnostics.Process.GetProcessesByName("CommCtrlSystem");//获取指定的进程名   
+            if (myProcesses.Length > 1)
+            {
+                DialogResult dr = MessageBox.Show("Another programs already exist, kill them all?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    foreach (System.Diagnostics.Process proces in myProcesses)
+                    {
+                        if (proces.Id != System.Diagnostics.Process.GetCurrentProcess().Id)
+                        {
+                            proces.Kill();
+                        }
+                    }
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+            #endregion
+
+
+            LogClass.GetInstance().WriteLogFile("MainForm_Load");
             wm = new WindowMain();
             wbs = new WindowBaseSetting();
             whr = new WindowHistoryReport();
@@ -61,7 +87,10 @@ namespace CommCtrlSystem
 
         void Application_ApplicationExit(object sender, EventArgs e)
         {
+            LogClass.GetInstance().WriteLogFile("ApplicationExit");
             inputCommPortSingleton.GetInstance().closeComm();
+            wm.stopUpdateRegs();
+            LogClass.GetInstance().WriteLogFile("ApplicationExit End-----------------------");
         }
 
         private void timerMain_Tick(object sender, EventArgs e)

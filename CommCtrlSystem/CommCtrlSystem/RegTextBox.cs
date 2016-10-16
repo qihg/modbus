@@ -46,7 +46,7 @@ namespace CommCtrlSystem
         {
             get { return this._dtMaxValue; }
             set {
-                if (value >= this._dtMaxValue)
+                if (value >= this._dtMinValue)
                 {
                     this._dtMaxValue = value;
                 }
@@ -95,7 +95,13 @@ namespace CommCtrlSystem
         [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Content)]
         public List<BsItem> Items
         {
-            set {items=value;}
+            set 
+            {
+                if (value != null)
+                {
+                    items = value;
+                }
+            }
             get{return items;}
         }
 

@@ -13,8 +13,10 @@ namespace CommCtrlSystem
     public partial class WindowPIDSetting : UserControl
     {
         private Thread updateDataThread;
+        private Thread writeDataThread;
         private ModbusRegisters modbusRegs;
         private delegate void UpdateMainUIInvoke(ModbusRegisters modbusRegs);
+        private delegate void WriteDataOKInvoke();
         private TextBox[] tbPidSetting;
         private const byte SLAVEID = 1;
         private const ushort STARTADDRESS = 0x1B;
@@ -65,7 +67,10 @@ namespace CommCtrlSystem
         {
             inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
             UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
-            BeginInvoke(umi, modbusRegs);
+            if (this.IsHandleCreated)
+            {
+                BeginInvoke(umi, modbusRegs);
+            }
 
         }
 
@@ -75,6 +80,10 @@ namespace CommCtrlSystem
             {
                 tbPidSetting[i].Text = reg.stReg[i].getShortValue().ToString();
             }
+
+            buttonPIDRead.Enabled = true;
+            buttonPIDWrite.Enabled = true;
+            buttonMain.Enabled = true;
         }
 
         private void buttonMain_Click(object sender, EventArgs e)
@@ -86,23 +95,61 @@ namespace CommCtrlSystem
 
         private void buttonPIDRead_Click(object sender, EventArgs e)
         {
+            //updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
+            //updateDataThread.Start();
+            buttonPIDRead.Enabled = false;
+            buttonPIDWrite.Enabled = false;
+            buttonMain.Enabled = false;
             updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
             updateDataThread.Start();
         }
 
-        private void buttonPIDWrite_Click(object sender, EventArgs e)
+        public void WriteDataOK()
         {
-            for (int i = 0; i < modbusRegs.numRegisters; i++)
-            {
-                modbusRegs.stReg[i].setValue(ushort.Parse(tbPidSetting[i].Text.ToString()));
-            }
-            inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+            buttonPIDRead.Enabled = true;
+            buttonPIDWrite.Enabled = true;
+            buttonMain.Enabled = true;
         }
 
-        private void WindowPIDSetting_Load(object sender, EventArgs e)
+        private void WriteThread()
+        {
+            try
+            {
+                for (int i = 0; i < modbusRegs.numRegisters; i++)
+                {
+                    modbusRegs.stReg[i].setValue(ushort.Parse(tbPidSetting[i].Text.ToString()));
+                }
+                inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+                WriteDataOKInvoke umi = new WriteDataOKInvoke(WriteDataOK);
+                if (this.IsHandleCreated)
+                {
+                    BeginInvoke(umi);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+          
+        private void buttonPIDWrite_Click(object sender, EventArgs e)
+        {
+            buttonPIDRead.Enabled = false;
+            buttonPIDWrite.Enabled = false;
+            buttonMain.Enabled = false;
+            writeDataThread = new Thread(new ThreadStart(WriteThread));
+            writeDataThread.Start();
+        }
+
+        public void update()
         {
             inputCommPortSingleton.GetInstance().initComm();
             inputCommPortSingleton.GetInstance().openComm();
+            buttonPIDRead.Enabled = false;
+            buttonPIDWrite.Enabled = false;
+            buttonMain.Enabled = false;
             updateDataThread = new Thread(new ThreadStart(DoUpdateRegs));
             updateDataThread.Start();
         }

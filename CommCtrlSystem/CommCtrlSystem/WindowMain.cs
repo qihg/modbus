@@ -787,12 +787,12 @@ namespace CommCtrlSystem
             byte[] bDevid = System.Text.Encoding.UTF8.GetBytes(devid);
             byte[] bOper = System.Text.Encoding.UTF8.GetBytes(oper);
 
-            fillByteArray(ref bRes, ref data, BLOCK_LEN, 0 * BLOCK_LEN, 0x20);
-            fillByteArray(ref bTime, ref data, BLOCK_LEN, 1 * BLOCK_LEN, 0x20);
-            fillByteArray(ref bID, ref data, BLOCK_LEN, 2 * BLOCK_LEN, 0x20);
-            fillByteArray(ref bName, ref data, BLOCK_LEN, 3 * BLOCK_LEN, 0x20);
-            fillByteArray(ref bDevid, ref data, BLOCK_LEN, 4 * BLOCK_LEN, 0x20);
-            fillByteArray(ref bOper, ref data, BLOCK_LEN, 5 * BLOCK_LEN, 0x20);
+            fillByteArray(ref bRes, ref data, BLOCK_LEN, 0 * BLOCK_LEN, 0x00);
+            fillByteArray(ref bTime, ref data, BLOCK_LEN, 1 * BLOCK_LEN, 0x00);
+            fillByteArray(ref bID, ref data, BLOCK_LEN, 2 * BLOCK_LEN, 0x00);
+            fillByteArray(ref bName, ref data, BLOCK_LEN, 3 * BLOCK_LEN, 0x00);
+            fillByteArray(ref bDevid, ref data, BLOCK_LEN, 4 * BLOCK_LEN, 0x00);
+            fillByteArray(ref bOper, ref data, BLOCK_LEN, 5 * BLOCK_LEN, 0x00);
 
             return data;
         }

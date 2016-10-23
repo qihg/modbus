@@ -213,30 +213,30 @@ namespace CommCtrlSystem
 
         private void comboBoxConnectMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxConnectMode.SelectedItem.ToString() == "TCP/IP")
-            {
-                comboBoxCom2.Enabled = false;
-                comboBoxBaud2.Enabled = false;
-                comboBoxDataBits2.Enabled = false;
-                comboBoxParity2.Enabled = false;
-                comboBoxStopBits2.Enabled = false;
-                radioButtonASCII2.Enabled = false;
-                radioButtonRTU2.Enabled = false;
-                textBoxIpAddr.Enabled = true;
-                maskedTextBoxServerPort.Enabled = true;
-            }
-            else
-            {
-                comboBoxCom2.Enabled = true;
-                comboBoxBaud2.Enabled = true;
-                comboBoxDataBits2.Enabled = true;
-                comboBoxParity2.Enabled = true;
-                comboBoxStopBits2.Enabled = true;
-                radioButtonASCII2.Enabled = true;
-                radioButtonRTU2.Enabled = true;
-                textBoxIpAddr.Enabled = false;
-                maskedTextBoxServerPort.Enabled = false;
-            }
+            //if (comboBoxConnectMode.SelectedItem.ToString() == "TCP/IP")
+            //{
+            //    comboBoxCom2.Enabled = false;
+            //    comboBoxBaud2.Enabled = false;
+            //    comboBoxDataBits2.Enabled = false;
+            //    comboBoxParity2.Enabled = false;
+            //    comboBoxStopBits2.Enabled = false;
+            //    radioButtonASCII2.Enabled = false;
+            //    radioButtonRTU2.Enabled = false;
+            //    textBoxIpAddr.Enabled = true;
+            //    maskedTextBoxServerPort.Enabled = true;
+            //}
+            //else
+            //{
+            //    comboBoxCom2.Enabled = true;
+            //    comboBoxBaud2.Enabled = true;
+            //    comboBoxDataBits2.Enabled = true;
+            //    comboBoxParity2.Enabled = true;
+            //    comboBoxStopBits2.Enabled = true;
+            //    radioButtonASCII2.Enabled = true;
+            //    radioButtonRTU2.Enabled = true;
+            //    textBoxIpAddr.Enabled = false;
+            //    maskedTextBoxServerPort.Enabled = false;
+            //}
             
         }
 

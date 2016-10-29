@@ -1,0 +1,929 @@
+当前时间：2016-10-23 15:24:58
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-23 15:25:04
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-23 15:25:13
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 15:25:15
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 15:29:46
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 15:31:58
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:00:45
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:09:30
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:25:32
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:25:33
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:28:09
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:29:58
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:30:46
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:31:48
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:32:04
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:32:51
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:33:24
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:33:58
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:44:19
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:46:22
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:51:48
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:53:10
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:53:32
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:54:45
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:55:29
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:55:55
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:56:31
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 16:58:48
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:00:21
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:01:28
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:07:29
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:08:18
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:12:25
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:13:35
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:15:17
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:16:23
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:16:24
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:17:17
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:18:07
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:21:18
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:36:19
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:39:52
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:41:01
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:43:24
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:46:47
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:50:06
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:50:56
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:01
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:06
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:20
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:25
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:26
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:51:28
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:53:32
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:54:30
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:56:33
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:56:43
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:57:34
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 17:59:40
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 897
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-23 18:01:23
+异常信息：Cross-thread operation not valid: Control 'realtimeChart1' accessed from a thread other than the thread it was created on.
+异常对象：System.Windows.Forms
+调用堆栈：
+at System.Windows.Forms.Control.get_Handle()
+   at System.Windows.Forms.Control.Invalidate(Boolean invalidateChildren)
+   at System.Windows.Forms.DataVisualization.Charting.Chart.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartPicture.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElement.System.Windows.Forms.DataVisualization.Charting.IChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElementCollection`1.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElementCollection`1.System.Windows.Forms.DataVisualization.Charting.IChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElement.System.Windows.Forms.DataVisualization.Charting.IChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElement.System.Windows.Forms.DataVisualization.Charting.IChartElement.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElementCollection`1.Invalidate()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElementCollection`1.ResumeUpdates()
+   at System.Windows.Forms.DataVisualization.Charting.ChartElementCollection`1.ClearItems()
+   at System.Collections.ObjectModel.Collection`1.Clear()
+   at System.Windows.Forms.DataVisualization.Charting.Axis.ResetAxisValues()
+   at System.Windows.Forms.DataVisualization.Charting.ChartArea.GetTempValues()
+   at System.Windows.Forms.DataVisualization.Charting.ChartPicture.Paint(Graphics graph, Boolean paintTopLevelElementOnly)
+   at System.Windows.Forms.DataVisualization.Charting.ChartImage.GetImage(Single resolution)
+   at System.Windows.Forms.DataVisualization.Charting.Chart.SaveImage(Stream imageStream, ImageFormat format)
+   at CommCtrlSystem.WindowRealtimeData.getImageData() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowRealtimeData.cs:line 183
+   at CommCtrlSystem.WindowMain.DoUpdateRegs() in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 280
+触发方法：IntPtr get_Handle()
+
+当前时间：2016-10-23 18:01:41
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-23 18:01:49
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-23 18:02:05
+异常信息：The operation has timed out.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count, Int32 timeout)
+   at System.IO.Ports.SerialStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.IO.Ports.SerialPort.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.SerialPortAdapter.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at Modbus.IO.StreamResourceUtility.ReadLine(IStreamResource stream)
+   at Modbus.IO.ModbusAsciiTransport.ReadRequestResponse()
+   at Modbus.IO.ModbusAsciiTransport.ReadResponse[T]()
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 878
+触发方法：Int32 Read(Byte[], Int32, Int32, Int32)
+
+当前时间：2016-10-23 19:06:29
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:06:30
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:06:34
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:06:35
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:06:42
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:06:43
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:07:00
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:07:01
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:08:16
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-23 19:08:17
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 887
+触发方法：Void .ctor(System.String, Int32)
+

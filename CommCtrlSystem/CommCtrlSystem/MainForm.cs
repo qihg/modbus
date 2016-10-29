@@ -100,6 +100,15 @@ namespace CommCtrlSystem
             //int t = tc.id;
             labelDate.Text = now.ToString("yyyy-MM-dd");
             labelTime.Text = dt.ToLongTimeString().ToString();
+
+            if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_FAILURE)
+            {
+                labelWarning.Text = "通信故障";
+            }
+            else
+            {
+                labelWarning.Text = "";
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

@@ -264,8 +264,17 @@ namespace CommCtrlSystem
             {
                 try
                 {
-                    if (false == inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs))
+                    int ret = inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
+                    if (ret != inputCommPortSingleton.RET_OK)
                     {
+                        if (ret == inputCommPortSingleton.RET_TIMEOUT)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            // set label communication error
+                        }
                         break;
                     }
                     UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
@@ -925,6 +934,12 @@ namespace CommCtrlSystem
         {
             byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
             transResultToServer(serverData);
+        }
+
+        private void buttonFloatTest_Click(object sender, EventArgs e)
+        {
+            FormFloatTest fft = new FormFloatTest();
+            fft.ShowDialog();
         }
     }
 }

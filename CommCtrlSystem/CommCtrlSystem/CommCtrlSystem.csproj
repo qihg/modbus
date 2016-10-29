@@ -70,6 +70,12 @@
     </Compile>
     <Compile Include="CheckUserInput.cs" />
     <Compile Include="Configure.cs" />
+    <Compile Include="FormFloatTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFloatTest.Designer.cs">
+      <DependentUpon>FormFloatTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSysCfg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     <Compile Include="WindowManager.cs" />
     <EmbeddedResource Include="AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFloatTest.resx">
+      <DependentUpon>FormFloatTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSysCfg.resx">
       <DependentUpon>FormSysCfg.cs</DependentUpon>

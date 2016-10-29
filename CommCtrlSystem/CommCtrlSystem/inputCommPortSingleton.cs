@@ -21,7 +21,20 @@ namespace CommCtrlSystem
         SerialPort port;
         string InputModbusType;
         IModbusSerialMaster master;
+        private static int rtycnt = 0;
 
+        private const int MAX_RETYR_COUNT = 3;
+        public const int RET_OK = 0;
+        public const int RET_TIMEOUT = -1;
+        public const int RET_COMMERROR = -2;
+        public const int RET_FAILURE = -3;
+        public const int RET_INITFAILURE = -4;
+
+        public const int COMMSTS_UNKONOWN = 0;
+        public const int COMMSTS_NORMAL = 1;
+        public const int COMMSTS_FAILURE = 2;
+        public const int COMMSTS_PORTNOTOPEN = 3;
+        private int commsts = COMMSTS_UNKONOWN;
         private inputCommPortSingleton()
         {
         }
@@ -55,6 +68,11 @@ namespace CommCtrlSystem
                 }
             }
             return result;
+        }
+
+        public int getCommStatus()
+        {
+            return commsts;
         }
 
         public bool checkSerialPort(string portname)
@@ -119,8 +137,8 @@ namespace CommCtrlSystem
                             port.StopBits = StopBits.Two;
                         }
 
-                        port.ReadTimeout = 1000;
-                        port.WriteTimeout = 1000;
+                        port.ReadTimeout = 500;
+                        port.WriteTimeout = 500;
 
                         InputModbusType = cfg.InputModbusType;
                     }
@@ -183,18 +201,20 @@ namespace CommCtrlSystem
             }
         }
 
-        public bool readRegister(ref ModbusRegisters regs)
+        public int readRegister(ref ModbusRegisters regs)
         {
             if (master == null)
             {
-                return false;
+                commsts = COMMSTS_UNKONOWN;
+                return RET_INITFAILURE;
             }
 
             lock (locker)
             {
                 if (port.IsOpen == false)
                 {
-                    return false;
+                    commsts = COMMSTS_PORTNOTOPEN;
+                    return RET_INITFAILURE;
                 }
 
                 try
@@ -209,24 +229,40 @@ namespace CommCtrlSystem
                 {
                     LogClass.GetInstance().WriteLogFile("ReadHoldingRegisters Timeout:" + port.ReadTimeout.ToString());
                     //MessageBox.Show("Serial Port Read Timeout:" + port.ReadTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+
+                    if (rtycnt++ < MAX_RETYR_COUNT)
+                    {
+                        return RET_TIMEOUT;
+                    } else {
+                        commsts = COMMSTS_FAILURE;
+                        return RET_COMMERROR;
+                    }
                 }
                 catch (Exception ex)
                 {
                     LogClass.GetInstance().WriteExceptionLog(ex);
                     //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    commsts = COMMSTS_FAILURE;
+                    return RET_FAILURE;
                 }
             }
-
-            return true;
+            rtycnt = 0;
+            commsts = COMMSTS_NORMAL;
+            return RET_OK;
         }
 
-        public void writeMultiRegisters(ModbusRegisters regs)
+        public int writeMultiRegisters(ModbusRegisters regs)
         {
             if (master == null)
             {
-                return;
+                commsts = COMMSTS_UNKONOWN;
+                return RET_INITFAILURE;
+            }
+
+            if (port.IsOpen == false)
+            {
+                commsts = COMMSTS_PORTNOTOPEN;
+                return RET_INITFAILURE;
             }
 
             lock (locker)
@@ -244,25 +280,44 @@ namespace CommCtrlSystem
                 {
                     LogClass.GetInstance().WriteLogFile("WriteMultipleRegisters Timeout:" + port.WriteTimeout.ToString());
                     //MessageBox.Show("Serial Port Write Timeout:" + port.WriteTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (rtycnt++ < MAX_RETYR_COUNT)
+                    {
+                        return RET_TIMEOUT;
+                    }
+                    else
+                    {
+                        commsts = COMMSTS_FAILURE;
+                        return RET_COMMERROR;
+                    }
                 }
                 catch (Exception ex)
                 {
                     LogClass.GetInstance().WriteExceptionLog(ex);
                     //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    commsts = COMMSTS_FAILURE;
+                    return RET_FAILURE;
                 }
             }
+            rtycnt = 0;
+            commsts = COMMSTS_NORMAL;
+            return RET_OK;
         }
 
-        public void writeSingleRegister(ModbusRegisters regs, ushort value)
+        public int writeSingleRegister(ModbusRegisters regs, ushort value)
         {
             try
             {
 
                 if (master == null)
                 {
-                    return;
+                    commsts = COMMSTS_UNKONOWN;
+                    return RET_INITFAILURE;
+                }
+
+                if (port.IsOpen == false)
+                {
+                    commsts = COMMSTS_PORTNOTOPEN;
+                    return RET_INITFAILURE;
                 }
 
                 lock (locker)
@@ -270,13 +325,33 @@ namespace CommCtrlSystem
                     master.WriteSingleRegister(regs.slaveid, regs.startAddress, value);
                 }
             }
+            catch (TimeoutException ex)
+            {
+                LogClass.GetInstance().WriteLogFile("writeSingleRegister Timeout:" + port.WriteTimeout.ToString());
+                //MessageBox.Show("Serial Port Write Timeout:" + port.WriteTimeout.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (rtycnt++ < MAX_RETYR_COUNT)
+                {
+                    return RET_TIMEOUT;
+                }
+                else
+                {
+                    commsts = COMMSTS_FAILURE;
+                    return RET_COMMERROR;
+                }
+            }
             catch (Exception ex)
             {
                 LogClass.GetInstance().WriteExceptionLog(ex);
                 //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                commsts = COMMSTS_FAILURE;
+                return RET_FAILURE;
             }
+
+            rtycnt = 0;
+            commsts = COMMSTS_NORMAL;
+            return RET_OK;
         }
+
     }
 }
 

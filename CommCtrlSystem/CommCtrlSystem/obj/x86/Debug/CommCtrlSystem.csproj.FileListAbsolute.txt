@@ -67,3 +67,4 @@ C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.Au
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.PictureViewForm.resources
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.csproj.ResolveComReference.cache
 C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.TestXMLForm.resources
+C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\obj\x86\Debug\CommCtrlSystem.FormFloatTest.resources

@@ -19,6 +19,7 @@ namespace CommCtrlSystem
             dtLString,
             dtFloat,
             dtString,
+            dtSingleFloat,
         }
 
         private ModbusRegisters reg;
@@ -27,7 +28,11 @@ namespace CommCtrlSystem
         private int _dtMaxValue;
         private int _dtDivValue = 100;
 
-
+        public RegTextBox()
+        {
+            this.Text = "";
+            this.dataType = DataType.dtString;
+        }
 
         [CategoryAttribute("寄存器属性"), Browsable(true), DisplayName("Data Min Value"), DescriptionAttribute("最小值")]
         public int dtMinValue
@@ -146,7 +151,7 @@ namespace CommCtrlSystem
             }
             else
             {
-                if (this._dataType == DataType.dtFloat)
+                if (this._dataType == DataType.dtFloat || this._dataType == DataType.dtSingleFloat)
                 {
                     if (!float.TryParse(this.Text, out fValue))
                     {
@@ -177,7 +182,22 @@ namespace CommCtrlSystem
             //}
             base.OnTextChanged(e);
         }
+        private float getFloatValue()
+        {
+            float value;
+            try
+            {
+                value = float.Parse(this.Text);
+            }
+            catch (Exception ex)
+            {
+                LogClass.GetInstance().WriteExceptionLog(ex);
+                this.Text = "";
+                value = 0.0f;
+            }
 
+            return value;
+        }
         private int getIntValue()
         {
             int value;
@@ -217,7 +237,8 @@ namespace CommCtrlSystem
 
         private void checkAndSaveValue()
         {
-            int value;
+            int value = 0;
+            float fvalue = 0.0f;
 
             if (reg == null)
             {
@@ -232,7 +253,14 @@ namespace CommCtrlSystem
                     return;
             }
 
-            value = getIntValue();
+            if (this._dataType != DataType.dtSingleFloat)
+            {
+                value = getIntValue();
+            }
+            else
+            {
+                fvalue = getFloatValue();
+            }
 
             if (this._regIndex > reg.numRegisters)
             {
@@ -255,6 +283,13 @@ namespace CommCtrlSystem
                     break;
                 case DataType.dtFloat:
                     reg.stReg[_regIndex].setValue(ushort.Parse(value.ToString()));
+                    break;
+                case DataType.dtSingleFloat:
+                    byte[] bytes = BitConverter.GetBytes(float.Parse(fvalue.ToString()));
+                    reg.stReg[_regIndex].setHighReg(bytes[0]);
+                    reg.stReg[_regIndex].setLowReg(bytes[1]);
+                    reg.stReg[_regIndex + 1].setHighReg(bytes[2]);
+                    reg.stReg[_regIndex + 1].setLowReg(bytes[3]);
                     break;
                 default:
                     break;
@@ -428,7 +463,16 @@ namespace CommCtrlSystem
                 case DataType.dtHString:
                     this.Text = this.reg.stReg[_regIndex].getHighRegString();
                     break;
-  
+                case DataType.dtSingleFloat:
+                    //this.Text = this.reg.stReg[_regIndex].getFloatValue(_dtDivValue).ToString();
+                    byte[] bytes = new byte[4];
+                    bytes[0] = (byte)reg.stReg[_regIndex].getHighReg();
+                    bytes[1] = (byte)reg.stReg[_regIndex].getLowReg();
+                    bytes[2] = (byte)reg.stReg[_regIndex + 1].getHighReg();
+                    bytes[3] = (byte)reg.stReg[_regIndex + 1].getLowReg();
+                    float q = BitConverter.ToSingle(bytes, 0);
+                    this.Text = q.ToString();
+                    break;
                 default:
                     break;
             }

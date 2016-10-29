@@ -1,0 +1,362 @@
+当前时间：2016-10-29 15:41:56
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 906
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-29 15:41:58
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.WriteMultipleRegisters(Byte slaveAddress, UInt16 startAddress, UInt16[] data)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 906
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-10-29 15:43:47
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 15:43:48
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 15:57:18
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 15:57:19
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:04:04
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:04:05
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:06:20
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:06:21
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:07:20
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:07:22
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:08:48
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:08:50
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:10:11
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:10:13
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:14:29
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:14:30
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:20:19
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:20:20
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:26:26
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:26:27
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:27:02
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:27:04
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:28:02
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:28:03
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:28:35
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:28:36
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:33:50
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:33:51
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:34:14
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:34:15
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:37:21
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:37:22
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:41:43
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:41:44
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:52:06
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:52:07
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:54:00
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 16:54:01
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 17:02:41
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 17:02:42
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 17:06:47
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-10-29 17:06:48
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at CommCtrlSystem.WindowMain.transResultToServer(Byte[] ascii) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\WindowMain.cs:line 896
+触发方法：Void .ctor(System.String, Int32)
+

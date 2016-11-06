@@ -1,0 +1,12 @@
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\PLCModbusSystem.exe
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\PLCModbusSystem.pdb
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.Form1.resources
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.Properties.Resources.resources
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.exe
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.pdb
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\Newtonsoft.Json.dll
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NModbus4.dll
+C:\work\CCS\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.csproj.ResolveComReference.cache

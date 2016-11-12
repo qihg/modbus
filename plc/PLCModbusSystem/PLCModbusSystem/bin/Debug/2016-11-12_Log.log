@@ -95,3 +95,34 @@ at System.Net.Sockets.TcpClient.GetStream()
 at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
 触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
 
+当前时间：2016-11-12 18:36:10
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-12 18:36:16
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at PLCModbusSystem.Form1.CreateExcelFile(String FileName) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\Form1.cs:line 675
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-12 18:37:54
+异常信息：Object reference not set to an instance of an object.
+异常对象：PLCModbusSystem
+调用堆栈：
+at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+

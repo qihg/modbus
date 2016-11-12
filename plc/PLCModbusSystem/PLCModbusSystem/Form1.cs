@@ -717,7 +717,7 @@ namespace PLCModbusSystem
                     Directory.CreateDirectory(dir_path);
                 }
             }
-            catch (System.IO.IOException ex)
+            catch (Exception ex)
             {
                 //if (ex.Equals()
                 MessageBox.Show("Folder " + dir_path + " create error.");

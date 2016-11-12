@@ -14,7 +14,10 @@ using Modbus.Utility;
 using Modbus.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
-using Excel = Microsoft.Office.Interop.Excel;
+using NPOI.HSSF.UserModel;
+using NPOI.HPSF;
+using NPOI.POIFS.FileSystem;
+using NPOI.SS.UserModel;
 
 namespace PLCModbusSystem
 {
@@ -32,6 +35,10 @@ namespace PLCModbusSystem
         private const ushort REGNUM = 18;
         private ushort last_startaddr = 0;
         private string last_floatformat = "";
+
+        private const int INPUT_METHOD_SERIAL = 0;
+        private const int INPUT_METHOD_IP = 1;
+        private int input_method = INPUT_METHOD_SERIAL;
         public Form1()
         {
             InitializeComponent();
@@ -59,7 +66,7 @@ namespace PLCModbusSystem
             }
         }
 
-        void updataRegAddrLabel(ushort startaddr)
+        void updateRegAddrLabel(ushort startaddr)
         {
             label23.Text = "(" + string.Format("{0:0000}", startaddr) + ")";
             label24.Text = "(" + string.Format("{0:0000}", startaddr + 2) + ")";
@@ -96,7 +103,7 @@ namespace PLCModbusSystem
             }
             addRegTextBoxControl(ref lRegTextBox, ref modbusRegs, this.Controls, fmt);
 
-            updataRegAddrLabel(last_startaddr);
+            updateRegAddrLabel(last_startaddr);
             //foreach (Control control in this.Controls)//遍历本窗体中所有的ComboBox控件 
             //{
             //    if (control.GetType().ToString() == "System.Windows.Forms.GroupBox")
@@ -129,10 +136,10 @@ namespace PLCModbusSystem
                 for (int i = 0; i < portList.Length; ++i)
                 {
                     string name = portList[i];
-                    comboBox1.Items.Add(name);
+                    comboBoxSerialPort.Items.Add(name);
                     if (cfg != null && name.ToLower() == cfg.InputSerialPortName.ToLower())
                     {
-                        comboBox1.SelectedIndex = i;
+                        comboBoxSerialPort.SelectedIndex = i;
                     }
                 }
 
@@ -141,13 +148,45 @@ namespace PLCModbusSystem
                     return;
                 }
 
-                if (inputCommPortSingleton.GetInstance().checkSerialPort(cfg.InputSerialPortName))
+                if (cfg.bSerial_sel)
                 {
-                    comboBox1.Text = cfg.InputSerialPortName;
+                    radioButtonSerial.Checked = true;
+                    input_method = INPUT_METHOD_SERIAL;
+                }
+                else if (cfg.bNetwork_sel)
+                {
+                    radioButtonNetwork.Checked = true;
+                    input_method = INPUT_METHOD_IP;
                 }
                 else
                 {
-                    comboBox1.Text = "";
+                    radioButtonSerial.Checked = true;
+                    input_method = INPUT_METHOD_SERIAL;
+                }
+
+                if (radioButtonSerial.Checked)
+                {
+                    comboBoxSerialPort.Enabled = true;
+                    comboBoxBaud.Enabled = true;
+                    textBoxIPAddr.Enabled = false;
+                    textBoxPort.Enabled = false;
+                }
+                else if (radioButtonNetwork.Checked)
+                {
+                    comboBoxSerialPort.Enabled = false;
+                    comboBoxBaud.Enabled = false;
+                    textBoxIPAddr.Enabled = true;
+                    textBoxPort.Enabled = true;
+                }
+
+
+                if (inputCommPortSingleton.GetInstance().checkSerialPort(cfg.InputSerialPortName))
+                {
+                    comboBoxSerialPort.Text = cfg.InputSerialPortName;
+                }
+                else
+                {
+                    comboBoxSerialPort.Text = "";
                 }
 
                 if (cfg.bOutputExcel)
@@ -187,13 +226,30 @@ namespace PLCModbusSystem
                 last_startaddr = cfg.startAddr;
                 last_floatformat = cfg.floatFormat;
 
-                if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                textBoxIPAddr.Text = cfg.ipaddr;
+                textBoxPort.Text = cfg.port;
+
+                if (input_method == INPUT_METHOD_SERIAL)
                 {
-                    labelWarning.Text = "串口初始化失败";
+                    if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                    {
+                        labelWarning.Text = "串口初始化失败";
+                    }
+                    else
+                    {
+                        startUpdateRegs();
+                    }
                 }
                 else
                 {
-                    startUpdateRegs();
+                    if (false == modbusNetworkSingleton.GetInstance().initModbusPoll(cfg.ipaddr, int.Parse(cfg.port), cfg.protocol))
+                    {
+                        labelWarning.Text = "以太网初始化失败";
+                    }
+                    else
+                    {
+                        startUpdateRegs();
+                    }
                 }
             }
             catch (Exception ex)
@@ -206,7 +262,15 @@ namespace PLCModbusSystem
         void Application_ApplicationExit(object sender, EventArgs e)
         {
             //LogClass.GetInstance().WriteLogFile("ApplicationExit");
-            inputCommPortSingleton.GetInstance().closeComm();
+            if (input_method == INPUT_METHOD_SERIAL)
+            {
+                inputCommPortSingleton.GetInstance().closeComm();
+            }
+            else
+            {
+                modbusNetworkSingleton.GetInstance().closeComm();
+            }
+            
             stopUpdateRegs();
             //LogClass.GetInstance().WriteLogFile("ApplicationExit End-----------------------");
         }
@@ -216,7 +280,7 @@ namespace PLCModbusSystem
             try
             {
                 Configure cfg = new Configure();
-                cfg.InputSerialPortName = comboBox1.Text;
+                cfg.InputSerialPortName = comboBoxSerialPort.Text;
                 if (checkBoxExcel.Checked)
                 {
                     cfg.bOutputExcel = true;
@@ -252,15 +316,36 @@ namespace PLCModbusSystem
                 cfg.startAddr = ushort.Parse(maskedTextBoxStartAddr.Text.Trim());
                 cfg.floatFormat = comboBoxFormat.Text.Trim();
 
-                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
-                File.WriteAllText(cfgfile, JsonConvert.SerializeObject(cfg));
-
-                if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                if (radioButtonSerial.Checked)
                 {
-                    labelWarning.Text = "串口初始化失败";
+                    cfg.bSerial_sel = true;
                 }
                 else
                 {
+                    cfg.bSerial_sel = false;
+                }
+
+                if (radioButtonNetwork.Checked)
+                {
+                    cfg.bNetwork_sel = true;
+                }
+                else
+                {
+                    cfg.bNetwork_sel = false;
+                }
+
+                cfg.protocol = comboBoxProtocol.Text.Trim();
+                cfg.ipaddr = textBoxIPAddr.Text.Trim();
+                cfg.port = textBoxPort.Text.Trim();
+                string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+                File.WriteAllText(cfgfile, JsonConvert.SerializeObject(cfg));
+
+                //if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                //{
+                //    labelWarning.Text = "串口初始化失败";
+                //}
+                //else
+                //{
                     stopUpdateRegs();
                     if (last_startaddr != cfg.startAddr || last_floatformat != cfg.floatFormat)
                     {
@@ -290,17 +375,32 @@ namespace PLCModbusSystem
 
                         modbusRegs.startAddress = last_startaddr;
                         addRegTextBoxControl(ref lRegTextBox, ref modbusRegs, this.Controls, fmt);
-                        updataRegAddrLabel(last_startaddr);
+                        updateRegAddrLabel(last_startaddr);
                     }
-                    if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+
+                    if (input_method == INPUT_METHOD_SERIAL)
                     {
-                        labelWarning.Text = "串口初始化失败";
+                        if (false == inputCommPortSingleton.GetInstance().initComm() || false == inputCommPortSingleton.GetInstance().openComm())
+                        {
+                            labelWarning.Text = "串口初始化失败";
+                        }
+                        else
+                        {
+                            startUpdateRegs();
+                        }
                     }
                     else
                     {
-                        startUpdateRegs();
+                        if (false == modbusNetworkSingleton.GetInstance().initModbusPoll(cfg.ipaddr, int.Parse(cfg.port), cfg.protocol))
+                        {
+                            labelWarning.Text = "以太网初始化失败";
+                        }
+                        else
+                        {
+                            startUpdateRegs();
+                        }
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -314,18 +414,38 @@ namespace PLCModbusSystem
             {
                 try
                 {
-                    int ret = inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
-                    if (ret != inputCommPortSingleton.RET_OK)
+                    if (input_method == INPUT_METHOD_SERIAL)
                     {
-                        if (ret == inputCommPortSingleton.RET_TIMEOUT)
+                        int ret = inputCommPortSingleton.GetInstance().readRegister(ref modbusRegs);
+                        if (ret != inputCommPortSingleton.RET_OK)
                         {
-                            continue;
+                            if (ret == inputCommPortSingleton.RET_TIMEOUT)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                // set label communication error
+                            }
+                            break;
                         }
-                        else
+                    }
+                    else
+                    {
+                        //modbusNetworkSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+                        int ret = modbusNetworkSingleton.GetInstance().readRegister(ref modbusRegs);
+                        if (ret != modbusNetworkSingleton.RET_OK)
                         {
-                            // set label communication error
+                            if (ret == modbusNetworkSingleton.RET_TIMEOUT)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                // set label communication error
+                            }
+                            break;
                         }
-                        break;
                     }
                     UpdateMainUIInvoke umi = new UpdateMainUIInvoke(UpdateUIData);
 
@@ -356,7 +476,14 @@ namespace PLCModbusSystem
                     LogClass.GetInstance().WriteExceptionLog(ex);
                 }
             }
-            inputCommPortSingleton.GetInstance().closeComm();
+            if (input_method == INPUT_METHOD_SERIAL)
+            {
+                inputCommPortSingleton.GetInstance().closeComm();
+            }
+            else
+            {
+                modbusNetworkSingleton.GetInstance().closeComm();
+            }
         }
 
         public void UpdateUIData(ModbusRegisters reg)
@@ -407,7 +534,14 @@ namespace PLCModbusSystem
             }
 
             regTextBoxResult.Text = "0";
-            inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+            if (input_method == INPUT_METHOD_SERIAL)
+            {
+                inputCommPortSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+            }
+            else
+            {
+                modbusNetworkSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+            }
         }
         public void startUpdateRegs()
         {
@@ -435,66 +569,117 @@ namespace PLCModbusSystem
                 }
             }
         }
+
         private void CreateExcelFile(string FileName)
         {
             //create  
             try
             {
-                object Nothing = System.Reflection.Missing.Value;
-                var app = new Excel.Application();
-                app.Visible = false;
-                Excel.Workbook workBook = app.Workbooks.Add(Nothing);
-                Excel.Worksheet worksheet = (Excel.Worksheet)workBook.Sheets[1];
-                worksheet.Name = "Work";
+                NPOI.HSSF.UserModel.HSSFWorkbook book = new NPOI.HSSF.UserModel.HSSFWorkbook();
+                NPOI.SS.UserModel.ISheet sheet = book.CreateSheet("Result");
+                NPOI.SS.UserModel.IRow row0 = sheet.CreateRow(0);
+                int i = 0;
+                row0.CreateCell(i++).SetCellValue("日期:");
+                row0.CreateCell(i++).SetCellValue("仪器名称:");
+                row0.CreateCell(i++).SetCellValue("仪器编号:");
+                row0.CreateCell(i++).SetCellValue("实验室名称:");
+                row0.CreateCell(i++).SetCellValue("油样名称:");
+                row0.CreateCell(i++).SetCellValue("油样号:");
+                row0.CreateCell(i++).SetCellValue("实验员:");
+                row0.CreateCell(i++).SetCellValue("分析方法:");
+                row0.CreateCell(i++).SetCellValue("一号弹:测试时间:");
+                row0.CreateCell(i++).SetCellValue("最大压力:");
+                row0.CreateCell(i++).SetCellValue("二号弹:测试时间:");
+                row0.CreateCell(i++).SetCellValue("最大压力:");
+                row0.CreateCell(i++).SetCellValue("三号弹:测试时间:");
+                row0.CreateCell(i++).SetCellValue("最大压力:");
+                row0.CreateCell(i++).SetCellValue("四号弹:测试时间:");
+                row0.CreateCell(i++).SetCellValue("最大压力:");
 
-                worksheet.Cells[1, 1] = "仪器名称:";
-                worksheet.Cells[2, 1] = "仪器编号:";
-                worksheet.Cells[3, 1] = "实验室名称:";
-                worksheet.Cells[4, 1] = "油样名称:";
-                worksheet.Cells[5, 1] = "油样号:";
-                worksheet.Cells[6, 1] = "实验员:";
-                worksheet.Cells[7, 1] = "分析方法:";
-                worksheet.Cells[8, 1] = "日期:";
+                NPOI.SS.UserModel.IRow row1 = sheet.CreateRow(1);
+                i = 0;
+                row1.CreateCell(i++).SetCellValue(DateTime.Now.ToString());
+                row1.CreateCell(i++).SetCellValue(textBoxDevName.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxDevID.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxLabName.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxOilName.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxOilID.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxUserName.Text);
+                row1.CreateCell(i++).SetCellValue(textBoxAnalysis.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox1.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox2.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox3.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox4.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox5.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox6.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox7.Text);
+                row1.CreateCell(i++).SetCellValue(regTextBox8.Text);
 
-                worksheet.Cells[1, 2] = textBoxDevName.Text;
-                worksheet.Cells[2, 2] = textBoxDevID.Text;
-                worksheet.Cells[3, 2] = textBoxLabName.Text;
-                worksheet.Cells[4, 2] = textBoxOilName.Text;
-                worksheet.Cells[5, 2] = textBoxOilID.Text;
-                worksheet.Cells[6, 2] = textBoxUserName.Text;
-                worksheet.Cells[7, 2] = textBoxAnalysis.Text;
-                worksheet.Cells[8, 2] = DateTime.Now.ToString();
+                for (int j = 0; j < i; j++)
+                {
+                    sheet.AutoSizeColumn(j);
+                }
 
-                worksheet.Cells[9, 1] = "一号弹:";
-                worksheet.Cells[10, 1] = "二号弹:";
-                worksheet.Cells[11, 1] = "三号弹:";
-                worksheet.Cells[12, 1] = "四号弹:";
+                //worksheet.Cells[1, 1] = "仪器名称:";
+                //worksheet.Cells[2, 1] = "仪器编号:";
+                //worksheet.Cells[3, 1] = "实验室名称:";
+                //worksheet.Cells[4, 1] = "油样名称:";
+                //worksheet.Cells[5, 1] = "油样号:";
+                //worksheet.Cells[6, 1] = "实验员:";
+                //worksheet.Cells[7, 1] = "分析方法:";
+                //worksheet.Cells[8, 1] = "日期:";
 
-                worksheet.Cells[9, 2] = "测试时间:";
-                worksheet.Cells[10, 2] = "测试时间:";
-                worksheet.Cells[11, 2] = "测试时间:";
-                worksheet.Cells[12, 2] = "测试时间:";
+                //worksheet.Cells[1, 2] = textBoxDevName.Text;
+                //worksheet.Cells[2, 2] = textBoxDevID.Text;
+                //worksheet.Cells[3, 2] = textBoxLabName.Text;
+                //worksheet.Cells[4, 2] = textBoxOilName.Text;
+                //worksheet.Cells[5, 2] = textBoxOilID.Text;
+                //worksheet.Cells[6, 2] = textBoxUserName.Text;
+                //worksheet.Cells[7, 2] = textBoxAnalysis.Text;
+                //worksheet.Cells[8, 2] = DateTime.Now.ToString();
 
-                worksheet.Cells[9, 3] = regTextBox1.Text;
-                worksheet.Cells[10, 3] = regTextBox3.Text;
-                worksheet.Cells[11, 3] = regTextBox5.Text;
-                worksheet.Cells[12, 3] = regTextBox7.Text;
+                //worksheet.Cells[9, 1] = "一号弹:";
+                //worksheet.Cells[10, 1] = "二号弹:";
+                //worksheet.Cells[11, 1] = "三号弹:";
+                //worksheet.Cells[12, 1] = "四号弹:";
 
-                worksheet.Cells[9, 4] = "最大压力:";
-                worksheet.Cells[10, 4] = "最大压力:";
-                worksheet.Cells[11, 4] = "最大压力:";
-                worksheet.Cells[12, 4] = "最大压力:";
+                //worksheet.Cells[9, 2] = "测试时间:";
+                //worksheet.Cells[10, 2] = "测试时间:";
+                //worksheet.Cells[11, 2] = "测试时间:";
+                //worksheet.Cells[12, 2] = "测试时间:";
+
+                //worksheet.Cells[9, 3] = regTextBox1.Text;
+                //worksheet.Cells[10, 3] = regTextBox3.Text;
+                //worksheet.Cells[11, 3] = regTextBox5.Text;
+                //worksheet.Cells[12, 3] = regTextBox7.Text;
+
+                //worksheet.Cells[9, 4] = "最大压力:";
+                //worksheet.Cells[10, 4] = "最大压力:";
+                //worksheet.Cells[11, 4] = "最大压力:";
+                //worksheet.Cells[12, 4] = "最大压力:";
 
 
-                worksheet.Cells[9, 5] = regTextBox2.Text;
-                worksheet.Cells[10, 5] = regTextBox4.Text;
-                worksheet.Cells[11, 5] = regTextBox6.Text;
-                worksheet.Cells[12, 5] = regTextBox8.Text;
+                //worksheet.Cells[9, 5] = regTextBox2.Text;
+                //worksheet.Cells[10, 5] = regTextBox4.Text;
+                //worksheet.Cells[11, 5] = regTextBox6.Text;
+                //worksheet.Cells[12, 5] = regTextBox8.Text;
 
-                ((Excel.Range)worksheet.Columns["A:E", System.Type.Missing]).AutoFit();
-                worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
-                workBook.Close(false, Type.Missing, Type.Missing);
-                app.Quit();
+                //((Excel.Range)worksheet.Columns["A:E", System.Type.Missing]).AutoFit();
+                //worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
+                //workBook.Close(false, Type.Missing, Type.Missing);
+                //app.Quit();
+
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+                {
+                    book.Write(ms);
+                    using (FileStream fs = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        byte[] data = ms.ToArray();
+                        fs.Write(data, 0, data.Length);
+                        fs.Flush();
+                    }
+                    book = null;
+                }
             }
             catch (Exception ex)
             {
@@ -523,11 +708,19 @@ namespace PLCModbusSystem
         {
             DateTime now = DateTime.Now;
             int iNo = 1;
-
+           
             string dir_path = "c:\\ExcelIN";
-            if (!Directory.Exists(dir_path))
+            try
             {
-                Directory.CreateDirectory(dir_path);
+                if (!Directory.Exists(dir_path))
+                {
+                    Directory.CreateDirectory(dir_path);
+                }
+            }
+            catch (System.IO.IOException ex)
+            {
+                //if (ex.Equals()
+                MessageBox.Show("Folder " + dir_path + " create error.");
             }
 
             string filename = String.Format("c:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
@@ -537,6 +730,8 @@ namespace PLCModbusSystem
                 filename = String.Format("c:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
             }
             CreateExcelFile(filename);
+            
+
         }
 
         public bool createXmlFile(string filename)
@@ -643,22 +838,70 @@ namespace PLCModbusSystem
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {    
-            if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_FAILURE)
+        {
+            if (radioButtonSerial.Checked)
             {
-                labelWarning.Text = "通信故障";
+                if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_FAILURE)
+                {
+                    labelWarning.Text = "通信故障";
+                }
+                else if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_PORTNOTOPEN)
+                {
+                    labelWarning.Text = "串口打开失败";
+                }
+                else if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_NORMAL)
+                {
+                    labelWarning.Text = "";
+                }
+                else
+                {
+                    //labelWarning.Text = "未知错误";
+                }
             }
-            else if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_PORTNOTOPEN)
+            else if (radioButtonNetwork.Checked)
             {
-                labelWarning.Text = "串口打开失败";
+                if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_FAILURE)
+                {
+                    labelWarning.Text = "以太网通信故障";
+                }
+                else if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_PORTNOTOPEN)
+                {
+                    labelWarning.Text = "以太网打开失败";
+                }
+                else if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_NORMAL)
+                {
+                    labelWarning.Text = "";
+                }
+                else
+                {
+                    //labelWarning.Text = "未知错误";
+                }
             }
-            else if (inputCommPortSingleton.GetInstance().getCommStatus() == inputCommPortSingleton.COMMSTS_NORMAL)
+        }
+
+        private void radioButtonSerial_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonSerial.Checked)
             {
-                labelWarning.Text = "";
-            } 
-            else 
+                comboBoxSerialPort.Enabled = true;
+                comboBoxBaud.Enabled = true;
+                comboBoxProtocol.Enabled = false;
+                textBoxIPAddr.Enabled = false;
+                textBoxPort.Enabled = false;
+                input_method = INPUT_METHOD_SERIAL;
+            }
+        }
+
+        private void radioButtonNetwork_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonNetwork.Checked)
             {
-                //labelWarning.Text = "未知错误";
+                comboBoxSerialPort.Enabled = false;
+                comboBoxBaud.Enabled = false;
+                comboBoxProtocol.Enabled = true;
+                textBoxIPAddr.Enabled = true;
+                textBoxPort.Enabled = true;
+                input_method = INPUT_METHOD_IP;
             }
         }
     }

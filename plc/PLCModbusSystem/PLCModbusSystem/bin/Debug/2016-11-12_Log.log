@@ -1,0 +1,68 @@
+当前时间：2016-11-12 17:18:02
+异常信息：Access to the port 'COM4' is denied.
+异常对象：System
+调用堆栈：
+at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at PLCModbusSystem.inputCommPortSingleton.openComm() in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\inputCommPortSingleton.cs:line 165
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-12 18:12:01
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at PLCModbusSystem.Form1.CreateExcelFile(String FileName) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\Form1.cs:line 675
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-12 18:12:29
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at PLCModbusSystem.modbusNetworkSingleton.initModbusPoll(String ip, Int32 port, String protocol) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 98
+   at PLCModbusSystem.Form1.buttonSaveSettings_Click(Object sender, EventArgs e) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\Form1.cs:line 394
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-11-12 18:12:34
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at PLCModbusSystem.Form1.CreateExcelFile(String FileName) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\Form1.cs:line 675
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-12 18:16:15
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 182
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-12 18:16:31
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.DiscardInBuffer()
+   at Modbus.IO.ModbusSerialTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 182
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+

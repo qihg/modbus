@@ -27,5 +27,11 @@ namespace PLCModbusSystem
         public string username { get; set; }
         public string userpassword { get; set; }
         public string analysis { get; set; }
+
+        public bool bSerial_sel { get; set; }
+        public bool bNetwork_sel { get; set; }
+        public string protocol { get; set; }
+        public string ipaddr { get; set; }
+        public string port { get; set; }
     }
 }

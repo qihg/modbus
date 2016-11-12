@@ -50,50 +50,58 @@
             this.checkBoxLims = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxFormat = new System.Windows.Forms.ComboBox();
+            this.radioButtonNetwork = new System.Windows.Forms.RadioButton();
+            this.radioButtonSerial = new System.Windows.Forms.RadioButton();
             this.maskedTextBoxStartAddr = new System.Windows.Forms.MaskedTextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.buttonSaveSettings = new System.Windows.Forms.Button();
-            this.comboBoxBaud = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBoxSerialPort = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.comboBoxProtocol = new System.Windows.Forms.ComboBox();
+            this.comboBoxBaud = new System.Windows.Forms.ComboBox();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.textBoxIPAddr = new PLCModbusSystem.IPAddrTextBox();
             this.buttonTestOutput = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.labelWarning = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.regTextBox8 = new PLCModbusSystem.RegTextBox();
-            this.regTextBox7 = new PLCModbusSystem.RegTextBox();
-            this.regTextBoxResult = new PLCModbusSystem.RegTextBox();
-            this.regTextBox6 = new PLCModbusSystem.RegTextBox();
-            this.regTextBox5 = new PLCModbusSystem.RegTextBox();
-            this.regTextBox4 = new PLCModbusSystem.RegTextBox();
-            this.regTextBox3 = new PLCModbusSystem.RegTextBox();
             this.regTextBox2 = new PLCModbusSystem.RegTextBox();
             this.regTextBox1 = new PLCModbusSystem.RegTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.regTextBox4 = new PLCModbusSystem.RegTextBox();
+            this.regTextBox3 = new PLCModbusSystem.RegTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.regTextBox6 = new PLCModbusSystem.RegTextBox();
+            this.regTextBox5 = new PLCModbusSystem.RegTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.regTextBox8 = new PLCModbusSystem.RegTextBox();
+            this.regTextBox7 = new PLCModbusSystem.RegTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.regTextBoxResult = new PLCModbusSystem.RegTextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -233,7 +241,7 @@
             // checkBoxExcel
             // 
             this.checkBoxExcel.AutoSize = true;
-            this.checkBoxExcel.Location = new System.Drawing.Point(15, 347);
+            this.checkBoxExcel.Location = new System.Drawing.Point(11, 459);
             this.checkBoxExcel.Name = "checkBoxExcel";
             this.checkBoxExcel.Size = new System.Drawing.Size(78, 16);
             this.checkBoxExcel.TabIndex = 2;
@@ -243,7 +251,7 @@
             // checkBoxLims
             // 
             this.checkBoxLims.AutoSize = true;
-            this.checkBoxLims.Location = new System.Drawing.Point(110, 347);
+            this.checkBoxLims.Location = new System.Drawing.Point(119, 459);
             this.checkBoxLims.Name = "checkBoxLims";
             this.checkBoxLims.Size = new System.Drawing.Size(72, 16);
             this.checkBoxLims.TabIndex = 2;
@@ -253,19 +261,27 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBoxFormat);
+            this.groupBox1.Controls.Add(this.radioButtonNetwork);
+            this.groupBox1.Controls.Add(this.radioButtonSerial);
             this.groupBox1.Controls.Add(this.maskedTextBoxStartAddr);
+            this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.buttonSaveSettings);
-            this.groupBox1.Controls.Add(this.comboBoxBaud);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label33);
+            this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.checkBoxLims);
+            this.groupBox1.Controls.Add(this.comboBoxSerialPort);
             this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.comboBoxProtocol);
             this.groupBox1.Controls.Add(this.checkBoxExcel);
+            this.groupBox1.Controls.Add(this.comboBoxBaud);
+            this.groupBox1.Controls.Add(this.textBoxPort);
+            this.groupBox1.Controls.Add(this.textBoxIPAddr);
             this.groupBox1.Location = new System.Drawing.Point(32, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(210, 408);
+            this.groupBox1.Size = new System.Drawing.Size(210, 528);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户输入";
@@ -278,15 +294,39 @@
             "CD AB",
             "BA DC",
             "DC BA"});
-            this.comboBoxFormat.Location = new System.Drawing.Point(74, 320);
+            this.comboBoxFormat.Location = new System.Drawing.Point(70, 431);
             this.comboBoxFormat.Name = "comboBoxFormat";
             this.comboBoxFormat.Size = new System.Drawing.Size(121, 20);
             this.comboBoxFormat.TabIndex = 9;
             this.comboBoxFormat.Text = "DC BA";
             // 
+            // radioButtonNetwork
+            // 
+            this.radioButtonNetwork.AutoSize = true;
+            this.radioButtonNetwork.Location = new System.Drawing.Point(92, 252);
+            this.radioButtonNetwork.Name = "radioButtonNetwork";
+            this.radioButtonNetwork.Size = new System.Drawing.Size(59, 16);
+            this.radioButtonNetwork.TabIndex = 12;
+            this.radioButtonNetwork.TabStop = true;
+            this.radioButtonNetwork.Text = "以太网";
+            this.radioButtonNetwork.UseVisualStyleBackColor = true;
+            this.radioButtonNetwork.CheckedChanged += new System.EventHandler(this.radioButtonNetwork_CheckedChanged);
+            // 
+            // radioButtonSerial
+            // 
+            this.radioButtonSerial.AutoSize = true;
+            this.radioButtonSerial.Location = new System.Drawing.Point(15, 252);
+            this.radioButtonSerial.Name = "radioButtonSerial";
+            this.radioButtonSerial.Size = new System.Drawing.Size(47, 16);
+            this.radioButtonSerial.TabIndex = 12;
+            this.radioButtonSerial.TabStop = true;
+            this.radioButtonSerial.Text = "串口";
+            this.radioButtonSerial.UseVisualStyleBackColor = true;
+            this.radioButtonSerial.CheckedChanged += new System.EventHandler(this.radioButtonSerial_CheckedChanged);
+            // 
             // maskedTextBoxStartAddr
             // 
-            this.maskedTextBoxStartAddr.Location = new System.Drawing.Point(74, 293);
+            this.maskedTextBoxStartAddr.Location = new System.Drawing.Point(70, 404);
             this.maskedTextBoxStartAddr.Mask = "99999";
             this.maskedTextBoxStartAddr.Name = "maskedTextBoxStartAddr";
             this.maskedTextBoxStartAddr.Size = new System.Drawing.Size(121, 21);
@@ -295,15 +335,98 @@
             this.maskedTextBoxStartAddr.ValidatingType = typeof(int);
             this.maskedTextBoxStartAddr.Leave += new System.EventHandler(this.maskedTextBoxStartAddr_Leave);
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(9, 332);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 12);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "协议";
+            // 
             // buttonSaveSettings
             // 
-            this.buttonSaveSettings.Location = new System.Drawing.Point(15, 369);
+            this.buttonSaveSettings.Location = new System.Drawing.Point(11, 481);
             this.buttonSaveSettings.Name = "buttonSaveSettings";
             this.buttonSaveSettings.Size = new System.Drawing.Size(180, 37);
             this.buttonSaveSettings.TabIndex = 3;
             this.buttonSaveSettings.Text = "保存设定";
             this.buttonSaveSettings.UseVisualStyleBackColor = true;
             this.buttonSaveSettings.Click += new System.EventHandler(this.buttonSaveSettings_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(9, 379);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(29, 12);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "端口";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(9, 354);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 12);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "IP地址";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 434);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 12);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "浮点格式";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 279);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "输入串口";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(9, 307);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 12);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "波特率";
+            // 
+            // comboBoxSerialPort
+            // 
+            this.comboBoxSerialPort.FormattingEnabled = true;
+            this.comboBoxSerialPort.Location = new System.Drawing.Point(70, 276);
+            this.comboBoxSerialPort.Name = "comboBoxSerialPort";
+            this.comboBoxSerialPort.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSerialPort.TabIndex = 7;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(9, 407);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "开始地址";
+            // 
+            // comboBoxProtocol
+            // 
+            this.comboBoxProtocol.FormattingEnabled = true;
+            this.comboBoxProtocol.Items.AddRange(new object[] {
+            "TCP/IP",
+            "RTU Over TCP/IP"});
+            this.comboBoxProtocol.Location = new System.Drawing.Point(70, 329);
+            this.comboBoxProtocol.Name = "comboBoxProtocol";
+            this.comboBoxProtocol.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxProtocol.TabIndex = 7;
+            this.comboBoxProtocol.Text = "TCP/IP";
             // 
             // comboBoxBaud
             // 
@@ -322,54 +445,26 @@
             "57600 Baud",
             "115200 Baud",
             "921600 Baud"});
-            this.comboBoxBaud.Location = new System.Drawing.Point(74, 266);
+            this.comboBoxBaud.Location = new System.Drawing.Point(70, 302);
             this.comboBoxBaud.Name = "comboBoxBaud";
             this.comboBoxBaud.Size = new System.Drawing.Size(121, 20);
             this.comboBoxBaud.TabIndex = 7;
             // 
-            // comboBox1
+            // textBoxPort
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(74, 240);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 7;
+            this.textBoxPort.Location = new System.Drawing.Point(70, 376);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(121, 21);
+            this.textBoxPort.TabIndex = 1;
+            this.textBoxPort.Text = "502";
             // 
-            // label19
+            // textBoxIPAddr
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 271);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 12);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "波特率";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 243);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "输入串口";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(13, 323);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 12);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "浮点格式";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(13, 296);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(53, 12);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "开始地址";
+            this.textBoxIPAddr.Location = new System.Drawing.Point(70, 351);
+            this.textBoxIPAddr.Name = "textBoxIPAddr";
+            this.textBoxIPAddr.Size = new System.Drawing.Size(121, 21);
+            this.textBoxIPAddr.TabIndex = 1;
+            this.textBoxIPAddr.Text = "0.0.0.0";
             // 
             // buttonTestOutput
             // 
@@ -416,6 +511,34 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "一号弹";
             // 
+            // regTextBox2
+            // 
+            this.regTextBox2.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox2.dtDivValue = 100;
+            this.regTextBox2.dtMaxValue = 0;
+            this.regTextBox2.dtMinValue = 0;
+            this.regTextBox2.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox2.Location = new System.Drawing.Point(159, 42);
+            this.regTextBox2.Name = "regTextBox2";
+            this.regTextBox2.ReadOnly = true;
+            this.regTextBox2.RegIndex = 10;
+            this.regTextBox2.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox2.TabIndex = 1;
+            // 
+            // regTextBox1
+            // 
+            this.regTextBox1.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox1.dtDivValue = 100;
+            this.regTextBox1.dtMaxValue = 0;
+            this.regTextBox1.dtMinValue = 0;
+            this.regTextBox1.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox1.Location = new System.Drawing.Point(159, 14);
+            this.regTextBox1.Name = "regTextBox1";
+            this.regTextBox1.ReadOnly = true;
+            this.regTextBox1.RegIndex = 2;
+            this.regTextBox1.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox1.TabIndex = 1;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -433,6 +556,24 @@
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 0;
             this.label9.Text = "测试时间";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(84, 47);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 12);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "(0000)";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(84, 17);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 12);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "(0000)";
             // 
             // label20
             // 
@@ -457,262 +598,6 @@
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "二号弹";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "最大压力";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "测试时间";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.regTextBox6);
-            this.groupBox6.Controls.Add(this.regTextBox5);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label29);
-            this.groupBox6.Controls.Add(this.label28);
-            this.groupBox6.Location = new System.Drawing.Point(29, 199);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(284, 69);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "三号弹";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 47);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "最大压力";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "测试时间";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.regTextBox8);
-            this.groupBox7.Controls.Add(this.regTextBox7);
-            this.groupBox7.Controls.Add(this.label15);
-            this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.label31);
-            this.groupBox7.Controls.Add(this.label30);
-            this.groupBox7.Location = new System.Drawing.Point(29, 279);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(284, 69);
-            this.groupBox7.TabIndex = 2;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "四号弹";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 47);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "最大压力";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 17);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 12);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "测试时间";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.groupBox7);
-            this.groupBox3.Controls.Add(this.regTextBoxResult);
-            this.groupBox3.Controls.Add(this.groupBox6);
-            this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(248, 70);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(336, 358);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "实时结果";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(113, 24);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 12);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "(0000)";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(84, 17);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 12);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "(0000)";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(84, 47);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 12);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "(0000)";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(84, 17);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 12);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "(0000)";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(84, 47);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 12);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "(0000)";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(84, 17);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(41, 12);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "(0000)";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(84, 47);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 12);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "(0000)";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(84, 17);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 12);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "(0000)";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(84, 47);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 12);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "(0000)";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // regTextBox8
-            // 
-            this.regTextBox8.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox8.dtDivValue = 100;
-            this.regTextBox8.dtMaxValue = 0;
-            this.regTextBox8.dtMinValue = 0;
-            this.regTextBox8.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox8.Location = new System.Drawing.Point(159, 44);
-            this.regTextBox8.Name = "regTextBox8";
-            this.regTextBox8.ReadOnly = true;
-            this.regTextBox8.RegIndex = 16;
-            this.regTextBox8.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox8.TabIndex = 1;
-            // 
-            // regTextBox7
-            // 
-            this.regTextBox7.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox7.dtDivValue = 100;
-            this.regTextBox7.dtMaxValue = 0;
-            this.regTextBox7.dtMinValue = 0;
-            this.regTextBox7.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox7.Location = new System.Drawing.Point(159, 14);
-            this.regTextBox7.Name = "regTextBox7";
-            this.regTextBox7.ReadOnly = true;
-            this.regTextBox7.RegIndex = 8;
-            this.regTextBox7.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox7.TabIndex = 1;
-            // 
-            // regTextBoxResult
-            // 
-            this.regTextBoxResult.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBoxResult.dtDivValue = 100;
-            this.regTextBoxResult.dtMaxValue = 0;
-            this.regTextBoxResult.dtMinValue = 0;
-            this.regTextBoxResult.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBoxResult.Location = new System.Drawing.Point(188, 21);
-            this.regTextBoxResult.Name = "regTextBoxResult";
-            this.regTextBoxResult.ReadOnly = true;
-            this.regTextBoxResult.RegIndex = 0;
-            this.regTextBoxResult.Size = new System.Drawing.Size(102, 21);
-            this.regTextBoxResult.TabIndex = 1;
-            // 
-            // regTextBox6
-            // 
-            this.regTextBox6.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox6.dtDivValue = 100;
-            this.regTextBox6.dtMaxValue = 0;
-            this.regTextBox6.dtMinValue = 0;
-            this.regTextBox6.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox6.Location = new System.Drawing.Point(159, 44);
-            this.regTextBox6.Name = "regTextBox6";
-            this.regTextBox6.ReadOnly = true;
-            this.regTextBox6.RegIndex = 14;
-            this.regTextBox6.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox6.TabIndex = 1;
-            // 
-            // regTextBox5
-            // 
-            this.regTextBox5.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox5.dtDivValue = 100;
-            this.regTextBox5.dtMaxValue = 0;
-            this.regTextBox5.dtMinValue = 0;
-            this.regTextBox5.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox5.Location = new System.Drawing.Point(159, 14);
-            this.regTextBox5.Name = "regTextBox5";
-            this.regTextBox5.ReadOnly = true;
-            this.regTextBox5.RegIndex = 6;
-            this.regTextBox5.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox5.TabIndex = 1;
             // 
             // regTextBox4
             // 
@@ -742,39 +627,249 @@
             this.regTextBox3.Size = new System.Drawing.Size(102, 21);
             this.regTextBox3.TabIndex = 1;
             // 
-            // regTextBox2
+            // label11
             // 
-            this.regTextBox2.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox2.dtDivValue = 100;
-            this.regTextBox2.dtMaxValue = 0;
-            this.regTextBox2.dtMinValue = 0;
-            this.regTextBox2.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox2.Location = new System.Drawing.Point(159, 42);
-            this.regTextBox2.Name = "regTextBox2";
-            this.regTextBox2.ReadOnly = true;
-            this.regTextBox2.RegIndex = 10;
-            this.regTextBox2.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox2.TabIndex = 1;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(25, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "最大压力";
             // 
-            // regTextBox1
+            // label12
             // 
-            this.regTextBox1.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
-            this.regTextBox1.dtDivValue = 100;
-            this.regTextBox1.dtMaxValue = 0;
-            this.regTextBox1.dtMinValue = 0;
-            this.regTextBox1.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
-            this.regTextBox1.Location = new System.Drawing.Point(159, 14);
-            this.regTextBox1.Name = "regTextBox1";
-            this.regTextBox1.ReadOnly = true;
-            this.regTextBox1.RegIndex = 2;
-            this.regTextBox1.Size = new System.Drawing.Size(102, 21);
-            this.regTextBox1.TabIndex = 1;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(25, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "测试时间";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(84, 47);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 12);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "(0000)";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(84, 17);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(41, 12);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "(0000)";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.regTextBox6);
+            this.groupBox6.Controls.Add(this.regTextBox5);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label29);
+            this.groupBox6.Controls.Add(this.label28);
+            this.groupBox6.Location = new System.Drawing.Point(29, 199);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(284, 69);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "三号弹";
+            // 
+            // regTextBox6
+            // 
+            this.regTextBox6.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox6.dtDivValue = 100;
+            this.regTextBox6.dtMaxValue = 0;
+            this.regTextBox6.dtMinValue = 0;
+            this.regTextBox6.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox6.Location = new System.Drawing.Point(159, 44);
+            this.regTextBox6.Name = "regTextBox6";
+            this.regTextBox6.ReadOnly = true;
+            this.regTextBox6.RegIndex = 14;
+            this.regTextBox6.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox6.TabIndex = 1;
+            // 
+            // regTextBox5
+            // 
+            this.regTextBox5.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox5.dtDivValue = 100;
+            this.regTextBox5.dtMaxValue = 0;
+            this.regTextBox5.dtMinValue = 0;
+            this.regTextBox5.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox5.Location = new System.Drawing.Point(159, 14);
+            this.regTextBox5.Name = "regTextBox5";
+            this.regTextBox5.ReadOnly = true;
+            this.regTextBox5.RegIndex = 6;
+            this.regTextBox5.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox5.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(25, 47);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "最大压力";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(25, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "测试时间";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(84, 47);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 12);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "(0000)";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(84, 17);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(41, 12);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "(0000)";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.regTextBox8);
+            this.groupBox7.Controls.Add(this.regTextBox7);
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.label31);
+            this.groupBox7.Controls.Add(this.label30);
+            this.groupBox7.Location = new System.Drawing.Point(29, 279);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(284, 69);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "四号弹";
+            // 
+            // regTextBox8
+            // 
+            this.regTextBox8.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox8.dtDivValue = 100;
+            this.regTextBox8.dtMaxValue = 0;
+            this.regTextBox8.dtMinValue = 0;
+            this.regTextBox8.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox8.Location = new System.Drawing.Point(159, 44);
+            this.regTextBox8.Name = "regTextBox8";
+            this.regTextBox8.ReadOnly = true;
+            this.regTextBox8.RegIndex = 16;
+            this.regTextBox8.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox8.TabIndex = 1;
+            // 
+            // regTextBox7
+            // 
+            this.regTextBox7.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBox7.dtDivValue = 100;
+            this.regTextBox7.dtMaxValue = 0;
+            this.regTextBox7.dtMinValue = 0;
+            this.regTextBox7.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBox7.Location = new System.Drawing.Point(159, 14);
+            this.regTextBox7.Name = "regTextBox7";
+            this.regTextBox7.ReadOnly = true;
+            this.regTextBox7.RegIndex = 8;
+            this.regTextBox7.Size = new System.Drawing.Size(102, 21);
+            this.regTextBox7.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(25, 47);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 12);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "最大压力";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 17);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 12);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "测试时间";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(84, 47);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(41, 12);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "(0000)";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(84, 17);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(41, 12);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "(0000)";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox7);
+            this.groupBox3.Controls.Add(this.regTextBoxResult);
+            this.groupBox3.Controls.Add(this.groupBox6);
+            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Location = new System.Drawing.Point(248, 70);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(336, 358);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "实时结果";
+            // 
+            // regTextBoxResult
+            // 
+            this.regTextBoxResult.dataType = PLCModbusSystem.RegTextBox.DataType.dtSingleFloat;
+            this.regTextBoxResult.dtDivValue = 100;
+            this.regTextBoxResult.dtMaxValue = 0;
+            this.regTextBoxResult.dtMinValue = 0;
+            this.regTextBoxResult.floatFmt = PLCModbusSystem.RegTextBox.FloatFMT.FMT_DCBA;
+            this.regTextBoxResult.Location = new System.Drawing.Point(188, 21);
+            this.regTextBoxResult.Name = "regTextBoxResult";
+            this.regTextBoxResult.ReadOnly = true;
+            this.regTextBoxResult.RegIndex = 0;
+            this.regTextBoxResult.Size = new System.Drawing.Size(102, 21);
+            this.regTextBoxResult.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(113, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(41, 12);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "(0000)";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 489);
+            this.ClientSize = new System.Drawing.Size(619, 601);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.label18);
@@ -840,7 +935,7 @@
         private System.Windows.Forms.Button buttonTestOutput;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSerialPort;
         private System.Windows.Forms.Button buttonSaveSettings;
         private System.Windows.Forms.ComboBox comboBoxBaud;
         private System.Windows.Forms.Label label19;
@@ -882,6 +977,14 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.RadioButton radioButtonNetwork;
+        private System.Windows.Forms.RadioButton radioButtonSerial;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox comboBoxProtocol;
+        private System.Windows.Forms.TextBox textBoxPort;
+        private IPAddrTextBox textBoxIPAddr;
     }
 }
 

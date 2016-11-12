@@ -350,7 +350,7 @@
             this.buttonSaveSettings.Name = "buttonSaveSettings";
             this.buttonSaveSettings.Size = new System.Drawing.Size(180, 37);
             this.buttonSaveSettings.TabIndex = 3;
-            this.buttonSaveSettings.Text = "保存设定";
+            this.buttonSaveSettings.Text = "保存设定/重新连接";
             this.buttonSaveSettings.UseVisualStyleBackColor = true;
             this.buttonSaveSettings.Click += new System.EventHandler(this.buttonSaveSettings_Click);
             // 

@@ -709,7 +709,7 @@ namespace PLCModbusSystem
             DateTime now = DateTime.Now;
             int iNo = 1;
            
-            string dir_path = "c:\\ExcelIN";
+            string dir_path = "d:\\ExcelIN";
             try
             {
                 if (!Directory.Exists(dir_path))
@@ -723,11 +723,11 @@ namespace PLCModbusSystem
                 MessageBox.Show("Folder " + dir_path + " create error.");
             }
 
-            string filename = String.Format("c:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
+            string filename = String.Format("d:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
             while (File.Exists(filename))
             {
                 iNo++;
-                filename = String.Format("c:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
+                filename = String.Format("d:\\ExcelIN\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
             }
             CreateExcelFile(filename);
             

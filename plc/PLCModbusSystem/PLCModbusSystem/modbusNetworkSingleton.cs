@@ -24,8 +24,8 @@ namespace PLCModbusSystem
         private static modbusNetworkSingleton modbusPoll;
         private static readonly object locker = new object();
         TcpClient tcpClient;
-        UdpClient udpClient;
-        string ipaddr;
+        //UdpClient udpClient;
+        //string ipaddr;
         int protocol;
         int port;
 
@@ -93,28 +93,37 @@ namespace PLCModbusSystem
                 {
                     return false;
                 }
-                if (protocol == "TCP/IP")
+
+                try
                 {
-                    tcpClient = new TcpClient(ip, port);
-                    master = ModbusIpMaster.CreateIp(tcpClient);
-                    master.Transport.Retries = 5;
-                    tcpClient.SendTimeout = 1000;
-                    tcpClient.ReceiveTimeout = 1000;
-                    this.protocol = PROTOCOL_TCPIP;
+                    if (protocol == "TCP/IP")
+                    {
+                        tcpClient = new TcpClient(ip, port);
+                        master = ModbusIpMaster.CreateIp(tcpClient);
+                        master.Transport.Retries = 5;
+                        tcpClient.SendTimeout = 1000;
+                        tcpClient.ReceiveTimeout = 1000;
+                        this.protocol = PROTOCOL_TCPIP;
+                    }
+                    //else if (protocol == "UDP/IP")
+                    //{
+                    //    udpClient = new UdpClient(ip, port);
+                    //    this.protocol = PROTOCOL_UDPIP;
+                    //}
+                    else if (protocol == "RTU Over TCP/IP")
+                    {
+                        tcpClient = new TcpClient(ip, port);
+                        this.protocol = PROTOCOL_RTU_TCPIP;
+                        master = ModbusSerialMaster.CreateRtu(tcpClient);
+                        master.Transport.Retries = 5;
+                        tcpClient.SendTimeout = 1000;
+                        tcpClient.ReceiveTimeout = 1000;
+                    }
                 }
-                //else if (protocol == "UDP/IP")
-                //{
-                //    udpClient = new UdpClient(ip, port);
-                //    this.protocol = PROTOCOL_UDPIP;
-                //}
-                else if (protocol == "RTU Over TCP/IP")
+                catch (Exception ex)
                 {
-                    tcpClient = new TcpClient(ip, port);
-                    this.protocol =PROTOCOL_RTU_TCPIP;
-                    master = ModbusSerialMaster.CreateRtu(tcpClient);
-                    master.Transport.Retries = 5;
-                    tcpClient.SendTimeout = 1000;
-                    tcpClient.ReceiveTimeout = 1000;
+                    commsts = RET_COMMERROR;
+                    return false;
                 }
                 //else if (protocol == "RTU Over UDP/IP")
                 //{

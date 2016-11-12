@@ -66,3 +66,32 @@ at System.Net.Sockets.TcpClient.GetStream()
    at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 182
 触发方法：System.Net.Sockets.NetworkStream GetStream()
 
+当前时间：2016-11-12 18:27:56
+异常信息：由于目标机器积极拒绝，无法连接。 127.0.0.1:502
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient..ctor(String hostname, Int32 port)
+   at PLCModbusSystem.modbusNetworkSingleton.initModbusPoll(String ip, Int32 port, String protocol) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 112
+   at PLCModbusSystem.Form1.InitializeSystemSetting() in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\Form1.cs:line 245
+触发方法：Void .ctor(System.String, Int32)
+
+当前时间：2016-11-12 18:30:23
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-12 18:31:46
+异常信息：Object reference not set to an instance of an object.
+异常对象：PLCModbusSystem
+调用堆栈：
+at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+

@@ -1,0 +1,104 @@
+当前时间：2016/11/15 0:01:19
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:18:49
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:43:17
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:44:06
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:45:44
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:49:31
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:55:20
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:56:31
+异常信息：不允许对非连接的套接字执行此操作。
+异常对象：System
+调用堆栈：
+在 System.Net.Sockets.TcpClient.GetStream()
+   在 Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   在 Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   在 Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   在 Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   在 Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016/11/15 0:56:54
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:04:45
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:04:57
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:05:12
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:05:20
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:05:33
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) 位置 E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:行号 191
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+

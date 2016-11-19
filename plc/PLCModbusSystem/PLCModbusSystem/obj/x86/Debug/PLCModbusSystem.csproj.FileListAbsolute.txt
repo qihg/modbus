@@ -25,3 +25,16 @@ C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NModbus4.dll
 C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NPOI.dll
 C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NPOI.xml
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.csproj.ResolveComReference.cache
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.exe
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.pdb
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\PLCModbusSystem.exe
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\PLCModbusSystem.pdb
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\Newtonsoft.Json.dll
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NModbus4.dll
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\bin\Debug\NPOI.xml
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.csprojResolveAssemblyReference.cache
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.Form1.resources
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.Properties.Resources.resources
+E:\work\git\modbus\plc\PLCModbusSystem\PLCModbusSystem\obj\x86\Debug\PLCModbusSystem.csproj.GenerateResource.Cache

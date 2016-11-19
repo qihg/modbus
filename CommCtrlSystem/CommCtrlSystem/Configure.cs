@@ -32,5 +32,10 @@ namespace CommCtrlSystem
         public string username { get; set; }
         public string userpassword { get; set; }
         public string analysis { get; set; }
+        public string id { get; set; }
+        public string result { get; set; }
+
+        public string excel_dir { get; set; }
+        public string xml_dir { get; set; }
     }
 }

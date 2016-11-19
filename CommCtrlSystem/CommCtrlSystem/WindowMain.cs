@@ -17,7 +17,6 @@ using Modbus.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Data.OleDb;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Net;
 using System.Net.Sockets;
 
@@ -311,6 +310,7 @@ namespace CommCtrlSystem
                         //i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
                         //stopUpdateRegs();
                         saveXMLFile(ROOMNUM_LEFT);
+                        saveExcelFile(ROOMNUM_LEFT);
                         byte[] serverData = getAsciiData(coldfilterpoint0.ToString(), textBoxTime0.Text, textBoxNo0.Text, textBoxName0.Text, textBoxDevNo0.Text, textBoxOp0.Text);
                         transResultToServer(serverData);
                         //getAsciiData("", "", "", "", "", "");
@@ -344,7 +344,7 @@ namespace CommCtrlSystem
                         int i = AccessHelper.ExecuteNonQuery(AccessHelper.ConnString, sql2, pars2);
                         //stopUpdateRegs();
                         saveXMLFile(ROOMNUM_RIGHT);
-
+                        saveExcelFile(ROOMNUM_RIGHT);
                         byte[] serverData = getAsciiData(coldfilterpoint1.ToString(), textBoxTime1.Text, textBoxNo1.Text, textBoxName1.Text, textBoxDevNo1.Text, textBoxOp1.Text);
                         transResultToServer(serverData);
                         r_report_flg = true;
@@ -571,50 +571,69 @@ namespace CommCtrlSystem
             tgb.Controls.Add(WindowManager.GetInstance().wrd2);
         }
 
-        /// <summary>  
-        /// If the supplied excel File does not exist then Create it  
-        /// </summary>  
-        /// <param name="FileName"></param>  
-        private void CreateExcelFile(string FileName)
+        private void createExcelFile(string FileName, int room)
         {
             //create  
             try
             {
-                object Nothing = System.Reflection.Missing.Value;
-                var app = new Excel.Application();
-                app.Visible = false;
-                Excel.Workbook workBook = app.Workbooks.Add(Nothing);
-                Excel.Worksheet worksheet = (Excel.Worksheet)workBook.Sheets[1];
-                worksheet.Name = "Work";
+                NPOI.HSSF.UserModel.HSSFWorkbook book = new NPOI.HSSF.UserModel.HSSFWorkbook();
+                NPOI.SS.UserModel.ISheet sheet = book.CreateSheet("Result");
+                NPOI.SS.UserModel.IRow row0 = sheet.CreateRow(0);
+                int i = 0;
 
-                const int l_date = 1;
-                const int l_no = 4;
-                const int l_res = 2;
-                const int l_runtime = 3;
-                const int l_oper = 5;
+                row0.CreateCell(i++).SetCellValue("日期:");
+                row0.CreateCell(i++).SetCellValue("仪器名称:");
+                row0.CreateCell(i++).SetCellValue("仪器编号:");
+                row0.CreateCell(i++).SetCellValue("实验室名称:");
+                row0.CreateCell(i++).SetCellValue("油样名称:");
+                row0.CreateCell(i++).SetCellValue("油样号:");
+                row0.CreateCell(i++).SetCellValue("实验员:");
+                row0.CreateCell(i++).SetCellValue("分析方法:");
+                row0.CreateCell(i++).SetCellValue("初次冷浴温度1:");
+                row0.CreateCell(i++).SetCellValue("初次观察温度1:");
+                row0.CreateCell(i++).SetCellValue("冷浴温度1:");
+                row0.CreateCell(i++).SetCellValue("冷滤点1:");
+                row0.CreateCell(i++).SetCellValue("初次冷浴温度2:");
+                row0.CreateCell(i++).SetCellValue("初次观察温度2:");
+                row0.CreateCell(i++).SetCellValue("冷浴温度2:");
+                row0.CreateCell(i++).SetCellValue("冷滤点2:");
 
-                worksheet.Cells[1, l_no] = "试样编号";
-                worksheet.Cells[1, l_date] = "日期时间";
-                worksheet.Cells[1, l_res] = "测定结果";
-                //worksheet.Cells[1, 4] = "试样名称";
-                worksheet.Cells[1, l_runtime] = "运行时间";
-                worksheet.Cells[1, l_oper] = "操作员";
 
-                worksheet.Cells[2, l_no] = textBoxNo0.Text;
-                worksheet.Cells[2, l_date] = DateTime.Now.ToString();
-                worksheet.Cells[2, l_res] = coldfilterpoint0.ToString();
-                worksheet.Cells[2, l_runtime] = textBoxTime0.Text;
-                worksheet.Cells[2, l_oper] = textBoxOp0.Text;
+                NPOI.SS.UserModel.IRow row1 = sheet.CreateRow(1);
+                i = 0;
+                row1.CreateCell(i++).SetCellValue(DateTime.Now.ToString());
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
+                row1.CreateCell(i++).SetCellValue("0");
 
-                worksheet.Cells[3, l_no] = textBoxNo1.Text;
-                worksheet.Cells[3, l_date] = DateTime.Now.ToString();
-                worksheet.Cells[3, l_res] = coldfilterpoint1.ToString();
-                worksheet.Cells[3, l_runtime] = textBoxTime1.Text;
-                worksheet.Cells[3, l_oper] = textBoxOp1.Text;
-                ((Excel.Range)worksheet.Columns["A:E", System.Type.Missing]).AutoFit();
-                worksheet.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing);
-                workBook.Close(false, Type.Missing, Type.Missing);
-                app.Quit();
+                for (int j = 0; j < i; j++)
+                {
+                    sheet.AutoSizeColumn(j);
+                }
+
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+                {
+                    book.Write(ms);
+                    using (FileStream fs = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        byte[] data = ms.ToArray();
+                        fs.Write(data, 0, data.Length);
+                        fs.Flush();
+                    }
+                    book = null;
+                }
             }
             catch (Exception ex)
             {
@@ -622,86 +641,157 @@ namespace CommCtrlSystem
                 //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         /// <summary>  
-        /// open an excel file,then write the content to file  
+        /// If the supplied excel File does not exist then Create it  
         /// </summary>  
-        /// <param name="FileName">file name</param>  
-        /// <param name="findString">first cloumn</param>  
-        /// <param name="replaceString">second cloumn</param>  
-        private void WriteToExcel(string excelName, string filename, string findString, string replaceString)
-        {
-            //open  
-            object Nothing = System.Reflection.Missing.Value;
-            var app = new Excel.Application();
-            app.Visible = false;
-            Excel.Workbook mybook = app.Workbooks.Open(excelName, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing);
-            Excel.Worksheet mysheet = (Excel.Worksheet)mybook.Worksheets[1];
-            mysheet.Activate();
-            //get activate sheet max row count  
-            int maxrow = mysheet.UsedRange.Rows.Count + 1;
-            mysheet.Cells[maxrow, 1] = filename;
-            mysheet.Cells[maxrow, 2] = findString;
-            mysheet.Cells[maxrow, 3] = replaceString;
-            mybook.Save();
-            mybook.Close(false, Type.Missing, Type.Missing);
-            mybook = null;
-            //quit excel app  
-            app.Quit();
-        }
+        /// <param name="FileName"></param>  
+        //private void createExcelFile(string FileName, int room)
+        //{
+        //    //create  
+        //    try
+        //    {
+        //        NPOI.HSSF.UserModel.HSSFWorkbook book = new NPOI.HSSF.UserModel.HSSFWorkbook();
+        //        NPOI.SS.UserModel.ISheet sheet = book.CreateSheet("Result");
+        //        NPOI.SS.UserModel.IRow row0 = sheet.CreateRow(0);
+
+        //        int i = 0;
+
+        //        row0.CreateCell(i++).SetCellValue("试样编号:");
+        //        row0.CreateCell(i++).SetCellValue("日期时间:");
+        //        if (room == 0)
+        //        {
+        //            row0.CreateCell(i++).SetCellValue("左室测定结果:");
+        //        }
+        //        else
+        //        {
+        //            row0.CreateCell(i++).SetCellValue("右室测定结果:");
+        //        }
+        //        row0.CreateCell(i++).SetCellValue("运行时间:");
+        //        row0.CreateCell(i++).SetCellValue("操作员:");
+
+        //        NPOI.SS.UserModel.IRow row1 = sheet.CreateRow(1);
+        //        i = 0;
+
+        //        if (room == 0)
+        //        {
+        //            row1.CreateCell(i++).SetCellValue(textBoxNo0.Text);
+        //            row1.CreateCell(i++).SetCellValue(DateTime.Now.ToString());
+        //            row1.CreateCell(i++).SetCellValue(coldfilterpoint0.ToString());
+        //            row1.CreateCell(i++).SetCellValue(textBoxTime0.Text);
+        //            row1.CreateCell(i++).SetCellValue(textBoxOp0.Text);
+        //        }
+        //        else
+        //        {
+        //            row1.CreateCell(i++).SetCellValue(textBoxNo1.Text);
+        //            row1.CreateCell(i++).SetCellValue(DateTime.Now.ToString());
+        //            row1.CreateCell(i++).SetCellValue(coldfilterpoint1.ToString());
+        //            row1.CreateCell(i++).SetCellValue(textBoxTime1.Text);
+        //            row1.CreateCell(i++).SetCellValue(textBoxOp1.Text);
+        //        }
+
+
+        //        for (int j = 0; j < i; j++)
+        //        {
+        //            sheet.AutoSizeColumn(j);
+        //        }
+
+        //        using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+        //        {
+        //            book.Write(ms);
+        //            using (FileStream fs = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+        //            {
+        //                byte[] data = ms.ToArray();
+        //                fs.Write(data, 0, data.Length);
+        //                fs.Flush();
+        //            }
+        //            book = null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LogClass.GetInstance().WriteExceptionLog(ex);
+        //        //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void btnSaveExcel_Click(object sender, EventArgs e)
         {
-
-            //string localFilePath, fileNameExt, newFileName, FilePath; 
             SaveFileDialog sfd = new SaveFileDialog();
-            //设置文件类型 
+
             sfd.Filter = "Excel文件（*.xls）|*.xls|Excel文件（*.xlsx）|*.xlsx";
 
-            //设置默认文件类型显示顺序 
             sfd.FilterIndex = 1;
 
-            //保存对话框是否记忆上次打开的目录 
             sfd.RestoreDirectory = true;
 
-            //点了保存按钮进入 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 string localFilePath = sfd.FileName.ToString(); //获得文件路径 
-                string fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
+                string fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1);
 
-                //获取文件路径，不带文件名 
-                //FilePath = localFilePath.Substring(0, localFilePath.LastIndexOf("\\")); 
-
-                //给文件名前加上时间 
-                //newFileName = DateTime.Now.ToString("yyyyMMdd") + fileNameExt; 
-
-                //在文件名里加字符 
-                //saveFileDialog1.FileName.Insert(1,"dameng"); 
-
-                //System.IO.FileStream fs = (System.IO.FileStream)sfd.OpenFile();//输出文件 
-
-                ////fs输出带文字或图片的文件，就看需求了 
-                CreateExcelFile(localFilePath);
+                createExcelFile(localFilePath, 0);
             }
         }
-
-        public void saveXMLFile(int roomNo)
+        public void saveExcelFile(int roomNo)
         {
             DateTime now = DateTime.Now;
             int iNo = 1;
+            string dir_path = "d:\\ExcelIN";
 
-            string dir_path = "c:\\IN";
+            Configure cfg = null;
+            string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+            if (File.Exists(cfgfile))
+            {
+                cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
+            }
+
+            if (cfg != null && cfg.excel_dir != null)
+            {
+                dir_path = cfg.excel_dir;
+            }
+
             if (!Directory.Exists(dir_path))
             {
                 Directory.CreateDirectory(dir_path);
             }
 
-            string filename = String.Format("c:\\IN\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
+            string filename = String.Format(dir_path + "\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
             while (File.Exists(filename))
             {
                 iNo++;
-                filename = String.Format("c:\\IN\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
+                filename = String.Format(dir_path + "\\dlznyq_coldfilter_{0}-{1}.xls", now.ToString("yyyy-MM-dd"), iNo);
+            }
+            createExcelFile(filename, roomNo);
+        }
+        public void saveXMLFile(int roomNo)
+        {
+            DateTime now = DateTime.Now;
+            int iNo = 1;
+
+            string dir_path = "d:\\IN";
+
+            Configure cfg = null;
+            string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
+            if (File.Exists(cfgfile))
+            {
+                cfg = JsonConvert.DeserializeObject<Configure>(File.ReadAllText(cfgfile));
+            }
+
+            if (cfg != null && cfg.excel_dir != null)
+            {
+                dir_path = cfg.xml_dir;
+            }
+
+            if (!Directory.Exists(dir_path))
+            {
+                Directory.CreateDirectory(dir_path);
+            }
+
+            string filename = String.Format(dir_path + "\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
+            while (File.Exists(filename))
+            {
+                iNo++;
+                filename = String.Format(dir_path + "\\dlznyq_coldfilter_{0}-{1}.xml", now.ToString("yyyy-MM-dd"), iNo);
             }
             createXmlFile(filename, roomNo);
         }
@@ -724,31 +814,90 @@ namespace CommCtrlSystem
                         LimsDocEntity entity2 = l.createEntity("TEST", null);
                         LimsDocEntity entity3 = l.createEntity("RESULT", null);
 
+                        LimsDocEntity entity1_time = l.createEntity("RESULT", null);
+                        LimsDocEntity entity1_res = l.createEntity("RESULT", null);
+                        LimsDocEntity entity2_time = l.createEntity("RESULT", null);
+                        LimsDocEntity entity2_res = l.createEntity("RESULT", null);
+                        LimsDocEntity entity3_time = l.createEntity("RESULT", null);
+                        LimsDocEntity entity3_res = l.createEntity("RESULT", null);
+                        LimsDocEntity entity4_time = l.createEntity("RESULT", null);
+                        LimsDocEntity entity4_res = l.createEntity("RESULT", null);
                         entity2.addFields("ANALYSIS", "in", cfg.analysis);
 
                         if (roomNo == ROOMNUM_LEFT)
                         {
-                            entity.addFields("ID_NUMERIC", "in", textBoxNo0.Text);
+                            entity1_time.addFields("NAME", "in", "初次冷浴温度1");
+                            entity1_time.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity1_time.getElement());
 
-                            entity3.addFields("NAME", "in", "结果");
-                            entity3.addFields("TEXT", "in", coldfilterpoint0.ToString());
+                            entity1_res.addFields("NAME", "in", "初次观察温度1");
+                            entity1_res.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity1_res.getElement());
+
+                            entity2_time.addFields("NAME", "in", "冷浴温度1");
+                            entity2_time.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity2_time.getElement());
+
+                            entity2_res.addFields("NAME", "in", "冷滤点1");
+                            entity2_res.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity2_res.getElement());
+
+                            entity3_time.addFields("NAME", "in", "初次冷浴温度2");
+                            entity3_time.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity3_time.getElement());
+
+                            entity3_res.addFields("NAME", "in", "初次观察温度2");
+                            entity3_res.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity3_res.getElement());
+
+                            entity4_time.addFields("NAME", "in", "冷浴温度2");
+                            entity4_time.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity4_time.getElement());
+
+                            entity4_res.addFields("NAME", "in", "冷滤点2");
+                            entity4_res.addFields("TEXT", "in", "0");
+                            entity2.addChild(entity4_res.getElement());
                         }
                         else if (roomNo == ROOMNUM_RIGHT)
                         {
-                            entity.addFields("ID_NUMERIC", "in", textBoxNo1.Text);
+                            entity1_time.addFields("NAME", "in", "初次冷浴温度1");
+                            entity1_time.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity1_time.getElement());
 
-                            entity3.addFields("NAME", "in", "结果");
-                            entity3.addFields("TEXT", "in", coldfilterpoint1.ToString());
+                            entity1_res.addFields("NAME", "in", "初次观察温度1");
+                            entity1_res.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity1_res.getElement());
+
+                            entity2_time.addFields("NAME", "in", "冷浴温度1");
+                            entity2_time.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity2_time.getElement());
+
+                            entity2_res.addFields("NAME", "in", "冷滤点1");
+                            entity2_res.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity2_res.getElement());
+
+                            entity3_time.addFields("NAME", "in", "初次冷浴温度2");
+                            entity3_time.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity3_time.getElement());
+
+                            entity3_res.addFields("NAME", "in", "初次观察温度2");
+                            entity3_res.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity3_res.getElement());
+
+                            entity4_time.addFields("NAME", "in", "冷浴温度2");
+                            entity4_time.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity4_time.getElement());
+
+                            entity4_res.addFields("NAME", "in", "冷滤点2");
+                            entity4_res.addFields("TEXT", "in", "1");
+                            entity2.addChild(entity4_res.getElement());
                         }
                         else
                         {
                             return false;
                         }
 
-                        entity2.addChild(entity3.getElement());
-
                         entity.addChild(entity2.getElement());
-
                         l.getBody().addEntity(entity.getElement());
 
                         return l.createdoc(filename);

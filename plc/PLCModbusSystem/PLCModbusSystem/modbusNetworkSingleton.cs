@@ -101,8 +101,8 @@ namespace PLCModbusSystem
                         tcpClient = new TcpClient(ip, port);
                         master = ModbusIpMaster.CreateIp(tcpClient);
                         master.Transport.Retries = 5;
-                        tcpClient.SendTimeout = 1000;
-                        tcpClient.ReceiveTimeout = 1000;
+                        tcpClient.SendTimeout = 3000;
+                        tcpClient.ReceiveTimeout = 3000;
                         this.protocol = PROTOCOL_TCPIP;
                     }
                     //else if (protocol == "UDP/IP")

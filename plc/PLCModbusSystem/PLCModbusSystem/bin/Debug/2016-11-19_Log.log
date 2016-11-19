@@ -1,0 +1,52 @@
+当前时间：2016-11-19 12:37:03
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-19 12:37:07
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-19 12:37:11
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+
+当前时间：2016-11-19 12:37:15
+异常信息：The operation is not allowed on non-connected sockets.
+异常对象：System
+调用堆栈：
+at System.Net.Sockets.TcpClient.GetStream()
+   at Modbus.IO.TcpClientAdapter.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at Modbus.IO.ModbusIpTransport.Write(IModbusMessage message)
+   at Modbus.IO.ModbusTransport.UnicastMessage[T](IModbusMessage message)
+   at Modbus.Device.ModbusMaster.PerformReadRegisters(ReadHoldingInputRegistersRequest request)
+   at Modbus.Device.ModbusMaster.ReadHoldingRegisters(Byte slaveAddress, UInt16 startAddress, UInt16 numberOfPoints)
+   at PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs) in C:\work\CCS\modbus\plc\PLCModbusSystem\PLCModbusSystem\modbusNetworkSingleton.cs:line 191
+触发方法：System.Net.Sockets.NetworkStream GetStream()
+

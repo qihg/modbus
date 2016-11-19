@@ -115,6 +115,16 @@ namespace CommCtrlSystem
         {
 
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            base.OnClosing(e);
+            if (MessageBox.Show("您确定要退出?", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+
+        }
     } 
 }
 

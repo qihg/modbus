@@ -1,0 +1,29 @@
+当前时间：2016/11/15 0:39:52
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs)
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 0:40:21
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.Form1.load_labcfg()
+   在 PLCModbusSystem.Form1.InitializeSystemSetting()
+触发方法：Void load_labcfg()
+
+当前时间：2016/11/15 0:41:47
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs)
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+
+当前时间：2016/11/15 1:05:48
+异常信息：未将对象引用设置到对象的实例。
+异常对象：PLCModbusSystem
+调用堆栈：
+在 PLCModbusSystem.modbusNetworkSingleton.readRegister(ModbusRegisters& regs)
+触发方法：Int32 readRegister(PLCModbusSystem.ModbusRegisters ByRef)
+

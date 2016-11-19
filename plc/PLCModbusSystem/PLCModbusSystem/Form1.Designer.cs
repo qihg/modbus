@@ -72,36 +72,37 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.regTextBox2 = new PLCModbusSystem.RegTextBox();
             this.regTextBox1 = new PLCModbusSystem.RegTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label_2 = new System.Windows.Forms.Label();
+            this.label_1 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.label_res = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.regTextBox4 = new PLCModbusSystem.RegTextBox();
             this.regTextBox3 = new PLCModbusSystem.RegTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label_4 = new System.Windows.Forms.Label();
+            this.label_3 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.regTextBox6 = new PLCModbusSystem.RegTextBox();
             this.regTextBox5 = new PLCModbusSystem.RegTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label_6 = new System.Windows.Forms.Label();
+            this.label_5 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.regTextBox8 = new PLCModbusSystem.RegTextBox();
             this.regTextBox7 = new PLCModbusSystem.RegTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label_8 = new System.Windows.Forms.Label();
+            this.label_7 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.regTextBoxResult = new PLCModbusSystem.RegTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -500,8 +501,8 @@
             // 
             this.groupBox4.Controls.Add(this.regTextBox2);
             this.groupBox4.Controls.Add(this.regTextBox1);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label_2);
+            this.groupBox4.Controls.Add(this.label_1);
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.label24);
             this.groupBox4.Location = new System.Drawing.Point(29, 42);
@@ -539,28 +540,28 @@
             this.regTextBox1.Size = new System.Drawing.Size(102, 21);
             this.regTextBox1.TabIndex = 1;
             // 
-            // label10
+            // label_2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 47);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "最大压力";
+            this.label_2.AutoSize = true;
+            this.label_2.Location = new System.Drawing.Point(25, 47);
+            this.label_2.Name = "label_2";
+            this.label_2.Size = new System.Drawing.Size(53, 12);
+            this.label_2.TabIndex = 0;
+            this.label_2.Text = "最大压力";
             // 
-            // label9
+            // label_1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "测试时间";
+            this.label_1.AutoSize = true;
+            this.label_1.Location = new System.Drawing.Point(25, 17);
+            this.label_1.Name = "label_1";
+            this.label_1.Size = new System.Drawing.Size(53, 12);
+            this.label_1.TabIndex = 0;
+            this.label_1.Text = "测试时间";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(84, 47);
+            this.label25.Location = new System.Drawing.Point(111, 47);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(41, 12);
             this.label25.TabIndex = 0;
@@ -569,27 +570,27 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(84, 17);
+            this.label24.Location = new System.Drawing.Point(111, 17);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(41, 12);
             this.label24.TabIndex = 0;
             this.label24.Text = "(0000)";
             // 
-            // label20
+            // label_res
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(54, 24);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 12);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "测试结果";
+            this.label_res.AutoSize = true;
+            this.label_res.Location = new System.Drawing.Point(54, 24);
+            this.label_res.Name = "label_res";
+            this.label_res.Size = new System.Drawing.Size(53, 12);
+            this.label_res.TabIndex = 0;
+            this.label_res.Text = "测试结果";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.regTextBox4);
             this.groupBox5.Controls.Add(this.regTextBox3);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label_4);
+            this.groupBox5.Controls.Add(this.label_3);
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Location = new System.Drawing.Point(29, 119);
@@ -627,28 +628,28 @@
             this.regTextBox3.Size = new System.Drawing.Size(102, 21);
             this.regTextBox3.TabIndex = 1;
             // 
-            // label11
+            // label_4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "最大压力";
+            this.label_4.AutoSize = true;
+            this.label_4.Location = new System.Drawing.Point(25, 47);
+            this.label_4.Name = "label_4";
+            this.label_4.Size = new System.Drawing.Size(53, 12);
+            this.label_4.TabIndex = 0;
+            this.label_4.Text = "最大压力";
             // 
-            // label12
+            // label_3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "测试时间";
+            this.label_3.AutoSize = true;
+            this.label_3.Location = new System.Drawing.Point(25, 17);
+            this.label_3.Name = "label_3";
+            this.label_3.Size = new System.Drawing.Size(53, 12);
+            this.label_3.TabIndex = 0;
+            this.label_3.Text = "测试时间";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(84, 47);
+            this.label27.Location = new System.Drawing.Point(111, 47);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(41, 12);
             this.label27.TabIndex = 0;
@@ -657,7 +658,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(84, 17);
+            this.label26.Location = new System.Drawing.Point(111, 17);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(41, 12);
             this.label26.TabIndex = 0;
@@ -667,8 +668,8 @@
             // 
             this.groupBox6.Controls.Add(this.regTextBox6);
             this.groupBox6.Controls.Add(this.regTextBox5);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label_6);
+            this.groupBox6.Controls.Add(this.label_5);
             this.groupBox6.Controls.Add(this.label29);
             this.groupBox6.Controls.Add(this.label28);
             this.groupBox6.Location = new System.Drawing.Point(29, 199);
@@ -706,28 +707,28 @@
             this.regTextBox5.Size = new System.Drawing.Size(102, 21);
             this.regTextBox5.TabIndex = 1;
             // 
-            // label13
+            // label_6
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 47);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "最大压力";
+            this.label_6.AutoSize = true;
+            this.label_6.Location = new System.Drawing.Point(25, 47);
+            this.label_6.Name = "label_6";
+            this.label_6.Size = new System.Drawing.Size(53, 12);
+            this.label_6.TabIndex = 0;
+            this.label_6.Text = "最大压力";
             // 
-            // label14
+            // label_5
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "测试时间";
+            this.label_5.AutoSize = true;
+            this.label_5.Location = new System.Drawing.Point(25, 17);
+            this.label_5.Name = "label_5";
+            this.label_5.Size = new System.Drawing.Size(53, 12);
+            this.label_5.TabIndex = 0;
+            this.label_5.Text = "测试时间";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(84, 47);
+            this.label29.Location = new System.Drawing.Point(111, 47);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(41, 12);
             this.label29.TabIndex = 0;
@@ -736,7 +737,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(84, 17);
+            this.label28.Location = new System.Drawing.Point(111, 17);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(41, 12);
             this.label28.TabIndex = 0;
@@ -746,8 +747,8 @@
             // 
             this.groupBox7.Controls.Add(this.regTextBox8);
             this.groupBox7.Controls.Add(this.regTextBox7);
-            this.groupBox7.Controls.Add(this.label15);
-            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.label_8);
+            this.groupBox7.Controls.Add(this.label_7);
             this.groupBox7.Controls.Add(this.label31);
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Location = new System.Drawing.Point(29, 279);
@@ -785,28 +786,28 @@
             this.regTextBox7.Size = new System.Drawing.Size(102, 21);
             this.regTextBox7.TabIndex = 1;
             // 
-            // label15
+            // label_8
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 47);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "最大压力";
+            this.label_8.AutoSize = true;
+            this.label_8.Location = new System.Drawing.Point(25, 47);
+            this.label_8.Name = "label_8";
+            this.label_8.Size = new System.Drawing.Size(53, 12);
+            this.label_8.TabIndex = 0;
+            this.label_8.Text = "最大压力";
             // 
-            // label16
+            // label_7
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 17);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 12);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "测试时间";
+            this.label_7.AutoSize = true;
+            this.label_7.Location = new System.Drawing.Point(25, 17);
+            this.label_7.Name = "label_7";
+            this.label_7.Size = new System.Drawing.Size(53, 12);
+            this.label_7.TabIndex = 0;
+            this.label_7.Text = "测试时间";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(84, 47);
+            this.label31.Location = new System.Drawing.Point(111, 47);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(41, 12);
             this.label31.TabIndex = 0;
@@ -815,7 +816,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(84, 17);
+            this.label30.Location = new System.Drawing.Point(111, 17);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 0;
@@ -828,7 +829,7 @@
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label_res);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(248, 70);
             this.groupBox3.Name = "groupBox3";
@@ -854,7 +855,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(113, 24);
+            this.label23.Location = new System.Drawing.Point(140, 23);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(41, 12);
             this.label23.TabIndex = 0;
@@ -865,14 +866,25 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(248, 488);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(336, 41);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "文字写入测试";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 601);
+            this.ClientSize = new System.Drawing.Size(619, 615);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.label18);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTestOutput);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.label8);
@@ -943,25 +955,25 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private RegTextBox regTextBox2;
         private RegTextBox regTextBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label_2;
+        private System.Windows.Forms.Label label_1;
+        private System.Windows.Forms.Label label_res;
         private System.Windows.Forms.GroupBox groupBox5;
         private RegTextBox regTextBox4;
         private RegTextBox regTextBox3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label_4;
+        private System.Windows.Forms.Label label_3;
         private System.Windows.Forms.GroupBox groupBox6;
         private RegTextBox regTextBox6;
         private RegTextBox regTextBox5;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label_6;
+        private System.Windows.Forms.Label label_5;
         private RegTextBox regTextBoxResult;
         private System.Windows.Forms.GroupBox groupBox7;
         private RegTextBox regTextBox8;
         private RegTextBox regTextBox7;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label_8;
+        private System.Windows.Forms.Label label_7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -985,6 +997,7 @@
         private System.Windows.Forms.ComboBox comboBoxProtocol;
         private System.Windows.Forms.TextBox textBoxPort;
         private IPAddrTextBox textBoxIPAddr;
+        private System.Windows.Forms.Button button1;
     }
 }
 

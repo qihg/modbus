@@ -1,0 +1,122 @@
+当前时间：2016-11-19 13:42:26
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:42:34
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:52:37
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at CommCtrlSystem.TestXMLForm.createExcelFile(String FileName, Int32 room) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 308
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:52:39
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:54:55
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:55:25
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:57:50
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at CommCtrlSystem.TestXMLForm.createExcelFile(String FileName, Int32 room) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 308
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 13:59:25
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at CommCtrlSystem.TestXMLForm.createExcelFile(String FileName, Int32 room) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 308
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 14:00:56
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at CommCtrlSystem.TestXMLForm.createExcelFile(String FileName, Int32 room) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 308
+触发方法：Void WinIOError(Int32, System.String)
+
+当前时间：2016-11-19 14:00:59
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at CommCtrlSystem.LimsDoc.createdoc(String docpath) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\LimsDoc.cs:line 150
+   at CommCtrlSystem.TestXMLForm.createXmlFile(String filename, Int32 roomNo) in C:\work\CCS\modbus\CommCtrlSystem\CommCtrlSystem\TestXMLForm.cs:line 154
+触发方法：Void WinIOError(Int32, System.String)
+

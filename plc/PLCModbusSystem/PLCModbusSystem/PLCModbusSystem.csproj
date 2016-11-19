@@ -69,6 +69,7 @@
     <Compile Include="IPAddrTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="labelcfg.cs" />
     <Compile Include="LimsDoc.cs" />
     <Compile Include="LogClass.cs" />
     <Compile Include="modbusNetworkSingleton.cs" />

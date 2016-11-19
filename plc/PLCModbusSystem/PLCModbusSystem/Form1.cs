@@ -39,6 +39,8 @@ namespace PLCModbusSystem
         private const int INPUT_METHOD_SERIAL = 0;
         private const int INPUT_METHOD_IP = 1;
         private int input_method = INPUT_METHOD_SERIAL;
+        private labelcfg lcfg = null;
+        private int rtycnt = 3;
         public Form1()
         {
             InitializeComponent();
@@ -120,10 +122,67 @@ namespace PLCModbusSystem
           //  }
         }
 
+        private void load_labcfg()
+        {  
+            string cfgfile = System.IO.Path.Combine(Application.StartupPath, "labcfg.json");
+            if (File.Exists(cfgfile))
+            {
+                lcfg = JsonConvert.DeserializeObject<labelcfg>(File.ReadAllText(cfgfile));
+            } else {
+                return;
+            }
+
+            if (lcfg.label_res != null)
+            {
+                label_res.Text = lcfg.label_res;
+            }
+
+            if (lcfg.label_1 != null)
+            {
+                label_1.Text = lcfg.label_1;
+            }
+
+            if (lcfg.label_2 != null)
+            {
+                label_2.Text = lcfg.label_2;
+            }
+
+            if (lcfg.label_3 != null)
+            {
+                label_3.Text = lcfg.label_3;
+            }
+
+            if (lcfg.label_4 != null)
+            {
+                label_4.Text = lcfg.label_4;
+            }
+
+            if (lcfg.label_5 != null)
+            {
+                label_5.Text = lcfg.label_5;
+            }
+
+            if (lcfg.label_6 != null)
+            {
+                label_6.Text = lcfg.label_6;
+            }
+
+            if (lcfg.label_7 != null)
+            {
+                label_7.Text = lcfg.label_7;
+            }
+
+            if (lcfg.label_8 != null)
+            {
+                label_8.Text = lcfg.label_8;
+            }
+        }
+
         private void InitializeSystemSetting()
         {
             try
             {
+                load_labcfg();
                 Configure cfg = null;
                 string cfgfile = System.IO.Path.Combine(Application.StartupPath, "cfg.json");
                 if (File.Exists(cfgfile))
@@ -579,22 +638,44 @@ namespace PLCModbusSystem
                 NPOI.SS.UserModel.ISheet sheet = book.CreateSheet("Result");
                 NPOI.SS.UserModel.IRow row0 = sheet.CreateRow(0);
                 int i = 0;
-                row0.CreateCell(i++).SetCellValue("日期:");
-                row0.CreateCell(i++).SetCellValue("仪器名称:");
-                row0.CreateCell(i++).SetCellValue("仪器编号:");
-                row0.CreateCell(i++).SetCellValue("实验室名称:");
-                row0.CreateCell(i++).SetCellValue("油样名称:");
-                row0.CreateCell(i++).SetCellValue("油样号:");
-                row0.CreateCell(i++).SetCellValue("实验员:");
-                row0.CreateCell(i++).SetCellValue("分析方法:");
-                row0.CreateCell(i++).SetCellValue("一号弹:测试时间:");
-                row0.CreateCell(i++).SetCellValue("最大压力:");
-                row0.CreateCell(i++).SetCellValue("二号弹:测试时间:");
-                row0.CreateCell(i++).SetCellValue("最大压力:");
-                row0.CreateCell(i++).SetCellValue("三号弹:测试时间:");
-                row0.CreateCell(i++).SetCellValue("最大压力:");
-                row0.CreateCell(i++).SetCellValue("四号弹:测试时间:");
-                row0.CreateCell(i++).SetCellValue("最大压力:");
+                if (lcfg == null)
+                {
+                    row0.CreateCell(i++).SetCellValue("日期:");
+                    row0.CreateCell(i++).SetCellValue("仪器名称:");
+                    row0.CreateCell(i++).SetCellValue("仪器编号:");
+                    row0.CreateCell(i++).SetCellValue("实验室名称:");
+                    row0.CreateCell(i++).SetCellValue("油样名称:");
+                    row0.CreateCell(i++).SetCellValue("油样号:");
+                    row0.CreateCell(i++).SetCellValue("实验员:");
+                    row0.CreateCell(i++).SetCellValue("分析方法:");
+                    row0.CreateCell(i++).SetCellValue("一号弹:测试时间:");
+                    row0.CreateCell(i++).SetCellValue("最大压力:");
+                    row0.CreateCell(i++).SetCellValue("二号弹:测试时间:");
+                    row0.CreateCell(i++).SetCellValue("最大压力:");
+                    row0.CreateCell(i++).SetCellValue("三号弹:测试时间:");
+                    row0.CreateCell(i++).SetCellValue("最大压力:");
+                    row0.CreateCell(i++).SetCellValue("四号弹:测试时间:");
+                    row0.CreateCell(i++).SetCellValue("最大压力:");
+                }
+                else
+                {
+                    row0.CreateCell(i++).SetCellValue("日期:");
+                    row0.CreateCell(i++).SetCellValue("仪器名称:");
+                    row0.CreateCell(i++).SetCellValue("仪器编号:");
+                    row0.CreateCell(i++).SetCellValue("实验室名称:");
+                    row0.CreateCell(i++).SetCellValue("油样名称:");
+                    row0.CreateCell(i++).SetCellValue("油样号:");
+                    row0.CreateCell(i++).SetCellValue("实验员:");
+                    row0.CreateCell(i++).SetCellValue("分析方法:");
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_1_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_2_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_3_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_4_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_5_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_6_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_7_out);
+                    row0.CreateCell(i++).SetCellValue(lcfg.label_8_out);
+                }
 
                 NPOI.SS.UserModel.IRow row1 = sheet.CreateRow(1);
                 i = 0;
@@ -763,37 +844,74 @@ namespace PLCModbusSystem
 
                         entity.addFields("ID_NUMERIC", "in", textBoxOilID.Text);
 
-                        entity1_time.addFields("NAME", "in", "一号弹测试时间");
-                        entity1_time.addFields("TEXT", "in", regTextBox1.Text);
-                        entity2.addChild(entity1_time.getElement());
+                        if (lcfg == null)
+                        {
+                            entity1_time.addFields("NAME", "in", "一号弹测试时间");
+                            entity1_time.addFields("TEXT", "in", regTextBox1.Text);
+                            entity2.addChild(entity1_time.getElement());
 
-                        entity1_res.addFields("NAME", "in", "一号弹最大压力");
-                        entity1_res.addFields("TEXT", "in", regTextBox2.Text);
-                        entity2.addChild(entity1_res.getElement());
+                            entity1_res.addFields("NAME", "in", "一号弹最大压力");
+                            entity1_res.addFields("TEXT", "in", regTextBox2.Text);
+                            entity2.addChild(entity1_res.getElement());
 
-                        entity2_time.addFields("NAME", "in", "二号弹测试时间");
-                        entity2_time.addFields("TEXT", "in", regTextBox3.Text);
-                        entity2.addChild(entity2_time.getElement());
+                            entity2_time.addFields("NAME", "in", "二号弹测试时间");
+                            entity2_time.addFields("TEXT", "in", regTextBox3.Text);
+                            entity2.addChild(entity2_time.getElement());
 
-                        entity2_res.addFields("NAME", "in", "二号弹最大压力");
-                        entity2_res.addFields("TEXT", "in", regTextBox4.Text);
-                        entity2.addChild(entity2_res.getElement());
+                            entity2_res.addFields("NAME", "in", "二号弹最大压力");
+                            entity2_res.addFields("TEXT", "in", regTextBox4.Text);
+                            entity2.addChild(entity2_res.getElement());
 
-                        entity3_time.addFields("NAME", "in", "三号弹测试时间");
-                        entity3_time.addFields("TEXT", "in", regTextBox5.Text);
-                        entity2.addChild(entity3_time.getElement());
+                            entity3_time.addFields("NAME", "in", "三号弹测试时间");
+                            entity3_time.addFields("TEXT", "in", regTextBox5.Text);
+                            entity2.addChild(entity3_time.getElement());
 
-                        entity3_res.addFields("NAME", "in", "三号弹最大压力");
-                        entity3_res.addFields("TEXT", "in", regTextBox6.Text);
-                        entity2.addChild(entity3_res.getElement());
+                            entity3_res.addFields("NAME", "in", "三号弹最大压力");
+                            entity3_res.addFields("TEXT", "in", regTextBox6.Text);
+                            entity2.addChild(entity3_res.getElement());
 
-                        entity4_time.addFields("NAME", "in", "四号弹测试时间");
-                        entity4_time.addFields("TEXT", "in", regTextBox7.Text);
-                        entity2.addChild(entity4_time.getElement());
+                            entity4_time.addFields("NAME", "in", "四号弹测试时间");
+                            entity4_time.addFields("TEXT", "in", regTextBox7.Text);
+                            entity2.addChild(entity4_time.getElement());
 
-                        entity4_res.addFields("NAME", "in", "四号弹最大压力");
-                        entity4_res.addFields("TEXT", "in", regTextBox8.Text);
-                        entity2.addChild(entity4_res.getElement());
+                            entity4_res.addFields("NAME", "in", "四号弹最大压力");
+                            entity4_res.addFields("TEXT", "in", regTextBox8.Text);
+                            entity2.addChild(entity4_res.getElement());
+                        }
+                        else
+                        {
+                            entity1_time.addFields("NAME", "in", lcfg.label_1_out);
+                            entity1_time.addFields("TEXT", "in", regTextBox1.Text);
+                            entity2.addChild(entity1_time.getElement());
+
+                            entity1_res.addFields("NAME", "in", lcfg.label_2_out);
+                            entity1_res.addFields("TEXT", "in", regTextBox2.Text);
+                            entity2.addChild(entity1_res.getElement());
+
+                            entity2_time.addFields("NAME", "in", lcfg.label_3_out);
+                            entity2_time.addFields("TEXT", "in", regTextBox3.Text);
+                            entity2.addChild(entity2_time.getElement());
+
+                            entity2_res.addFields("NAME", "in", lcfg.label_4_out);
+                            entity2_res.addFields("TEXT", "in", regTextBox4.Text);
+                            entity2.addChild(entity2_res.getElement());
+
+                            entity3_time.addFields("NAME", "in", lcfg.label_5_out);
+                            entity3_time.addFields("TEXT", "in", regTextBox5.Text);
+                            entity2.addChild(entity3_time.getElement());
+
+                            entity3_res.addFields("NAME", "in", lcfg.label_6_out);
+                            entity3_res.addFields("TEXT", "in", regTextBox6.Text);
+                            entity2.addChild(entity3_res.getElement());
+
+                            entity4_time.addFields("NAME", "in", lcfg.label_7_out);
+                            entity4_time.addFields("TEXT", "in", regTextBox7.Text);
+                            entity2.addChild(entity4_time.getElement());
+
+                            entity4_res.addFields("NAME", "in", lcfg.label_8_out);
+                            entity4_res.addFields("TEXT", "in", regTextBox8.Text);
+                            entity2.addChild(entity4_res.getElement());
+                        }
 
                         entity.addChild(entity2.getElement());
 
@@ -862,7 +980,15 @@ namespace PLCModbusSystem
             {
                 if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_FAILURE)
                 {
-                    labelWarning.Text = "以太网通信故障";
+                    if (rtycnt > 0)
+                    {
+                        rtycnt--;
+                        buttonSaveSettings_Click(null, null);
+                    }
+                    else
+                    {
+                        labelWarning.Text = "以太网通信故障";
+                    }
                 }
                 else if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_PORTNOTOPEN)
                 {
@@ -870,6 +996,7 @@ namespace PLCModbusSystem
                 }
                 else if (modbusNetworkSingleton.GetInstance().getCommStatus() == modbusNetworkSingleton.COMMSTS_NORMAL)
                 {
+                    rtycnt = 3;
                     labelWarning.Text = "";
                 }
                 else
@@ -903,6 +1030,89 @@ namespace PLCModbusSystem
                 textBoxPort.Enabled = true;
                 input_method = INPUT_METHOD_IP;
             }
+        }
+
+        private bool fillByteArray(ref byte[] src, ref byte[] dst, int maxcplen, int dstofs, byte maskedbyte)
+        {
+            for (int i = 0; i < maxcplen; i++)
+            {
+                Buffer.SetByte(dst, i + dstofs, maskedbyte);
+            }
+
+            if (src.Length > maxcplen)
+            {
+                Buffer.BlockCopy(src, 0, dst, dstofs, maxcplen);
+            }
+            else
+            {
+                Buffer.BlockCopy(src, 0, dst, dstofs, src.Length);
+            }
+            return true;
+        }
+
+        private byte[] getAsciiData(string[] strings)
+        {
+            int len = strings.Length;
+            const int BLOCK_LEN = 16;
+            //const int NUM_OF_BLOCK = 6;
+            byte[] data = new byte[BLOCK_LEN * len];
+
+            for (int i = 0; i < len; i++)
+            {
+                byte[] tmpstr = System.Text.Encoding.UTF8.GetBytes(strings[i]);
+                fillByteArray(ref tmpstr, ref data, BLOCK_LEN, i * BLOCK_LEN, 0x00);
+            }
+
+            return data;
+        }
+
+        string[] getString(ModbusRegisters asciiModbusRegs, int blocklen)
+        {
+            int numstr = asciiModbusRegs.numRegisters * 2 / blocklen;
+            string[] str = new string[numstr];
+            for (int i = 0; i < numstr; i++)
+            {
+                byte[] tmpstr = new byte[blocklen];
+                Buffer.BlockCopy(asciiModbusRegs.values, i * blocklen, tmpstr, 0, blocklen);
+                str[i] = System.Text.Encoding.UTF8.GetString(tmpstr);
+            }
+               
+            return str;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] str = new string[3];
+            str[0] = "仪器名称";
+            str[1] = "仪器编号";
+            str[2] = "实验室名称";
+            byte[] b = getAsciiData(str);
+
+            ushort startAddress = 6898;
+            ushort[] data = new ushort[b.Length / sizeof(short)];
+            Buffer.BlockCopy(b, 0, data, 0, data.Length * sizeof(short));
+
+            ModbusRegisters asciiModbusRegs = new ModbusRegisters(1, startAddress, (ushort)data.Length);
+            ModbusRegisters asciiModbusRegsRead = new ModbusRegisters(1, startAddress, (ushort)data.Length);
+            for (int i = 0; i < asciiModbusRegs.numRegisters; i++)
+            {
+                asciiModbusRegs.stReg[i].value = data[i];
+            }
+            if (radioButtonSerial.Checked)
+            {
+                int ret = inputCommPortSingleton.GetInstance().writeMultiRegisters(asciiModbusRegs);
+            }
+            else
+            {
+                //modbusNetworkSingleton.GetInstance().writeMultiRegisters(modbusRegs);
+                int ret = modbusNetworkSingleton.GetInstance().writeMultiRegisters(asciiModbusRegs);
+            }
+            
+            modbusNetworkSingleton.GetInstance().readRegister(ref asciiModbusRegsRead);
+            string[] stt = getString(asciiModbusRegsRead, 16);
+            textBoxDevName.Text = stt[0];
+            textBoxDevID.Text = stt[1];
+            textBoxLabName.Text = stt[2];
         }
     }
 }

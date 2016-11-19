@@ -1,0 +1,11 @@
+当前时间：2016-11-19 14:02:03
+异常信息：设备未就绪。
+
+异常对象：mscorlib
+调用堆栈：
+at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at CommCtrlSystem.TestXMLForm.createExcelFile(String FileName, Int32 room)
+触发方法：Void WinIOError(Int32, System.String)
+

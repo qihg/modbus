@@ -121,6 +121,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "滤点分析仪";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
